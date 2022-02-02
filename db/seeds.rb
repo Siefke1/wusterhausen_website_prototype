@@ -15,6 +15,7 @@ require 'faker'
 
 # New Seeds
 User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
+
 4.times do |i|
   Topic.create!(
     title: Faker::Hobby.activity
@@ -22,10 +23,10 @@ User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
 end
 
 20.times do |i|
-Category.create!(
-  title: Faker::Hobby.activity,
-  topic_id: 1
-)
+  Category.create!(
+    title: Faker::Hobby.activity,
+    topic_id: Faker::Number.between(from: 1, to: 4)
+  )
 end
 
 40.times do |i|
