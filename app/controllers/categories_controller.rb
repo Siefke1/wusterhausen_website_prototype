@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @offers = @category.offers
   end
 
   private

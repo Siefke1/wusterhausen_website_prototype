@@ -1,2 +1,6 @@
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
+
+<% @offers.each do |offer| %>
+  <%= link_to offer.title, topic_category_offer_path(offer) %>
+<% end %>
