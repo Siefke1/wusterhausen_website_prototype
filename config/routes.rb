@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # custom devise_turbo setup
   devise_scope :user do
     # Redirests signing out users back to sign-in
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: 'pages#home'
   # root "articles#index"
+  resources :topics, only: [:index, :show]
 end
