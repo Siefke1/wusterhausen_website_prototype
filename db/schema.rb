@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_113925) do
+ActiveRecord::Schema.define(version: 2022_02_02_140335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_categories_on_topic_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "about_us"
+    t.string "email"
+    t.string "address"
+    t.string "postcode"
+    t.string "phone"
+    t.string "url"
+    t.integer "status", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "offers_categories", force: :cascade do |t|
+    t.bigint "offer_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_offers_categories_on_category_id"
+    t.index ["offer_id"], name: "index_offers_categories_on_offer_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +61,13 @@ ActiveRecord::Schema.define(version: 2022_01_28_113925) do
     t.datetime "remember_created_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "topics"
+  add_foreign_key "offers", "users"
+  add_foreign_key "offers_categories", "categories"
+  add_foreign_key "offers_categories", "offers"
 end
