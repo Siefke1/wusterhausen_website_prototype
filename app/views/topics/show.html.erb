@@ -1,10 +1,24 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
-
-<% @categories.each do |category| %>
-  <div class="div">
-   <%= link_to category.title, topic_category_path(category) %>
+<div class="container">
+  <div class="category-card-container">
+    <ul class="category-card-cards">
+      <% @categories.each do |category| %>
+        <li class="category-card-card category-card-cards__item">
+          <div class="category-card-card__frame">
+            <div class="category-card-card__picture">
+              <img src="https://image.flaticon.com/icons/svg/1496/1496034.svg" alt="" width="120">
+            </div>
+            <h2 class="category-card-card__title"><a class="btn btn-outline-dark" href="/topics/<%= category.id %>/categories/<%= category.topic_id %>"><%= category.title %></a></h2>
+          </div>
+          <div class="category-card-card__overlay"></div>
+          <div class="category-card-card__content">
+            <h2>Design</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ipsum veritatis id quia cupiditate sed architecto aliquam nostrum unde nam minima voluptas dicta, beatae sint reprehenderit sit ducimus officiis ratione?</p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
-
-  <%= link_to "new offer", new_offer_path %>
+    <div class="d-flex justify-content-center">
+    <%= link_to 'Back', 'javascript:history.back()', class: "shiny_black" %>
+    </div>
+</div>
