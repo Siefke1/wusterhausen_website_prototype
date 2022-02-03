@@ -32,7 +32,7 @@ class OffersController < ApplicationController
     @categories_four = Category.all.select do |cat|
       cat.topic_id == 4
     end
-
+    authorize @offer
   end
 
   def create
@@ -42,6 +42,7 @@ class OffersController < ApplicationController
     else
       render "new"
     end
+    authorize @offer
   end
 
   def edit

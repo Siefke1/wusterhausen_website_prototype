@@ -49,6 +49,7 @@ puts "categories created! creating offers..."
 #   )
 # end
 
+
 40.times do |i|
   Offer.create!(
     title: Faker::Company.name,
