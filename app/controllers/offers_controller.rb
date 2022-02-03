@@ -8,7 +8,6 @@ class OffersController < ApplicationController
   end
 
   def show
-
     #@category = Category.find(params[:category_id])
   end
 
@@ -18,6 +17,7 @@ class OffersController < ApplicationController
     @topics = Topic.all
     @categories = Category.all
     @offer.category_offers.build
+
   end
 
   def create
@@ -33,12 +33,25 @@ class OffersController < ApplicationController
 
       render "new"
     end
+    authorize @offer
   end
 
   def edit
   end
 
   def destroy
+  end
+
+  def authorize_offer
+    @offer.status = 1
+    @offer.save
+    render "show"
+  end
+
+  def close_offer
+    @offer.status = 2
+    @offer.save
+    render "show"
   end
 
   private

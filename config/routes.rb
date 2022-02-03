@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # USER DASHBOARD
   get "/profil", to: "dashboards#show"
+  get "/about", to: "pages#about"
 
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
   # resources :topics, only: [:index] do

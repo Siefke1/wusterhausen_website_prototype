@@ -16,18 +16,39 @@ require 'faker'
 # New Seeds
 User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
 
-4.times do |i|
-  Topic.create!(
-    title: Faker::Hobby.activity
-  )
-end
+puts "creating topics..."
+Topic.create!(title: "Schule")
+Topic.create!(title: "Freizeit")
+Topic.create!(title: "Ausbildung")
+Topic.create!(title: "Jugendhilfe")
+puts "topics created! creating categories..."
+Category.create!(title: "Hausaufgaben", topic_id: 1)
+Category.create!(title: "Nachhilfe", topic_id: 1)
+Category.create!(title: "Lerngruppen", topic_id: 1)
+Category.create!(title: "Rate-a-teacher", topic_id: 1)
+Category.create!(title: "Sport", topic_id: 2)
+Category.create!(title: "Draußen", topic_id: 2)
+Category.create!(title: "Hobbygruppen", topic_id: 2)
+Category.create!(title: "Musik", topic_id: 2)
+Category.create!(title: "Praktika", topic_id: 3)
+Category.create!(title: "Studium", topic_id: 3)
+Category.create!(title: "Auslandssemester", topic_id: 3)
+Category.create!(title: "Offizielles", topic_id: 4)
+Category.create!(title: "Familienhilfe", topic_id: 4)
+puts "categories created! creating offers..."
+# 4.times do |i|
+#   Topic.create!(
+#     title: Faker::Hobby.activity
+#   )
+# end
 
-20.times do |i|
-  Category.create!(
-    title: Faker::Hobby.activity,
-    topic_id: Faker::Number.between(from: 1, to: 4)
-  )
-end
+# 20.times do |i|
+#   Category.create!(
+#     title: Faker::Hobby.activity,
+#     topic_id: Faker::Number.between(from: 1, to: 4)
+#   )
+# end
+
 
 40.times do |i|
   Offer.create!(
@@ -42,12 +63,12 @@ end
     user_id: 1,
 )
 end
-
+puts "offers created! creating join tables..."
 40.times do |i|
   CategoryOffer.create!(
-    category_id: rand(1..20),
+    category_id: rand(1..13),
     offer_id: rand(1..40)
   )
 end
 
-p "there are new seeds"
+p "done! there are new seeds!"

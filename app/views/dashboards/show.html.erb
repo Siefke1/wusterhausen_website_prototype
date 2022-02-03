@@ -1,2 +1,49 @@
 <h1>Dashboards#show</h1>
-<p>Find me in app/views/dashboards/show.html.erb</p>
+
+<div class="container">
+
+  <div class="pending-offers offer-dashboard-box">
+  <h3>Pending Offers:</h3>
+  <br>
+    <% @offers.each do |offer| %>
+      <% if offer.status == "inactive" %>
+
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div class="published-offers offer-dashboard-box">
+    <h3>Published Offers:</h3>
+    <br>
+    <% @offers.each do |offer| %>
+      <% if offer.status == "active" %>
+        <div class="l-container">
+  <div class="b-game-card">
+    <div class="b-game-card__cover" style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_1.jpg);"><%= offer.title %></div>
+  </div>
+  <div class="b-game-card">
+    <div class="b-game-card__cover" style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_2.jpg);"><%= offer.title %></div>
+  </div>
+  <div class="b-game-card">
+    <div class="b-game-card__cover" style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_3.jpg);"><%= offer.title %></div>
+  </div>
+  <div class="b-game-card">
+    <div class="b-game-card__cover" style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_4.jpg);"><%= offer.title %></div>
+  </div>
+</div>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div class="closed-offers offer-dashboard-box">
+    <h3>Closed Offers:</h3>
+    <br>
+    <% @offers.each do |offer| %>
+      <% if offer.status == "cancelled" %>
+        <p><%= link_to offer.title, offer_path(offer) %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+<button>AVAILABLE NOW</button>
+</div>

@@ -1,6 +1,8 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
 
-<% @topics.each do |topic| %>
-  <%= link_to topic.title, topic_path(topic) %>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <div class="topics-index-container d-flex flex-row col-12">
+    <% @topics.each do |topic| %>
+      <%= link_to topic.title, topic_path(topic), class: "shiny" %>
+    <% end %>
+  </div>
+</div>
