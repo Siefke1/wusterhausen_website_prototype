@@ -39,8 +39,15 @@ end
     postcode: Faker::Address.postcode,
     phone: Faker::PhoneNumber.cell_phone,
     status: 1,
-    user_id: 1
+    user_id: 1,
 )
+end
+
+40.times do |i|
+  CategoryOffer.create!(
+    category_id: rand(1..20),
+    offer_id: rand(1..40)
+  )
 end
 
 p "there are new seeds"
