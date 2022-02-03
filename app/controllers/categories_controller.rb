@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   def show
     @offers = @category.offers
     @topic = Topic.find(params[:id])
-    raise
+
   end
 
   private
