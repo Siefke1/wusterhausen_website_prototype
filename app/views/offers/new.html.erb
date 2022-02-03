@@ -1,19 +1,17 @@
-<h1>Offers#new</h1>
-<p>Find me in app/views/offers/new.html.erb</p>
 
 
-<%= simple_form_for @offer do |f| %>
-  <%= f.input :title, placeholder: 'title' %>
-  <%= f.input :description, placeholder: 'description' %>
-  <%= f.input :about_us, placeholder: 'about_us' %>
-  <%= f.input :email, placeholder: 'email' %>
-  <%= f.input :postcode, placeholder: 'postcode' %>
-  <div class="display-flex">
-      <%= f.input :category_ids, collection: @categories_one, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_two, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_three, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_four, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-  </div>
-  <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
-  <%= f.submit class: "btn btn-dark" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @offer do |f| %>
+    <%= f.input :title, placeholder: 'title' %>
+    <%= f.input :description, placeholder: 'description' %>
+    <%= f.input :about_us, placeholder: 'about_us' %>
+    <%= f.input :email, placeholder: 'email' %>
+    <%= f.input :postcode, placeholder: 'postcode' %>
+    <%= simple_fields_for :category_offers do |form|%>
+      <%= form.input :category_id, collection: @categories, as: :check_boxes %>
+      <%= form.input :offer_id %>
+    <% end %>
+    <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
+    <%= f.submit class: "btn btn-dark" %>
+  <% end %>
+</div>

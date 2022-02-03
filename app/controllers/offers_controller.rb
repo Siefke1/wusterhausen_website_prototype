@@ -8,7 +8,6 @@ class OffersController < ApplicationController
   end
 
   def show
-
     #@category = Category.find(params[:category_id])
   end
 
@@ -17,22 +16,8 @@ class OffersController < ApplicationController
     @topics = Topic.all
     # @topics = Topic.all
     # @categories = Category.all
-    @categories_one = Category.all.select do |cat|
-      cat.topic_id == 1
-    end
-
-    @categories_two = Category.all.select do |cat|
-      cat.topic_id == 2
-    end
-
-    @categories_three = Category.all.select do |cat|
-      cat.topic_id == 3
-    end
-
-    @categories_four = Category.all.select do |cat|
-      cat.topic_id == 4
-    end
-
+    @categories = Category.all
+    authorize @offer
   end
 
   def create
@@ -42,12 +27,25 @@ class OffersController < ApplicationController
     else
       render "new"
     end
+    authorize @offer
   end
 
   def edit
   end
 
   def destroy
+  end
+
+  def authorize_offer
+    @offer.status = 1
+    @offer.save
+    render "show"
+  end
+
+  def close_offer
+    @offer.status = 2
+    @offer.save
+    render "show"
   end
 
   private

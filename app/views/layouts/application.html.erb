@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
@@ -18,6 +19,14 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <%= yield %>
+
+    <%= render "layouts/navbar" %>
+      <%= yield %>
+
+    <footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
   </body>
 </html>
