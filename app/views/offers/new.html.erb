@@ -8,12 +8,14 @@
   <%= f.input :about_us, placeholder: 'about_us' %>
   <%= f.input :email, placeholder: 'email' %>
   <%= f.input :postcode, placeholder: 'postcode' %>
-  <div class="display-flex">
-      <%= f.input :category_ids, collection: @categories_one, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_two, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_three, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_four, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
-  </div>
+
+    <%= f.label :categories %><br />
+    <% for category in Category.all %>
+      <%= check_box_tag "offer[category_ids][]", category.id, @offer.categories.include?(category) %>
+      <%=h category.title %><br />
+    <% end %>
+  <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>
+  <%#= f.input :category_ids, as: :check_boxes, collection: @categories, label_method: :title, value_method: :id %>
   <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
   <%= f.submit class: "btn btn-dark" %>
 <% end %>

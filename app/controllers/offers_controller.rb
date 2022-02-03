@@ -14,32 +14,23 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    @user = current_user
     @topics = Topic.all
-    # @topics = Topic.all
-    # @categories = Category.all
-    @categories_one = Category.all.select do |cat|
-      cat.topic_id == 1
-    end
-
-    @categories_two = Category.all.select do |cat|
-      cat.topic_id == 2
-    end
-
-    @categories_three = Category.all.select do |cat|
-      cat.topic_id == 3
-    end
-
-    @categories_four = Category.all.select do |cat|
-      cat.topic_id == 4
-    end
-
+    @categories = Category.all
+    @offer.category_offers.build
   end
 
   def create
+    @user = current_user
     @offer = Offer.new(offer_params)
+    @offer.user_id = current_user.id
+    # @offer.category_offers.build
+
     if @offer.save
       redirect_to root_path
-    else
+
+     else
+
       render "new"
     end
   end
@@ -61,6 +52,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :about_us, :email, :postcode, :category_id)
+    params.require(:offer).permit(:user_id, :title, :description, :about_us, :email, :postcode, category_ids: [])
   end
 end
