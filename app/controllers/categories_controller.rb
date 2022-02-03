@@ -8,12 +8,13 @@ class CategoriesController < ApplicationController
 
   def show
     @offers = @category.offers
-    raise
+    @topic = Topic.find(params[:id])
+
   end
 
   private
 
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:topic_id])
   end
 end

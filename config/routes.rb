@@ -16,12 +16,12 @@ Rails.application.routes.draw do
   get "/profil", to: "dashboards#show"
 
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
-  resources :topics, only: [:index] do
-    resources :categories, only: [:index]
-  end
+  # resources :topics, only: [:index] do
+  #   resources :categories, only: [:index]
+  # end
 
-  resources :topics, only: [:show] do
-    resources :categories, only: [:show]
+  resources :topics, only: [:show, :index] do
+    resources :categories, only: [:show, :index]
   end
 
 
