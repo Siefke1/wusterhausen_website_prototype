@@ -3,12 +3,12 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :destroy]
 
   def index
-    @category = Category.find(params[:category_id])
+    @category = Category.find(params[:topic_id])
     @offers = @category.offers
   end
 
   def show
-    raise
+
     #@category = Category.find(params[:category_id])
   end
 
@@ -32,12 +32,16 @@ class OffersController < ApplicationController
     @categories_four = Category.all.select do |cat|
       cat.topic_id == 4
     end
-    raise
+
   end
 
   def create
     @offer = Offer.new(offer_params)
-    raise
+    if @offer.save
+      redirect_to root_path
+    else
+      render "new"
+    end
   end
 
   def edit

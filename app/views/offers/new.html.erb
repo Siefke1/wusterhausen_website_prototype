@@ -9,10 +9,10 @@
   <%= f.input :email, placeholder: 'email' %>
   <%= f.input :postcode, placeholder: 'postcode' %>
   <div class="display-flex">
-      <%= f.input :category_ids, collection: @categories_one, as: :radio_buttons, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_two, as: :radio_buttons, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_three, as: :radio_buttons, value_method: :id %>
-      <%= f.input :category_ids, collection: @categories_four, as: :radio_buttons, value_method: :id %>
+      <%= f.input :category_ids, collection: @categories_one, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
+      <%= f.input :category_ids, collection: @categories_two, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
+      <%= f.input :category_ids, collection: @categories_three, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
+      <%= f.input :category_ids, collection: @categories_four, as: :check_boxes, html_input: {multiple: true}, value_method: :id %>
   </div>
   <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
   <%= f.submit class: "btn btn-dark" %>
