@@ -3,6 +3,13 @@ class DashboardsController < ApplicationController
 
   def show
     @user = current_user
-    @offers = current_user.offers
+    if current_user == "institution"
+      @offers = current_user.offers
+    else
+      @offers = Offer.all
+    end
+  end
+
+  def status
   end
 end
