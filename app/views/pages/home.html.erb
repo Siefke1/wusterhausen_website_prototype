@@ -1,8 +1,21 @@
 <%# NAVBAR %>
 
+    <%# <main class="container home-info">
+      <div class="bg-light p-5 rounded">
+        <h1>Finde dein Projekt!</h1>
+        <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s viewport.</p>
+        <a class="btn btn-lg btn-primary" href="/about" role="button">Über uns</a>
+      </div> %>
+      <div class="home-info d-flex align-items-center ">
+        <div class="about-link d-flex flex-direction: column align-items-center">
+          <div class="div">
+            <a href="/about" class="btn btn-outline-success about-us-link d-flex align-items-center justify-content-center "><p>About us</p></a>
+          </div>
+        </div>
+      </div>
+      <br>
+      <%# render "pages/topic_card" %>
+    </main>
 
-<div class="display-flex">
-  <%= link_to "dashboard", profil_path %>
-  <%= link_to "topics", topics_path %>
 
-</div>
+  <br>

@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
-  root to: 'pages#home'
+  root to: 'pages#home', as: :home
   # USER DASHBOARD
   get "/profil", to: "dashboards#show"
+  get "/about", to: "pages#about"
 
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
   # resources :topics, only: [:index] do

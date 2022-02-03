@@ -51,6 +51,18 @@ class OffersController < ApplicationController
   def destroy
   end
 
+  def authorize_offer
+    @offer.status = 1
+    @offer.save
+    render "show"
+  end
+
+  def close_offer
+    @offer.status = 2
+    @offer.save
+    render "show"
+  end
+
   private
 
   def set_offers_index
