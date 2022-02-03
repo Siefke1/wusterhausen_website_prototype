@@ -17,7 +17,7 @@ class OffersController < ApplicationController
     @topics = Topic.all
     @categories = Category.all
     @offer.category_offers.build
-
+    # authorize @offer
   end
 
   def create
@@ -33,7 +33,7 @@ class OffersController < ApplicationController
 
       render "new"
     end
-    authorize @offer
+    # authorize @offer
   end
 
   def edit
