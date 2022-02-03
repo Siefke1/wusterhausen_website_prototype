@@ -2,10 +2,13 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: :show
 
   def index
-    @categories = Category.all
+    @topic = Topic.find(params[:topic_id])
+    @categories = @topic.categories
   end
 
   def show
+    @offers = @category.offers
+    raise
   end
 
   private

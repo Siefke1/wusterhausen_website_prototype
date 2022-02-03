@@ -6,6 +6,8 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @categories = @topic.categories
+
   end
 
   private

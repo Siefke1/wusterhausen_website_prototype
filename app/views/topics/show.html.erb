@@ -1,2 +1,10 @@
 <h1>Topics#show</h1>
 <p>Find me in app/views/topics/show.html.erb</p>
+
+<% @categories.each do |category| %>
+  <div class="div">
+   <%= link_to category.title, topic_category_path(category) %>
+  </div>
+<% end %>
+
+  <%= link_to "new offer", new_offer_path %>
