@@ -1,17 +1,19 @@
+<div class="offer_form">
+<%= simple_form_for @offer do |f| %>
+  <%= f.input :title, placeholder: 'title' %>
+  <%= f.input :description, placeholder: 'description' %>
+  <%= f.input :about_us, placeholder: 'about_us' %>
+  <%= f.input :email, placeholder: 'email' %>
+  <%= f.input :postcode, placeholder: 'postcode' %>
 
-
-<div class="container">
-  <%= simple_form_for @offer do |f| %>
-    <%= f.input :title, placeholder: 'title' %>
-    <%= f.input :description, placeholder: 'description' %>
-    <%= f.input :about_us, placeholder: 'about_us' %>
-    <%= f.input :email, placeholder: 'email' %>
-    <%= f.input :postcode, placeholder: 'postcode' %>
-    <%= simple_fields_for :category_offers do |form|%>
-      <%= form.input :category_id, collection: @categories, as: :check_boxes %>
-      <%= form.input :offer_id %>
+    <%= f.label :categories %><br />
+    <% for category in Category.all %>
+      <%= check_box_tag "offer[category_ids][]", category.id, @offer.categories.include?(category) %>
+      <%=h category.title %><br />
     <% end %>
-    <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
-    <%= f.submit class: "btn btn-dark" %>
-  <% end %>
+  <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>
+  <%#= f.input :category_ids, as: :check_boxes, collection: @categories, label_method: :title, value_method: :id %>
+  <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
+  <%= f.submit class: "btn btn-dark" %>
+<% end %>
 </div>
