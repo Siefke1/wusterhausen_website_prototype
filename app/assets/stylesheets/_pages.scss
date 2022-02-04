@@ -1,3 +1,9 @@
+// PREVENT SCROLL BAR FROM MOVING PAGE
+
+html {
+  overflow-y: scroll;
+}
+
 .container-about {
   margin-top: 20vh;
 

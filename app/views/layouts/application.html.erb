@@ -2,17 +2,20 @@
 <html>
   <head>
     <title>WusterhausenWebsitePrototype</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%# <meta name="viewport" content="width=device-width,initial-scale=1"> %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
-
   </head>
 
+  <%# <----- BODY -----> %>
   <body>
+    <%# ----> alerts <----- %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -20,14 +23,17 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-
+    <%# -----> Navbar <----- %>
     <%= render "layouts/navbar" %>
-      <%= yield %>
 
+    <%# -----> PAGE CONTENT <------ %>
+    <%= yield %>
+
+    <%# -----> FOOTER <----- %>
     <footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
-</footer>
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
   </body>
-</html>
+<html>
