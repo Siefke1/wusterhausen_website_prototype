@@ -1,8 +1,23 @@
 
-<div class="container d-flex justify-content-center">
-  <div class="topics-index-container d-flex flex-row col-12">
-    <% @topics.each do |topic| %>
-      <%= link_to topic.title, topic_path(topic), class: "shiny" %>
-    <% end %>
+<div class="container">
+  <div class="topic-index-text-container">
+
+  </div>
+  <div class="topic-card-container">
+  <% @topics.each do |topic| %>
+    <div class="topic-card">
+      <div class="topic-card-box">
+        <div class="topic-card-box-content">
+          <h2><%= topic.id %></h2>
+          <h3><%= topic.title %></h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <a href="/topics/<%= topic.id %>">Zum Angebot</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+  <div class="d-flex justify-content-center">
+  <%= link_to 'Back', 'javascript:history.back()', class: "shiny_black" %>
   </div>
 </div>
