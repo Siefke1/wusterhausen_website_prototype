@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches/index'
 
   # custom devise_turbo setup
   # devise_scope :user do
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   # USER DASHBOARD
   get "/profil", to: "dashboards#show"
   get "/about", to: "pages#about"
+  get "/search", to: "searches#index"
 
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
   resources :topics, only: [:show, :index] do
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
 
 
   # UNNESTED OFFERS ROUTES
-  resources :offers, only: [:show, :new, :create, :edit, :update, :delete]
+  resources :offers, only: [:show, :new, :create, :edit, :update, :delete, :index]
   # UNNESTED CATEGORIES ROUTES
   resources :categories, only: [:new, :create]
 end

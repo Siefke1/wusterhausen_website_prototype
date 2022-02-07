@@ -1,11 +1,14 @@
 class OffersController < ApplicationController
-  before_action :set_offers_index, only: :index
+  # before_action :set_offers_index, only: :index
   before_action :set_offer, only: [:show, :edit, :destroy]
 
   def index
     @category = Category.find(params[:topic_id])
     @offers = @category.offers
+
   end
+
+
 
   def show
     #@category = Category.find(params[:category_id])
@@ -65,6 +68,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:user_id, :title, :description, :about_us, :email, :postcode, category_ids: [])
+    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, category_ids: [])
   end
 end

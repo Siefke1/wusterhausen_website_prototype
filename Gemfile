@@ -36,6 +36,12 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'simple_form'
 
 gem "pundit"
+
+gem 'pg_search'
+
+gem "geocoder"
+gem "net-http"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
