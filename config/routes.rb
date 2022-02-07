@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'searches/index'
 
   # custom devise_turbo setup
   # devise_scope :user do
