@@ -1,34 +1,32 @@
 
-<div class="container">
-  <% @offers.each do |offer| %>
-    <% if offer.status == "active" %>
-      <% @offers.each do |offer| %>
-        <div class="blog-card">
-            <div class="meta">
-              <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-              <ul class="details">
-                <li class="author"><a href="#"><%= offer.user.email %></a></li>
-                <li class="date"><%= offer.created_at %></li>
-                <li class="tags">
-                  <ul>
-                    <% offer.categories.each do |off_cat| %>
-                    <li><a href="#"><%= off_cat.title %></a></li>
-                    <% end %>
-                  </ul>
-                </li>
+<%# ACTIVE OFFERS %>
+<% @offers.each do |offer| %>
+  <% if offer.status == "active" %>
+    <div class="blog-card">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+          <ul class="details">
+            <li class="author"><a href="#"><%= offer.user.email %></a></li>
+            <li class="date"><%= offer.created_at %></li>
+            <li class="tags">
+              <ul>
+                <% offer.categories.each do |off_cat| %>
+                <li><a href="#"><%= off_cat.title %></a></li>
+                <% end %>
               </ul>
-            </div>
-            <div class="description">
-              <h1><%= offer.title %></h1>
-              <h2>Opening a door to the future</h2>
-              <p> <%= offer.description %></p>
-              <p class="read-more">
-                <%= link_to "click", offer_path(offer) %>
-              </p>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
-      <% end %>
-    <% end %>
+        <div class="description">
+          <h1><%= offer.title %></h1>
+          <h2>Opening a door to the future</h2>
+          <p> <%= offer.description %></p>
+          <p class="read-more">
+            <%= link_to "click", offer_path(offer) %>
+          </p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</div>
+<% end %>
+<div class="puffer"></div>
