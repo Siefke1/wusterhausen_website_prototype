@@ -1,11 +1,14 @@
 class OffersController < ApplicationController
-  before_action :set_offers_index, only: :index
+  # before_action :set_offers_index, only: :index
   before_action :set_offer, only: [:show, :edit, :destroy]
 
   def index
     @category = Category.find(params[:topic_id])
     @offers = @category.offers
+
   end
+
+
 
   def show
     #@category = Category.find(params[:category_id])
@@ -17,7 +20,7 @@ class OffersController < ApplicationController
     @topics = Topic.all
     @categories = Category.all
     @offer.category_offers.build
-    # authorize @offer
+    authorize @offer
   end
 
   def create
@@ -33,7 +36,7 @@ class OffersController < ApplicationController
 
       render "new"
     end
-    # authorize @offer
+    authorize @offer
   end
 
   def edit
@@ -65,6 +68,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:user_id, :title, :description, :about_us, :email, :postcode, category_ids: [])
+    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, category_ids: [])
   end
 end

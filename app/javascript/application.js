@@ -3,5 +3,4 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 
-
 //Flash message timeout

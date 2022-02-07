@@ -6,10 +6,6 @@ const application = Application.start()
 application.debug = false
 window.Stimulus = application
 
-$(function () {
-  setInterval(function () {
-    $('.alert').slideUp(500);
-  }, 1000);
-});
+// Nav collapse trial
 
 export { application }

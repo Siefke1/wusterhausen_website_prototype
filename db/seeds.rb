@@ -22,6 +22,7 @@ Topic.create!(title: "Freizeit")
 Topic.create!(title: "Ausbildung")
 Topic.create!(title: "Jugendhilfe")
 puts "topics created! creating categories..."
+
 Category.create!(title: "Hausaufgaben", topic_id: 1)
 Category.create!(title: "Nachhilfe", topic_id: 1)
 Category.create!(title: "Lerngruppen", topic_id: 1)
@@ -49,6 +50,21 @@ puts "categories created! creating offers..."
 #   )
 # end
 
+postcodes = [
+  "11011",
+  "10711",
+  "12099",
+  "12105",
+  "12165",
+  "12207",
+  "13053",
+  "13595",
+  "13505",
+  "10557",
+  "10589",
+  "14059"
+]
+
 
 40.times do |i|
   Offer.create!(
@@ -57,12 +73,14 @@ puts "categories created! creating offers..."
     about_us: Faker::Lorem.sentence(word_count: 20),
     email: Faker::Internet.email,
     address: Faker::Address.street_address,
-    postcode: Faker::Address.postcode,
+    postcode: postcodes.sample,
+    town: "Berlin",
     phone: Faker::PhoneNumber.cell_phone,
     status: 1,
     user_id: 1,
 )
 end
+
 puts "offers created! creating join tables..."
 40.times do |i|
   CategoryOffer.create!(

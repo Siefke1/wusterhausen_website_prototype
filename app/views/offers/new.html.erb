@@ -1,9 +1,12 @@
+<div class="container">
 <div class="offer_form">
 <%= simple_form_for @offer do |f| %>
   <%= f.input :title, placeholder: 'title' %>
   <%= f.input :description, placeholder: 'description' %>
   <%= f.input :about_us, placeholder: 'about_us' %>
   <%= f.input :email, placeholder: 'email' %>
+  <%= f.input :address, placeholder: 'address' %>
+  <%= f.input :town, placeholder: 'ort' %>
   <%= f.input :postcode, placeholder: 'postcode' %>
 
     <%= f.label :categories %><br />
@@ -16,4 +19,5 @@
   <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
   <%= f.submit class: "btn btn-dark" %>
 <% end %>
+</div>
 </div>

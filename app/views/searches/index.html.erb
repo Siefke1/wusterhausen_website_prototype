@@ -1,0 +1,48 @@
+<%# SEARCH FORM %>
+<div class="container d-flex justify-content-center">
+  <%= form_tag search_path, method: :get do %>
+    <div class="d-flex">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Stichwort oder PLZ"
+      %>
+      <%= submit_tag "Search", class: "btn btn-dark" %>
+     <%# <button type="submit" form="search" value="Submit" class="shiny_black">Submit</button> %>
+    </div>
+  <% end %>
+</div>
+
+
+<%# SEARCH RESULTS %>
+<% @offers.each do |offer| %>
+  <div class="blog-card">
+      <div class="meta">
+        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a href="#"><%= offer.user.email %></a></li>
+          <li class="date"><%= offer.created_at %></li>
+          <li class="tags">
+            <ul>
+              <% offer.categories.each do |off_cat| %>
+              <li><a href="#"><%= off_cat.title %></a></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="description">
+        <h1><%= offer.title %></h1>
+        <h2>Opening a door to the future</h2>
+        <p> <%= offer.description %></p>
+        <p class="read-more">
+        <%= link_to "click", offer_path(offer) %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%# PUFFER TO ADD WHITESPACE AT BOTTOM OF PAGE %>
+<div class="puffer">
+</div>

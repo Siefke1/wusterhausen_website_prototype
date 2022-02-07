@@ -15,4 +15,8 @@ class OfferPolicy < ApplicationPolicy
   def new?
     user.role == "institution" || user.role == "admin"
   end
+
+  def create?
+    new?
+  end
 end

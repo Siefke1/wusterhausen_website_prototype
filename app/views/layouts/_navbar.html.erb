@@ -43,7 +43,7 @@
     <% end %>
   <% end %>
   <a class="shiny" href="/topics">Entdecken</a>
-  <a class="shiny" href="/">Kontakt</a>
+  <a class="shiny" href="/search">Suche</a>
   <% if user_signed_in? %>
     <%= button_to "bye", destroy_user_session_path, class: "shiny_black", method: :delete %>
   <% else %>
