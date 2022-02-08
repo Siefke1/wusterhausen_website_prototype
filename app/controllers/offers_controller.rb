@@ -8,19 +8,21 @@ class OffersController < ApplicationController
 
   end
 
-
+  def choose_topic
+    @topics = Topic.all
+  end
 
   def show
-    #@category = Category.find(params[:category_id])
   end
 
   def new
     @offer = Offer.new
     @user = current_user
-    @topics = Topic.all
-    @categories = Category.all
+    @topic = Topic.find(params[:topic_id])
+    @categories = @topic.categories
     @offer.category_offers.build
     authorize @offer
+
   end
 
   def create

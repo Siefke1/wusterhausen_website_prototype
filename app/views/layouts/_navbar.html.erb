@@ -34,11 +34,11 @@
 
 <%# custom navbar %>
 
-<div class="navbar d-flex justify-content-center">
+<div id="collapseExample" class="navbar d-flex justify-content-center collapse">
   <a class="shiny" href="/#">Home</a>
   <% if user_signed_in? %>
    <% if current_user.role == "institution" || current_user.role == "admin" %>
-      <a class="shiny" href="/offers/new">ANGEBOT ERSTELLEN</a>
+      <a class="shiny" href="/choosetopic">ANGEBOT ERSTELLEN</a>
       <a class="shiny" href="/profil">Dashboard</a>
     <% end %>
   <% end %>
