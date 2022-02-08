@@ -34,19 +34,18 @@
 
 <%# custom navbar %>
 
-<div id="collapseExample" class="navbar d-flex justify-content-center collapse">
-  <a class="shiny" href="/#">Home</a>
-  <% if user_signed_in? %>
-   <% if current_user.role == "institution" || current_user.role == "admin" %>
-      <a class="shiny" href="/choosetopic">ANGEBOT ERSTELLEN</a>
-      <a class="shiny" href="/profil">Dashboard</a>
-    <% end %>
-  <% end %>
-  <a class="shiny" href="/topics">Entdecken</a>
-  <a class="shiny" href="/search">Suche</a>
-  <% if user_signed_in? %>
-    <%= button_to "bye", destroy_user_session_path, class: "shiny_black", method: :delete %>
-  <% else %>
-    <a class="shiny" href="/users/sign_in">Login</a>
-  <% end %>
-</div>
+<header>
+  <h1 class="logo">Logo</h1>
+  <input type="checkbox" class="nav-toggle" id="nav-toggle">
+  <nav>
+    <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+  <label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+  </label>
+</header>
