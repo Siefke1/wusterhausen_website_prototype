@@ -4,8 +4,10 @@ class DashboardsController < ApplicationController
   def show
     if current_user == "institution"
       @offers = current_user.offers
-    else
+    elsif current_user == "admin"
       @offers = Offer.all
+    else
+      @offers = []
     end
   end
 

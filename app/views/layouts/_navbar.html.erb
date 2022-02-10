@@ -39,10 +39,20 @@
   <input type="checkbox" class="nav-toggle" id="nav-toggle">
   <nav>
     <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Login</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/topics">Entdecken</a></li>
+    <li><a href="/search">Suche</a></li>
+    <li><a href="#">Kontakt</a></li>
+    <% if user_signed_in? %>
+      <% if current_user.role == "admin" || current_user.role == "institution" %>
+        <li><a href="/profil" class="institution-content">Verwalten</a></li>
+      <% end %>
+    <% end %>
+    <% if !user_signed_in? %>
+      <li><a href="/users/sign_in">Login</a></li>
+    <% else %>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    <% end %>
     </ul>
   </nav>
   <label for="nav-toggle" class="nav-toggle-label">

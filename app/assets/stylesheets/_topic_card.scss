@@ -24,56 +24,60 @@
 //   margin: 40px 0;
 // }
 .topic-card-container {
-  margin-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 body .topic-card-container .topic-card {
   position: relative;
-  min-width: 320px;
+  min-width: 370px;
   height: 440px;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
     inset -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  margin: 30px;
   transition: 0.5s;
+  .schule-card {
+  background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.stuttgart.de%2Fleben%2Fbildung%2Fschulen%2Findex.php.media%2F156580%2FSchule-GI-skynesher-1000887536.jpg.scaled%2F23c51d7fa8d500de3f83d4decb06470f.jpg&imgrefurl=https%3A%2F%2Fwww.stuttgart.de%2Fleben%2Fbildung%2Fschulen%2F&tbnid=IRpA5HuGjpmV4M&vet=12ahUKEwi8hajci_P1AhUZg_0HHdPDDk0QMygCegUIARDaAQ..i&docid=NlXwv1c7vxQvxM&w=987&h=658&q=schule&client=firefox-b-d&ved=2ahUKEwi8hajci_P1AhUZg_0HHdPDDk0QMygCegUIARDaAQ');
+}
 }
 
 body .topic-card-container .topic-card:nth-child(1) .topic-card-box .topic-card-box-content a {
-  background: #0AAAB3;
+  background: #97B604;
 }
 
 body .topic-card-container .topic-card:nth-child(2) .topic-card-box .topic-card-box-content a {
-  background: #FF6376;
+  background: #97B604;
 }
 
 body .topic-card-container .topic-card:nth-child(3) .topic-card-box .topic-card-box-content a {
-  background: #5EA10A;
+  background: #97B604;
 }
 
 body .topic-card-container .topic-card:nth-child(1) .topic-card-box .topic-card-box-content h3 {
-  color: #0AAAB3;
+  color: #97B604;
 }
 
 body .topic-card-container .topic-card:nth-child(2) .topic-card-box .topic-card-box-content h3 {
-  color: #FF6376;
+  color: #97B604;
 }
 
 body .topic-card-container .topic-card:nth-child(3) .topic-card-box .topic-card-box-content h3 {
-  color: #5EA10A;
+  color: #97B604;
 }
 
-body .topic-card-container .topic-card:nth-child(1) .topic-card-box {
-  box-shadow: 0px 0px 6px #0AAAB3;
-}
+// body .topic-card-container .topic-card:nth-child(1) .topic-card-box {
+//   box-shadow: 0px 0px 6px #0AAAB3;
+// }
 
-body .topic-card-container .topic-card:nth-child(2) .topic-card-box {
-  box-shadow: 0px 0px 6px #FF6376;
-}
+// body .topic-card-container .topic-card:nth-child(2) .topic-card-box {
+//   box-shadow: 0px 0px 6px #FF6376;
+// }
 
-body .topic-card-container .topic-card:nth-child(3) .topic-card-box {
-  box-shadow: 0px 0px 6px #5EA10A;
-}
+// body .topic-card-container .topic-card:nth-child(3) .topic-card-box {
+//   box-shadow: 0px 0px 6px #5EA10A;
+// }
 
 body .topic-card-container .topic-card .topic-card-box {
   position: absolute;
@@ -81,7 +85,6 @@ body .topic-card-container .topic-card .topic-card-box {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background-image: url("https://picture.yatego.com/images/5bec4787bb8692.7/big_4e4b288f5ab03f02c1b9945e70cc2362-kqh/landschaft-natur-hgel-weide-poster-p0684.jpg");
   background-size: cover;
   border-radius: 15px;
   display: flex;
@@ -90,9 +93,9 @@ body .topic-card-container .topic-card .topic-card-box {
   overflow: hidden;
   transition: 0.5s;
   box-shadow: 0px 0px 6px black;
-    // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-    // inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    // 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
 }
 
 body .topic-card-container .topic-card .topic-card-box:hover {
@@ -134,7 +137,7 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content h
 body .topic-card-container .topic-card .topic-card-box .topic-card-box-content p {
   font-size: 1rem;
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.9);
+  color: white;
   z-index: 1;
   transition: 0.5s;
 }
@@ -159,4 +162,17 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content a
                 0 0 50px #ffffff,
                 0 0 200px #ffffff;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+@media screen and (min-width: 1030px) {
+  .topic-card-container {
+    all: unset;
+    display: flex;
+    justify-content: space-around;
+    margin: 100px;
+  }
+}
+
+.topic-card-box .schule-card {
+  background-color: red;
 }

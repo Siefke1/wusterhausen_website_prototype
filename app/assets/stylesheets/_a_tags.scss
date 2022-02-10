@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
+
+.btn {
+  background: linear-gradient(to left, #7B920A, #ADD100);
+  color: white;
+  margin-left: 10px;
+}
+
 // class "shiny" for chaning colors, class "shiny_white" for white color
 a.shiny_white{
     position: relative;
