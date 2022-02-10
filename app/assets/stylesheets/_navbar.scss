@@ -1,6 +1,7 @@
 $color_blue: #0aaab3;
 $color_red: #FF6377;
 $color_green: #5EA10A;
+$color_yellow: #b7bf22;
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -201,6 +202,7 @@ button.shiny_black:hover{
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
+// ---> WHITE
 a.shiny_white{
     position: relative;
     display: inline-block;
@@ -223,6 +225,33 @@ a.shiny_white:hover{
                 0 0 25px #ffffff,
                 0 0 50px #ffffff,
                 0 0 200px #ffffff;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+a.shiny_yellow {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 0;
+    width: 185px;
+    color: $color_yellow;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 1px solid $color_yellow;
+    border-radius: 3px;
+}
+a.shiny_yellow:hover {
+    background: $color_yellow;
+    color: #050801;
+    box-shadow: 0 0 5px $color_yellow,
+                0 0 25px $color_yellow,
+                0 0 50px $color_yellow,
+                0 0 200px $color_yellow;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
