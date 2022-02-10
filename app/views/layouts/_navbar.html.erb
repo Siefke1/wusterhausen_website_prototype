@@ -1,38 +1,64 @@
+<%# NAVBAR SCREEN %>
 
-<%# custom navbar %>
+<div class="navbar">
+  <a class="shiny shiny_red" href="/#">Home</a>
+  <% if user_signed_in? %>
+   <% if current_user.role == "institution" || current_user.role == "admin" %>
+      <a class="shiny shiny_blue" href="/profil">Verwalten</a>
+    <% end %>
+  <% end %>
+  <a class="shiny shiny_green" href="/topics">Entdecken</a>
+  <a class="shiny shiny_blue" href="/search">Suche</a>
+  <% if user_signed_in? %>
+    <%= button_to "bye", destroy_user_session_path, class: "shiny shiny_black", method: :delete %>
+  <% else %>
+    <a class="shiny shiny_blue" href="/users/sign_in">Login</a>
+  <% end %>
+</div>
 
-<div class="navbar d-flex justify-content-center">
+
+
+
+
+
+
+<%# navbar mobile %>
+
+<header>
+  <div class="nav-puffer"></div>
+  <h1 class="nav-logo">LOGO</h1>
+  <label for="nav-toggle" class="nav-toggle-label">
+    <div class="nav-bars-image"></div>
+  </label>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <nav>
-    <h1>LOGO</h1>
-  </nav>
-  <ul class="nav-ul">
-    <li>
-      <a class="shiny nav-li" href="/#">Home</a>
-    </li>
-    <% if user_signed_in? %>
-    <% if current_user.role == "institution" || current_user.role == "admin" %>
+    <ul class="nav-ul">
+      <li>
+        <a class="shiny_red nav-li" href="/#">Home</a>
+      </li>
+      <% if user_signed_in? %>
+      <% if current_user.role == "institution" || current_user.role == "admin" %>
+          <li>
+            <a class="shiny_blue nav-li" href="/profil">Verwalten</a>
+          </li>
+        <% end %>
+      <% end %>
+      <li>
+        <a class="shiny_green nav-li" href="/topics">Entdecken</a>
+      </li>
+      <li>
+        <a class="shiny_blue nav-li" href="/search">Suche</a>
+      </li>
+      <% if user_signed_in? %>
         <li>
-          <a class="shiny nav-li" href="/choosetopic">ANGEBOT ERSTELLEN</a>
+          <%= button_to "bye", destroy_user_session_path, class: "shiny_black nav-li", method: :delete %>
         </li>
+      <% else %>
         <li>
-          <a class="shiny nav-li" href="/profil">Dashboard</a>
+          <a class="shiny_blue nav-li" href="/users/sign_in">Login</a>
         </li>
       <% end %>
-    <% end %>
-    <li>
-      <a class="shiny nav-li" href="/topics">Entdecken</a>
-    </li>
-    <li>
-      <a class="shiny nav-li" href="/search">Suche</a>
-    </li>
-    <% if user_signed_in? %>
-      <li>
-        <%= button_to "bye", destroy_user_session_path, class: "shiny_black nav-li", method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <a class="shiny nav-li" href="/users/sign_in">Login</a>
-      </li>
-    <% end %>
-  </ul>
-</div>
+    </ul>
+
+  </nav>
+</header>

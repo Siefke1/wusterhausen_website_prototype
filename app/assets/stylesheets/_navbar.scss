@@ -1,27 +1,88 @@
 $color_blue: #0aaab3;
+$color_red: #FF6377;
+$color_green: #5EA10A;
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: none;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100px;
+  min-height: 100px;
+  background-color: white;
+  z-index: 999;
+}
+
+.nav-puffer {
+  height: 10vh;
+  width: 100vw;
+  background-color: white;
+}
+
+.nav-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1.2em;
+  margin-top: 1em;
+}
+
+.nav-toggle {
+  margin-left: 10px;
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 30%;
+  left: 20px;
+}
+
+.nav-toggle-label .nav-bars-image {
+  background-image: url(https://cdn.iconscout.com/icon/free/png-256/bars-1440391-1216351.png);
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
 
 nav {
+  position: absolute;
   width: 100vw;
-  position: sticky;
-  top: 0;
+  top: 100%;
+  text-align: center;
+  background-color: white;
+  z-index: 999;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.navbar ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-}
-
-ul li {
+nav ul {
   list-style: none;
 }
 
-ul li a .nav-li {
-  margin-top: 0px;
-  margin-bottom: 0px;
+nav li {
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+
+.nav-toggle:checked ~ nav li {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
 }
 
 
@@ -35,7 +96,7 @@ a.shiny_blue {
     padding: 25px 30px;
     margin: 10px 0;
     width: 185px;
-    color: #0aaab3;
+    color: $color_blue;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -43,27 +104,27 @@ a.shiny_blue {
     letter-spacing: 4px;
     overflow: hidden;
     margin-right: 50px;
-    border: 1px solid #0aaab3;
+    border: 1px solid $color_blue;
     border-radius: 3px;
 }
 a.shiny_blue:hover {
-    background: #0aaab3;
+    background: $color_blue;
     color: #050801;
-    box-shadow: 0 0 5px #0aaab3,
-                0 0 25px #0aaab3,
-                0 0 50px #0aaab3,
-                0 0 200px #0aaab3;
+    box-shadow: 0 0 5px $color_blue,
+                0 0 25px $color_blue,
+                0 0 50px $color_blue,
+                0 0 200px $color_blue;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
 // -----> GREEN
-a.shiny_blue {
+a.shiny_green {
     position: relative;
     display: inline-block;
     padding: 25px 30px;
     margin: 10px 0;
     width: 185px;
-    color: #0aaab3;
+    color: $color_green;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -71,27 +132,27 @@ a.shiny_blue {
     letter-spacing: 4px;
     overflow: hidden;
     margin-right: 50px;
-    border: 1px solid #0aaab3;
+    border: 1px solid $color_green;
     border-radius: 3px;
 }
-a.shiny_blue:hover {
-    background: #0aaab3;
+a.shiny_green:hover {
+    background: $color_green;
     color: #050801;
-    box-shadow: 0 0 5px #0aaab3,
-                0 0 25px #0aaab3,
-                0 0 50px #0aaab3,
-                0 0 200px #0aaab3;
+    box-shadow: 0 0 5px $color_green,
+                0 0 25px $color_green,
+                0 0 50px $color_green,
+                0 0 200px $color_green;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
 // -----> RED
-a.shiny_blue {
+a.shiny_red {
     position: relative;
     display: inline-block;
     padding: 25px 30px;
     margin: 10px 0;
     width: 185px;
-    color: #0aaab3;
+    color: $color_red;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -99,16 +160,16 @@ a.shiny_blue {
     letter-spacing: 4px;
     overflow: hidden;
     margin-right: 50px;
-    border: 1px solid #0aaab3;
+    border: 1px solid $color_red;
     border-radius: 3px;
 }
-a.shiny_blue:hover {
-    background: #0aaab3;
+a.shiny_red:hover {
+    background: $color_red;
     color: #050801;
-    box-shadow: 0 0 5px #0aaab3,
-                0 0 25px #0aaab3,
-                0 0 50px #0aaab3,
-                0 0 200px #0aaab3;
+    box-shadow: 0 0 5px $color_red,
+                0 0 25px $color_red,
+                0 0 50px $color_red,
+                0 0 200px $color_red;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
@@ -138,4 +199,64 @@ button.shiny_black:hover{
                 0 0 50px #000000,
                 0 0 200px #000000;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+a.shiny_white{
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 3px solid #ffffff;
+    border-radius: 3px;
+}
+a.shiny_white:hover{
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 5px #ffffff,
+                0 0 25px #ffffff,
+                0 0 50px #ffffff,
+                0 0 200px #ffffff;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+@media screen and (min-width: 820px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  header {
+    display: none;
+  }
+
+  .nav-puffer {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .navbar {
+  display: flex;
+  justify-content: center;
+  }
+
+  .shiny {
+    width: auto !important;
+    // display: flex !important;
+    // justify-content: center !important;
+    // align-items: center !important;
+  }
+
 }
