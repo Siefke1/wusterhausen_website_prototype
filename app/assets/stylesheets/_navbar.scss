@@ -9,6 +9,8 @@ $color_yellow: #b7bf22;
 
 .navbar {
   display: none;
+  box-shadow: 3px 3px 5px black;
+  position: sticky;
 }
 
 header {
@@ -17,14 +19,15 @@ header {
   width: 100vw;
   height: 100px;
   min-height: 100px;
-  background-color: white;
+  background-color: #333;
   z-index: 999;
+  box-shadow: 3px 3px 5px black;
 }
 
 .nav-puffer {
   height: 10vh;
   width: 100vw;
-  background-color: white;
+  background-color: #333;
 }
 
 .nav-logo {
@@ -62,7 +65,7 @@ nav {
   width: 100vw;
   top: 100%;
   text-align: center;
-  background-color: white;
+  background-color: #333;
   z-index: 999;
   transform: scale(1, 0);
   transform-origin: top;
@@ -279,6 +282,11 @@ a.shiny_yellow:hover {
   .navbar {
   display: flex;
   justify-content: center;
+  box-shadow: 3px 3px 5px black;
+  position: sticky;
+  width: 100vw;
+  z-index: 9999;
+  background: #333;
   }
 
   .shiny {

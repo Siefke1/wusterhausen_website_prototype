@@ -1,29 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   font-family: "Poppins", sans-serif;
-// }
+//@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 
-// body {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   min-height: 100vh;
-//   background: #232427;
-// }
-
-// body .container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   max-width: 1200px;
-//   margin: 40px 0;
-// }
 .topic-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10vh;
 }
 
@@ -40,41 +21,87 @@ body .topic-card-container .topic-card {
   transition: 0.5s;
 }
 
-body .topic-card-container .topic-card:nth-child(1) .topic-card-box .topic-card-box-content a {
+
+
+body .topic-card-container .topic-school-card .topic-card-box .topic-card-box-content a {
   background: #0AAAB3;
 }
 
-body .topic-card-container .topic-card:nth-child(2) .topic-card-box .topic-card-box-content a {
-  background: #FF6376;
+body .topic-card-container .topic-freizeit-card .topic-card-box .topic-card-box-content a {
+  background: #FF6377;
 }
 
-body .topic-card-container .topic-card:nth-child(3) .topic-card-box .topic-card-box-content a {
+body .topic-card-container .topic-ausbildung-card .topic-card-box .topic-card-box-content a {
+  background: #dee914;
+}
+
+body .topic-card-container .topic-jugendhilfe-card .topic-card-box .topic-card-box-content a {
   background: #5EA10A;
 }
 
-body .topic-card-container .topic-card:nth-child(1) .topic-card-box .topic-card-box-content h3 {
+body .topic-card-container .topic-school-card .topic-card-box .topic-card-box-content h3 {
   color: #0AAAB3;
 }
 
-body .topic-card-container .topic-card:nth-child(2) .topic-card-box .topic-card-box-content h3 {
-  color: #FF6376;
+body .topic-card-container .topic-freizeit-card .topic-card-box .topic-card-box-content h3 {
+  color: #FF6377;
 }
 
-body .topic-card-container .topic-card:nth-child(3) .topic-card-box .topic-card-box-content h3 {
+body .topic-card-container .topic-ausbildung-card .topic-card-box .topic-card-box-content h3 {
+  color: #dee914;
+}
+
+body .topic-card-container .topic-jugendhilfe-card .topic-card-box .topic-card-box-content h3 {
   color: #5EA10A;
 }
 
-body .topic-card-container .topic-card:nth-child(1) .topic-card-box {
+body .topic-card-container .topic-school-card .topic-card-box {
   box-shadow: 0px 0px 6px #0AAAB3;
 }
 
-body .topic-card-container .topic-card:nth-child(2) .topic-card-box {
+body .topic-card-container .topic-freizeit-card .topic-card-box {
   box-shadow: 0px 0px 6px #FF6376;
 }
 
-body .topic-card-container .topic-card:nth-child(3) .topic-card-box {
+body .topic-card-container .topic-jugendhilfe-card .topic-card-box {
   box-shadow: 0px 0px 6px #5EA10A;
 }
+
+body .topic-card-container .topic-ausbildung-card .topic-card-box {
+  box-shadow: 0px 0px 6px #dee914;
+}
+
+// body .topic-card-container .topic-card:nth-child(2) .topic-card-box .topic-card-box-content a {
+//   background: #FF6376;
+// }
+
+// body .topic-card-container .topic-card:nth-child(3) .topic-card-box .topic-card-box-content a {
+//   background: #5EA10A;
+// }
+
+// body .topic-card-container .topic-card:nth-child(1) .topic-card-box .topic-card-box-content h3 {
+//   color: #0AAAB3;
+// }
+
+// body .topic-card-container .topic-card:nth-child(2) .topic-card-box .topic-card-box-content h3 {
+//   color: #FF6376;
+// }
+
+// body .topic-card-container .topic-card:nth-child(3) .topic-card-box .topic-card-box-content h3 {
+//   color: #5EA10A;
+// }
+
+// body .topic-card-container .topic-card:nth-child(1) .topic-card-box {
+//   box-shadow: 0px 0px 6px #0AAAB3;
+// }
+
+// body .topic-card-container .topic-card:nth-child(2) .topic-card-box {
+//   box-shadow: 0px 0px 6px #FF6376;
+// }
+
+// body .topic-card-container .topic-card:nth-child(3) .topic-card-box {
+//   box-shadow: 0px 0px 6px #5EA10A;
+// }
 
 body .topic-card-container .topic-card .topic-card-box {
   position: absolute;
@@ -90,7 +117,7 @@ body .topic-card-container .topic-card .topic-card-box {
   align-items: center;
   overflow: hidden;
   transition: 0.5s;
-  box-shadow: 0px 0px 6px black;
+  // box-shadow: 0px 0px 6px black;
     // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
     // inset -5px -5px 15px rgba(255, 255, 255, 0.1),
     // 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
@@ -125,7 +152,7 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content h
 
 body .topic-card-container .topic-card .topic-card-box .topic-card-box-content h3 {
   font-size: 1.8rem;
-  color: rgb(0, 0, 0);
+  // color: rgb(0, 0, 0);
   z-index: 1;
   transition: 0.5s;
   margin-bottom: 15px;
@@ -135,7 +162,7 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content h
 body .topic-card-container .topic-card .topic-card-box .topic-card-box-content p {
   font-size: 1rem;
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.9);
+  color: white;
   z-index: 1;
   transition: 0.5s;
 }
@@ -144,7 +171,7 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content a
   position: relative;
   display: inline-block;
   padding: 8px 20px;
-  background: black;
+  // background: black;
   border-radius: 5px;
   text-decoration: none;
   color: white;
@@ -160,4 +187,13 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content a
                 0 0 50px #ffffff,
                 0 0 200px #ffffff;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+@media screen and (min-width: 1030px) {
+  .topic-card-container {
+    all: unset;
+    display: flex;
+    justify-content: space-around;
+    margin: 100px;
+  }
 }
