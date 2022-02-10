@@ -1,23 +1,53 @@
 
 <div class="container">
-  <div class="topic-index-text-container">
-
-  </div>
+  <%# --> TOPIC CARDS <-- %>
   <div class="topic-card-container">
-  <% @topics.each do |topic| %>
-    <div class="topic-card">
+    <div class="topic-card topic-school-card">
       <div class="topic-card-box">
         <div class="topic-card-box-content">
-          <h2><%= topic.id %></h2>
-          <h3><%= topic.title %></h3>
+          <h2>1</h2>
+          <h3>Schule</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-          <a href="/topics/<%= topic.id %>">Zum Angebot</a>
+          <a href="/topics/1">Weiter</a>
         </div>
       </div>
     </div>
-  <% end %>
+    <div class="topic-card topic-freizeit-card" id="freizeit-card">
+      <div class="topic-card-box">
+        <div class="topic-card-box-content">
+          <h2>2</h2>
+          <h3>Freizeit</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <a href="/topics/2">Weiter</a>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="topic-card-container">
+    <div class="topic-card topic-ausbildung-card" id="ausbildung-card">
+      <div class="topic-card-box">
+        <div class="topic-card-box-content">
+          <h2>3</h2>
+          <h3>Ausbildung</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <a href="/topics/3">Weiter</a>
+        </div>
+      </div>
+    </div>
+      <div class="topic-card topic-jugendhilfe-card" id="jugendhilfe-card">
+      <div class="topic-card-box">
+        <div class="topic-card-box-content">
+          <h2>4</h2>
+          <h3>Jugendhilfe</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <a href="/topics/4">Weiter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# --> BACK LINK <-- %>
   <div class="d-flex justify-content-center">
-  <%= link_to 'Back', 'javascript:history.back()', class: "shiny_black" %>
+    <%= link_to 'Back', 'javascript:history.back()', class: "shiny_white" %>
   </div>
 </div>
+<div class="puffer"></div>

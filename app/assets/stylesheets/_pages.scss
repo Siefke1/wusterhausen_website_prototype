@@ -4,6 +4,10 @@ html {
   overflow-y: scroll;
 }
 
+body {
+  background: #555;
+}
+
 .container-about {
   margin-top: 20vh;
 
@@ -23,6 +27,7 @@ html {
   width: 100vw;
   height: 50px;
   z-index: 9999;
+  background-color: #333;
 }
 
 * {
