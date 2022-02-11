@@ -1,0 +1,41 @@
+.container-about {
+  margin-top: 20vh;
+}
+
+.page-info {
+  height: 60vh;
+  width: 100vw;
+  background-image: url("https://static.spektrum.de/fm/912/iStock-468120582_FilippoBacci.jpg?f=2000x857");
+  background-size: cover;
+  box-shadow: 3px 3px 5px black;
+  position: relative;
+  overflow: auto;
+}
+
+.home-info-text {
+  font-size: larger;
+  position: absolute;
+  top: 140px;
+  h1 {
+    color: #a7f0f4;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: bolder;
+  }
+
+  p {
+    color: white;
+    margin-right: 10px;
+    margin-left: 12px;
+  }
+
+  .about-link {
+  position: absolute;
+  top: 110px;
+  left: 10px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+
+}

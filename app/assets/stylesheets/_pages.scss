@@ -8,19 +8,6 @@ body {
   background: rgb(78, 110, 110);
 }
 
-.container-about {
-  margin-top: 20vh;
-
-}
-
-.page-info {
-  height: 60vh;
-  width: 100vw;
-  background-image: url("https://static.spektrum.de/fm/912/iStock-468120582_FilippoBacci.jpg?f=2000x857");
-  background-size: cover;
-  box-shadow: 3px 3px 5px black;
-}
-
 .footer {
   position: fixed;
   bottom: 0;
@@ -38,26 +25,127 @@ body {
   margin-top: 20vh;
 }
 
-.about-us-link {
-  width: 25vh;
-  height: 10vh;
-  opacity: 0.7;
-}
-.about-us-link:hover {
-    opacity: 1;
-  }
-
 .container {
   margin-top: 20vh;
   margin-bottom: 20vh;
 }
 
-.offer-dashboard-box {
-  padding: 10px;
-  border-radius: 5px;
-  // background-color: rgb(224, 221, 221);
+#back-button {
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
-.home-buttons-container {
-  width: 80vw;
+// SEARCH VIEW
+
+.entdecken-header {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 60vw;
+  h3 {
+    font-weight: bold;
+    color: white;
+  }
+}
+
+.search-container {
+  margin-top: 50px;
+}
+
+.search-result-message-success {
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: white;
+  width: 60vw;
+  text-align: center;
+}
+
+#search-button {
+  margin-left: 10px;
+}
+
+.sprechblase_unten {
+  position: relative;
+  padding: 1rem;
+  border: 4px solid #ffffff;
+  margin:0 auto;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #444;
+  margin-bottom: 30px;
+  width: 60vw;
+  opacity: .85;
+}
+
+.sprechblase_unten:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  top: 100%;
+  border: 20px solid;
+  border-color: #ffffff transparent transparent #ffffff;
+}
+
+.sprechblase_unten:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 34px;
+  top: 100%;
+  border: 15px solid;
+  border-color: #ffffff transparent transparent #ffffff;
+}
+
+.sprechblase_oben {
+  position: relative;
+  padding: 1rem;
+  border: 4px solid white;
+  margin:0 auto;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-align: start;
+  background: #444;
+  opacity: .85;
+}
+
+.sprechblase_oben:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 28px;
+  top: -17px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 17px solid white;
+}
+
+.sprechblase_oben:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 34px;
+  top: -10px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+
+
+@media screen and (min-width: 800px) {
+  .sprechblase_unten {
+    width: 46vw;
+  }
+
+  .sprechblase_oben {
+    width: 46vw;
+  }
 }

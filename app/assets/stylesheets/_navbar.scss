@@ -14,7 +14,7 @@ $color_yellow: #b7bf22;
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0px;
   width: 100vw;
   height: 100px;
@@ -29,7 +29,6 @@ header {
   height: 10vh;
   width: 100vw;
   background-color: #333;
-  position: sticky;
 }
 
 .nav-logo {
@@ -287,6 +286,7 @@ a.shiny_yellow:hover {
   display: flex;
   justify-content: center;
   box-shadow: 3px 3px 5px black;
+  top: 0px;
   position: sticky;
   width: 100vw;
   z-index: 9999;

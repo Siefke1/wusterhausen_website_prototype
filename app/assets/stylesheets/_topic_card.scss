@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10vh;
+  margin: 0 auto;
 }
 
 body .topic-card-container .topic-card {
@@ -161,7 +161,7 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content h
 
 body .topic-card-container .topic-card .topic-card-box .topic-card-box-content p {
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 500;
   color: white;
   z-index: 1;
   transition: 0.5s;
@@ -193,7 +193,13 @@ body .topic-card-container .topic-card .topic-card-box .topic-card-box-content a
   .topic-card-container {
     all: unset;
     display: flex;
-    justify-content: space-around;
-    margin: 100px;
+    justify-content: center;
+    width: 80vw;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .topic-card {
+    flex: 35%;
   }
 }

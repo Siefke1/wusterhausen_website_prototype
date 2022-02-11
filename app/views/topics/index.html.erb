@@ -1,5 +1,7 @@
 
-<div class="container">
+  <div class="topics-info-text ">
+    <h3 class="sprechblase_unten">Damit Du besser findest was du suchst, <br> haben wir die Angebote in folgende Oberthemen unterteilt  😎</h3>
+  </div>
   <%# --> TOPIC CARDS <-- %>
   <div class="topic-card-container">
     <div class="topic-card topic-school-card">
@@ -7,7 +9,7 @@
         <div class="topic-card-box-content">
           <h2>1</h2>
           <h3>Schule</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <p>Stress in der Schule? Oder nicht genug Stress? Hier findest du alles rund um's Thema lernen!</p>
           <a href="/topics/1">Weiter</a>
         </div>
       </div>
@@ -17,7 +19,10 @@
         <div class="topic-card-box-content">
           <h2>2</h2>
           <h3>Freizeit</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <p>
+            Check aus was es für Möglichkeiten es gibt die Zeit zu verbringen in der du nicht büffeln musst!
+            Ob Fußball oder Bastelkurs, hier findest du alles rund um's Thema Hobbies.
+          </p>
           <a href="/topics/2">Weiter</a>
         </div>
       </div>
@@ -47,7 +52,7 @@
   </div>
   <%# --> BACK LINK <-- %>
   <div class="d-flex justify-content-center">
-    <%= link_to 'Back', 'javascript:history.back()', class: "shiny_white" %>
+    <%= link_to 'Back', 'javascript:history.back()', class: "shiny_white", id: "back-button" %>
   </div>
-</div>
+
 <div class="puffer"></div>
