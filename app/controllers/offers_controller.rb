@@ -46,13 +46,11 @@ class OffersController < ApplicationController
   end
 
   def destroy
-
-    @user = current_user
-
-    @categories = @topic.categories
-    @offer.category_offers.build
+    @offer = Offer.find(params[:id])
     authorize @offer
-    redirect_to root_path, notice: 'Article was successfully destroyed.'
+    @offer.destroy!
+
+    redirect_to profil_path
   end
 
   def authorize_offer
@@ -78,6 +76,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, category_ids: [])
+    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode ,category_ids: [])
   end
 end

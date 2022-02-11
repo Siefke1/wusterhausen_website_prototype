@@ -19,4 +19,8 @@ class OfferPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def destroy?
+    user.role == "institution" || user.role == "admin"
+  end
 end

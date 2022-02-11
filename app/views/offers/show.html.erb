@@ -1,4 +1,6 @@
 <h1>Offers#show</h1>
 <p>Find me in app/views/offers/show.html.erb</p>
 <%= @offer.title %>
-<%= link_to "Delete", @offer, method: :delete, remote: true %>
+<% if policy(Offer).destroy? %>
+<%= link_to 'delete',offer_path(@offer), method: :delete %>
+<% end %>

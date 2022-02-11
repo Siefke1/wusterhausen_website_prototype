@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
   # UNNESTED OFFERS ROUTES
-  resources :offers, only: [:show, :create, :edit, :update, :delete, :index]
+  resources :offers, only: [:show, :create, :edit, :update, :destroy, :index]
   # UNNESTED CATEGORIES ROUTES
   resources :categories, only: [:new, :create]
 end
