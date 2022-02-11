@@ -1,6 +1,11 @@
 <h1>Offers#show</h1>
 <p>Find me in app/views/offers/show.html.erb</p>
 <%= @offer.title %>
-<% if policy(Offer).destroy? %>
-<%= link_to 'delete',offer_path(@offer), method: :delete %>
-<% end %>
+
+<%= link_to "Destroy", offer_path(@offer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+<%= link_to "Edit", edit_offer_path(@offer), data: {
+                    turbo_method: :edit
+                  } %>

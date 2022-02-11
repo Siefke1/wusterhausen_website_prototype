@@ -1,2 +1,24 @@
 <h1>Offers#edit</h1>
 <p>Find me in app/views/offers/edit.html.erb</p>
+
+<div class="container">
+  <div class="offer_form">
+  <%= simple_form_for @offer do |f| %>
+    <%= f.input :title, placeholder: 'title' %>
+    <%= f.input :description, placeholder: 'description' %>
+    <%= f.input :about_us, placeholder: 'about_us' %>
+    <%= f.input :email, placeholder: 'email' %>
+    <%= f.input :address, placeholder: 'address' %>
+    <%= f.input :town, placeholder: 'ort' %>
+    <%= f.input :postcode, placeholder: 'postcode' %>
+      <br>
+      <%= f.label "Wähle eine oder mehrere Kategorien" %>
+      <br><br>
+      <br>
+    <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>
+    <%#= f.input :category_ids, as: :check_boxes, collection: @categories, label_method: :title, value_method: :id %>
+    <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
+    <%= f.submit class: "btn btn-dark" %>
+  <% end %>
+  </div>
+</div>

@@ -41,16 +41,31 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
-  def edit
-
+   def edit
+    authorize Offer
+    @offer = Offer.find(params[:id])
+    @user = current_user
+    @offer.category_offers.build
+    authorize @offer
   end
 
-  def destroy
+  def update
+    authorize Offer
     @offer = Offer.find(params[:id])
-    authorize @offer
-    @offer.destroy!
 
-    redirect_to profil_path
+    if @offer.update(offer_params)
+      redirect_to @offer
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
+  def destroy
+
+    authorize Offer
+    @offer.destroy
+    redirect_to profil_path, status: :see_other
   end
 
   def authorize_offer

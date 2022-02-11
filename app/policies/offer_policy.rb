@@ -20,6 +20,14 @@ class OfferPolicy < ApplicationPolicy
     new?
   end
 
+ def edit?
+    user.role == "institution" || user.role == "admin"
+  end
+
+  def update?
+    new?
+  end
+
   def destroy?
     user.role == "institution" || user.role == "admin"
   end
