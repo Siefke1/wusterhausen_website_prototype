@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:index, :show, :home, :about_us]
+  before_action :authenticate_user!, except: [:index, :show, :home, :about]
   include Pundit
 
 
