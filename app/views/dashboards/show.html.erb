@@ -1,4 +1,5 @@
 
+<%= link_to "CREATE A NEW OFFER", choose_topic_path %>
 <%# ACTIVE OFFERS %>
 <% @offers.each do |offer| %>
   <% if offer.status == "active" %>

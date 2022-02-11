@@ -62,10 +62,12 @@ class OffersController < ApplicationController
 
 
   def destroy
-
+    @cat_off = CategoryOffer.find_by offer_id: params[:id]
     authorize Offer
-    @offer.destroy
-    redirect_to profil_path, status: :see_other
+
+    if @cat_off.destroy
+      redirect_to profil_path, status: :see_other
+    end
   end
 
   def authorize_offer
