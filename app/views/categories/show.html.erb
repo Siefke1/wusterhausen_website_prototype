@@ -23,6 +23,7 @@
         <h2>Opening a door to the future</h2>
         <p class="offer-card-description"> <%= offer.description %></p>
         <p class="read-more">
+        <%= link_to "Delete",root_path, method: :delete, remote: true %>
         <%= link_to "click", offer_path(offer) %>
         </p>
       </div>

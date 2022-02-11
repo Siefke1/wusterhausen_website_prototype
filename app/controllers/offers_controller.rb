@@ -42,9 +42,17 @@ class OffersController < ApplicationController
   end
 
   def edit
+
   end
 
   def destroy
+
+    @user = current_user
+
+    @categories = @topic.categories
+    @offer.category_offers.build
+    authorize @offer
+    redirect_to root_path, notice: 'Article was successfully destroyed.'
   end
 
   def authorize_offer
