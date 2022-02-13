@@ -86,5 +86,8 @@ end
 
 gem "devise", "~> 4.8"
 
-#FAKER
+# FAKER
  gem 'faker'
+
+# Cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
