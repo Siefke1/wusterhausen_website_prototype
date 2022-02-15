@@ -91,3 +91,4 @@ gem "devise", "~> 4.8"
 
 # Cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'

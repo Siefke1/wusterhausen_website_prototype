@@ -5,6 +5,9 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_many :category_offers, dependent: :destroy
   has_many :categories, :through => :category_offers
+
+  # Cloudinary
+  has_one_attached :photo
   # accepts_nested_attributes_for :categories, reject_if: blank?, allow_destroy: false
   # attr_accessible :catgories_attributes
   # accepts_nested_attributes_for :category_offers, allow_destroy: true

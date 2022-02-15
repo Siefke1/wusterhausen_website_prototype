@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/search", to: "searches#index"
   get "/choosetopic", to: "offers#choose_topic", as: :choose_topic
-
+  get "/admin", to: "admin#index"
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
   resources :topics, only: [:show, :index] do
     resources :offers, only: :new
