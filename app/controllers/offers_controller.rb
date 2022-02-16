@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   # before_action :set_offers_index, only: :index
-  before_action :set_offer, only: [:show, :edit, :destroy]
+  before_action :set_offer, only: [:show, :edit, :destroy, :toggle_status]
 
   def index
     @category = Category.find(params[:topic_id])
@@ -52,18 +52,21 @@ class OffersController < ApplicationController
   def update
     authorize Offer
     @offer = Offer.find(params[:id])
-
     if @offer.update(offer_params)
+
       redirect_to @offer
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-
   def destroy
     if @offer.destroy
+      if current_user.role === "admin"
+        redirect_to admin_path , status: :see_other
+      else
       redirect_to profil_path, status: :see_other
+      end
     end
   end
 
@@ -77,6 +80,15 @@ class OffersController < ApplicationController
     @offer.status = 2
     @offer.save
     render "show"
+  end
+
+  def toggle_status
+    if @offer.active?
+      @offer.inactive!
+    else @offer.inactive?
+      @offer.active!
+    end
+    redirect_to admin_url, notice: 'Post status has been updated.'
   end
 
   private

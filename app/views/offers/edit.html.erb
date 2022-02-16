@@ -11,7 +11,16 @@
     <%= f.input :address, placeholder: 'address' %>
     <%= f.input :town, placeholder: 'ort' %>
     <%= f.input :postcode, placeholder: 'postcode' %>
+    <div data-controller="preview">
+      <%= f.label "Add a Picture" %>
+      <%= f.input :photo, as: :file, input_html: { id:'inpFile'}, data: { action:"change->preview#connect"} %>
+       <div class="image-preview" id="image-preview">
+          <img src="" alt="image preview" class="image-preview__image">
+       <span class="image-preview__default-text">Image Preview</span>
+        </div>
+    </div>
     <%= f.submit class: "btn btn-dark" %>
+
   <% end %>
   </div>
 </div>

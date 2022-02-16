@@ -4,6 +4,7 @@ class OfferPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def index?
     true
   end
@@ -20,7 +21,7 @@ class OfferPolicy < ApplicationPolicy
     new?
   end
 
- def edit?
+  def edit?
     user.role == "institution" || user.role == "admin"
   end
 

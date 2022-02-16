@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @offers = @category.offers
+    @offers = @category.offers.where(status: "active")
     @topic = Topic.find(params[:id])
 
   end

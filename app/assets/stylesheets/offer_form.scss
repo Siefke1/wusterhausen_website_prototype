@@ -1,3 +1,19 @@
 .offer_form {
   margin: 100px;
 }
+.image-preview {
+  width: 300px;
+  min-height: 100px;
+  border: 2px solid #dddddd;
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.image-preview__image {
+  display: none;
+  width: 100%;
+}

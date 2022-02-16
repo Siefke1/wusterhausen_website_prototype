@@ -1,7 +1,7 @@
 <h1>Offers#show</h1>
 <p>Find me in app/views/offers/show.html.erb</p>
 <%= @offer.title %>
-<% if @offer.photo %>
+<% if @offer.photo.attached? %>
     <%= cl_image_tag @offer.photo.key, width: 400, height: 300, crop: :fill %>
  <% end %>
 
