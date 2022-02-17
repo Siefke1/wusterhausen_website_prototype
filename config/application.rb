@@ -1,5 +1,4 @@
 require_relative "boot"
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -18,5 +17,8 @@ module WusterhausenWebsitePrototype
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Cloudinary
+    Bundler.require(*Rails.groups)
   end
 end

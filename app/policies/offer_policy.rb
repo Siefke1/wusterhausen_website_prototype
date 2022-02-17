@@ -4,6 +4,7 @@ class OfferPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def index?
     true
   end
@@ -18,5 +19,17 @@ class OfferPolicy < ApplicationPolicy
 
   def create?
     new?
+  end
+
+  def edit?
+    user.role == "institution" || user.role == "admin"
+  end
+
+  def update?
+    new?
+  end
+
+  def destroy?
+    user.role == "institution" || user.role == "admin"
   end
 end

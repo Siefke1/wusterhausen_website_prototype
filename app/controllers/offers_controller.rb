@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   # before_action :set_offers_index, only: :index
-  before_action :set_offer, only: [:show, :edit, :destroy]
+  before_action :set_offer, only: [:show, :edit, :destroy, :toggle_status]
 
   def index
     @category = Category.find(params[:topic_id])
@@ -41,10 +41,33 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
-  def edit
+   def edit
+    authorize Offer
+    @offer = Offer.find(params[:id])
+    @user = current_user
+    @offer.category_offers.build
+    authorize @offer
+  end
+
+  def update
+    authorize Offer
+    @offer = Offer.find(params[:id])
+    if @offer.update(offer_params)
+
+      redirect_to @offer
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    if @offer.destroy
+      if current_user.role === "admin"
+        redirect_to admin_path , status: :see_other
+      else
+      redirect_to profil_path, status: :see_other
+      end
+    end
   end
 
   def authorize_offer
@@ -59,6 +82,15 @@ class OffersController < ApplicationController
     render "show"
   end
 
+  def toggle_status
+    if @offer.active?
+      @offer.inactive!
+    else @offer.inactive?
+      @offer.active!
+    end
+    redirect_to admin_url, notice: 'Post status has been updated.'
+  end
+
   private
 
   def set_offers_index
@@ -70,6 +102,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, category_ids: [])
+    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, :photo, category_ids: [])
   end
 end

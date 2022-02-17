@@ -19,6 +19,8 @@
     <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>
     <%#= f.input :category_ids, as: :check_boxes, collection: @categories, label_method: :title, value_method: :id %>
     <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
+    <%= f.label "Add a Picture" %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit class: "btn btn-dark" %>
   <% end %>
   </div>

@@ -1,4 +1,5 @@
 
+<%= link_to "CREATE A NEW OFFER", choose_topic_path %>
 <%# ACTIVE OFFERS %>
 <% @offers.each do |offer| %>
   <% if offer.status == "active" %>
@@ -22,6 +23,12 @@
           <h2>Opening a door to the future</h2>
           <p> <%= offer.description %></p>
           <p class="read-more">
+           <%= link_to "Destroy", offer_path(offer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+
             <%= link_to "click", offer_path(offer) %>
           </p>
         </div>

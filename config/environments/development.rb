@@ -62,6 +62,9 @@ Rails.application.configure do
   # Turn on Inline Source maps
   config.sass.inline_source_maps = true
 
+  # Cloudinary
+  config.active_storage.service = :cloudinary
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

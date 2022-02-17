@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # USER DASHBOARD
   get "/profil", to: "dashboards#show"
+  get "/admin", to: "dashboards#admin", as: :admin
   get "/about", to: "pages#about"
   get "/search", to: "searches#index"
   get "/choosetopic", to: "offers#choose_topic", as: :choose_topic
+
 
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
   resources :topics, only: [:show, :index] do
@@ -26,7 +28,14 @@ Rails.application.routes.draw do
 
 
   # UNNESTED OFFERS ROUTES
-  resources :offers, only: [:show, :create, :edit, :update, :delete, :index]
+  resources :offers, only: [:show, :create, :edit, :update, :destroy, :index]
   # UNNESTED CATEGORIES ROUTES
   resources :categories, only: [:new, :create]
+
+  # For changing the offer status
+  resources :offers do
+    member do
+      get :toggle_status
+    end
+  end
 end
