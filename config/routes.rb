@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'articles/show'
+  get 'articles/index'
+  get 'articles/new'
+  get 'articles/edit'
 
   # custom devise_turbo setup
   # devise_scope :user do
@@ -38,4 +42,8 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
+
+  # Article routes
+
+  resources :articles
 end
