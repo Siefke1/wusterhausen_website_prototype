@@ -14,78 +14,76 @@ require 'faker'
 # p "Everything is Deleted"
 
 # New Seeds
-# User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
+User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
 
-# puts "creating topics..."
-# Topic.create!(title: "Schule")
-# Topic.create!(title: "Freizeit")
-# Topic.create!(title: "Ausbildung")
-# Topic.create!(title: "Jugendhilfe")
-# puts "topics created! creating categories..."
+puts "creating topics..."
+Topic.create!(title: "Schule")
+Topic.create!(title: "Freizeit")
+Topic.create!(title: "Ausbildung")
+Topic.create!(title: "Jugendhilfe")
+puts "topics created! creating categories..."
 
-# Category.create!(title: "Hausaufgaben", topic_id: 1)
-# Category.create!(title: "Nachhilfe", topic_id: 1)
-# Category.create!(title: "Lerngruppen", topic_id: 1)
-# Category.create!(title: "Rate-a-teacher", topic_id: 1)
-# Category.create!(title: "Sport", topic_id: 2)
-# Category.create!(title: "Draußen", topic_id: 2)
-# Category.create!(title: "Hobbygruppen", topic_id: 2)
-# Category.create!(title: "Musik", topic_id: 2)
-# Category.create!(title: "Praktika", topic_id: 3)
-# Category.create!(title: "Studium", topic_id: 3)
-# Category.create!(title: "Auslandssemester", topic_id: 3)
-# Category.create!(title: "Offizielles", topic_id: 4)
-# Category.create!(title: "Familienhilfe", topic_id: 4)
-# puts "categories created! creating offers..."
+Category.create!(title: "Hausaufgaben", topic_id: 1)
+Category.create!(title: "Nachhilfe", topic_id: 1)
+Category.create!(title: "Lerngruppen", topic_id: 1)
+Category.create!(title: "Rate-a-teacher", topic_id: 1)
+Category.create!(title: "Sport", topic_id: 2)
+Category.create!(title: "Draußen", topic_id: 2)
+Category.create!(title: "Hobbygruppen", topic_id: 2)
+Category.create!(title: "Musik", topic_id: 2)
+Category.create!(title: "Praktika", topic_id: 3)
+Category.create!(title: "Studium", topic_id: 3)
+Category.create!(title: "Auslandssemester", topic_id: 3)
+Category.create!(title: "Offizielles", topic_id: 4)
+Category.create!(title: "Familienhilfe", topic_id: 4)
+puts "categories created! creating offers..."
 
-# # INITIALIZE POSTCODES FOR OFFERS
-# postcodes = [
-#   "11011",
-#   "10711",
-#   "12099",
-#   "12105",
-#   "12165",
-#   "12207",
-#   "13053",
-#   "13595",
-#   "13505",
-#   "10557",
-#   "10589",
-#   "14059"
-# ]
+# INITIALIZE POSTCODES FOR OFFERS
+postcodes = [
+  "11011",
+  "10711",
+  "12099",
+  "12105",
+  "12165",
+  "12207",
+  "13053",
+  "13595",
+  "13505",
+  "10557",
+  "10589",
+  "14059"
+]
 
-# # CREATE 40 OFFERS
-# 40.times do |i|
-#   Offer.create!(
-#     title: Faker::Company.name,
-#     description: Faker::Lorem.sentence(word_count: 20),
-#     about_us: Faker::Lorem.sentence(word_count: 20),
-#     email: Faker::Internet.email,
-#     address: Faker::Address.street_address,
-#     postcode: postcodes.sample,
-#     town: "Berlin",
-#     phone: Faker::PhoneNumber.cell_phone,
-#     status: 1,
-#     user_id: 1,
-# )
-# end
+# CREATE 40 OFFERS
+40.times do |i|
+  Offer.create!(
+    title: Faker::Company.name,
+    description: Faker::Lorem.sentence(word_count: 20),
+    about_us: Faker::Lorem.sentence(word_count: 20),
+    email: Faker::Internet.email,
+    address: Faker::Address.street_address,
+    postcode: postcodes.sample,
+    town: "Berlin",
+    phone: Faker::PhoneNumber.cell_phone,
+    status: 1,
+    user_id: 1,
+)
+end
 
-# # CREATE JOINTABLES OFFER/CATEGORY
-# puts "offers created! creating join tables..."
-# 40.times do |i|
-#   CategoryOffer.create!(
-#     category_id: rand(1..13),
-#     offer_id: rand(1..40)
-#   )
-# end
-puts "cleaning db..."
-Article.delete_all
+# CREATE JOINTABLES OFFER/CATEGORY
+puts "offers created! creating join tables..."
+40.times do |i|
+  CategoryOffer.create!(
+    category_id: rand(1..13),
+    offer_id: rand(1..40)
+  )
+end
 
-puts "creating articles"
+
 30.times do
   Article.create!(
     title: Faker::Company.name,
-    content: Faker::Lorem.sentence(word_count: 500),
+    content: Faker::Lorem.sentence(word_count: 20),
     user_id: 1,
   )
 end
