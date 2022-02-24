@@ -1,2 +1,33 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<div class="articles-table-container">
+  <div class="table-container">
+   <%= link_to "Neuer Post", new_article_path, class: "btn btn-dark" %>
+    <table class="articles-table-wrap articles-table">
+      <tr class="articles-table-row articles-table">
+        <th class="articles-table-heading articles-table"><strong>Post</strong></th>
+        <th class="articles-table-heading articles-table"><strong>Author</strong></th>
+        <th class="articles-table-heading articles-table"><strong>Datum</strong></th>
+        <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
+          <th class="articles-table-heading articles-table"><strong>Edit</strong></th>
+          <th class="articles-table-heading articles-table"><strong>Delete</strong></th>
+        <% end %>
+      </tr>
+      <% @articles.each do |article| %>
+        <tr class="articles-table-row articles-table">
+          <td class="articles-table-data articles-table"><%= link_to article.title, article_path(article) %></td>
+          <td class="articles-table-data articles-table"><%= article.user.email %></td>
+          <td class="articles-table-data articles-table"><%= article.created_at.to_date.strftime("%d-%m-%Y") %></td>
+          <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
+            <td class="articles-table-heading articles-table"><%= link_to "X", edit_article_path(article) %></td>
+            <td><i class="material-icons">small delete</i></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<%# <%= link_to "Destroy", offer_path(offer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %> %>

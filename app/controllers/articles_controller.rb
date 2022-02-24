@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :delete]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
 
   def show
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
+    @article.user_id = current_user.id
     if @article.save
       redirect_to articles_path
     else
@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article.user = current_user
     if @article.update(article_params)
       redirect_to articles_path
     else
@@ -35,7 +36,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.delete
+    if @article.delete
+      redirect_to articles_path
+    end
   end
 
   private
@@ -45,6 +48,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :user_id, :creation_date)
+    params.require(:article).permit(:title, :content, :user_id)
   end
 end

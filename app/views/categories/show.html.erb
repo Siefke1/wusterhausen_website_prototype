@@ -23,7 +23,9 @@
         <h2>Opening a door to the future</h2>
         <p class="offer-card-description"> <%= offer.description %></p>
         <p class="read-more">
-        <%= link_to "click", offer_path(offer) %>
+        <%= link_to offer_path(offer) do %>
+          <i class="material-icons">tiny visibility</i>
+        <% end %>
         </p>
       </div>
     </div>

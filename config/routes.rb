@@ -45,5 +45,6 @@ Rails.application.routes.draw do
 
   # Article routes
 
-  resources :articles
+  resources :articles, except: :destroy
+  delete "/articles/:id", to: "articles#destroy", as: :delete_article
 end

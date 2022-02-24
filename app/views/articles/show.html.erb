@@ -1,2 +1,9 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="articles-show-container">
+  <div class="articles-show-heading">
+    <h1><%= @article.title %></h1>
+    <p>Ein Beitrag von <%= @article.user.email %></p>
+  </div>
+  <div class="articles-show-content">
+    <p><%= @article.content %></p>
+  </div>
+</div>
