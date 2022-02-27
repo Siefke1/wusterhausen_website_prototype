@@ -13,7 +13,7 @@
       <br><br>
       <% for category in @categories %>
         <%= check_box_tag "offer[category_ids][]", category.id, @offer.categories.include?(category) %>
-        <%=h category.title %><br />
+        <%= category.title %><br />
       <% end %>
       <br>
     <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>

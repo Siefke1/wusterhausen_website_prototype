@@ -36,6 +36,32 @@
   }
 }
 
+// Home button (about us)
+a.shiny_home{
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 3px solid #ffffff;
+    border-radius: 3px;
+}
+a.shiny_home:hover{
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 5px #ffffff,
+                0 0 25px #ffffff,
+                0 0 50px #ffffff,
+                0 0 200px #ffffff;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
 @media screen and (min-width: 820px) {
 
 }

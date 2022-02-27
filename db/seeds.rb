@@ -37,19 +37,8 @@ Category.create!(title: "Auslandssemester", topic_id: 3)
 Category.create!(title: "Offizielles", topic_id: 4)
 Category.create!(title: "Familienhilfe", topic_id: 4)
 puts "categories created! creating offers..."
-# 4.times do |i|
-#   Topic.create!(
-#     title: Faker::Hobby.activity
-#   )
-# end
 
-# 20.times do |i|
-#   Category.create!(
-#     title: Faker::Hobby.activity,
-#     topic_id: Faker::Number.between(from: 1, to: 4)
-#   )
-# end
-
+# INITIALIZE POSTCODES FOR OFFERS
 postcodes = [
   "11011",
   "10711",
@@ -65,7 +54,7 @@ postcodes = [
   "14059"
 ]
 
-
+# CREATE 40 OFFERS
 40.times do |i|
   Offer.create!(
     title: Faker::Company.name,
@@ -81,11 +70,21 @@ postcodes = [
 )
 end
 
+# CREATE JOINTABLES OFFER/CATEGORY
 puts "offers created! creating join tables..."
 40.times do |i|
   CategoryOffer.create!(
     category_id: rand(1..13),
     offer_id: rand(1..40)
+  )
+end
+
+
+30.times do
+  Article.create!(
+    title: Faker::Company.name,
+    content: Faker::Lorem.sentence(word_count: 20),
+    user_id: 1,
   )
 end
 

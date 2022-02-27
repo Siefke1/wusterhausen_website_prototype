@@ -1,0 +1,10 @@
+<div class="articles-show-container">
+  <div class="articles-show-heading">
+    <h1><%= @article.title %></h1>
+    <p>Ein Beitrag von <%= @article.user.email %></p>
+  </div>
+  <div class="articles-show-content">
+    <p><%= @article.content %></p>
+  </div>
+  <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+</div>
