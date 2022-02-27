@@ -18,16 +18,13 @@
           <td class="articles-table-data articles-table"><%= article.created_at.to_date.strftime("%d-%m-%Y") %></td>
           <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
             <td class="articles-table-heading articles-table"><%= link_to "X", edit_article_path(article) %></td>
-            <td><i class="material-icons">small delete</i></td>
+            <td><%= link_to "X", delete_article_path(article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %> </td>
           <% end %>
         </tr>
       <% end %>
     </table>
   </div>
 </div>
-
-
-<%# <%= link_to "Destroy", offer_path(offer), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %> %>

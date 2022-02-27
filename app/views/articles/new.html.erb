@@ -2,6 +2,7 @@
   <%= simple_form_for @article do |f| %>
     <%= f.input :title, class: "article-new-title" %>
     <%= f.input :content, as: :text, class: "article-new-text" %>
+    <%= f.input :photo, as: :file, label: false %>
     <%= f.submit %>
   <% end %>
 </div>

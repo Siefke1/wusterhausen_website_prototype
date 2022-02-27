@@ -6,4 +6,5 @@
   <div class="articles-show-content">
     <p><%= @article.content %></p>
   </div>
+  <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
 </div>
