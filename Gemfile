@@ -43,6 +43,10 @@ gem "geocoder"
 gem "net-http"
 gem "font-awesome-rails"
 
+
+# gem for sending mails in development
+gem 'letter_opener', group: :development
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

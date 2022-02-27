@@ -1,0 +1,43 @@
+
+<% @offers.where(status: "active").each do |offer| %>
+    <div class="blog-card">
+        <div class="meta">
+          <div class="photo">
+            <% if offer.photo.attached? %>
+              <%= cl_image_tag offer.photo.key, width: 400, height: 300, crop: :fill, class: 'photo' %>
+              <% else %>
+              <img src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg" alt="default-picture">
+            <% end %>
+          </div>
+          <ul class="details">
+            <li class="author"><a href="#"><%= offer.user.email %></a></li>
+            <li class="date"><%= offer.created_at %></li>
+            <li class="tags">
+              <ul>
+                <% offer.categories.each do |off_cat| %>
+                <li><a href="#"><%= off_cat.title %></a></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1><%= offer.title %></h1>
+          <h2>Opening a door to the future</h2>
+          <p> <%= offer.description %></p>
+          <p class="read-more">
+           <%= link_to "Destroy", offer_path(offer), data: {
+             turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+
+            <%= link_to "click", offer_path(offer) %>
+            <%= link_to "deaktivieren", toggle_status_offer_path(offer) %>
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+<% end %>
