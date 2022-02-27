@@ -9,6 +9,7 @@
   <% end %>
   <a class="shiny shiny_green" href="/topics">Entdecken</a>
   <a class="shiny shiny_yellow" href="/search">Suche</a>
+  <a class="shiny shiny_white" href="/articles">Blog</a>
   <% if user_signed_in? %>
     <%= button_to "bye", destroy_user_session_path, class: "shiny shiny_black", method: :delete %>
   <% else %>
@@ -48,6 +49,9 @@
       </li>
       <li>
         <a class="shiny_yellow nav-li" href="/search">Suche</a>
+      </li>
+      <li>
+        <a class="shiny shiny_white" href="/articles">Blog</a>
       </li>
       <% if user_signed_in? %>
         <li>
