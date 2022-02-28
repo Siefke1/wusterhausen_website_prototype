@@ -6,10 +6,25 @@
  <h1>
   <%= @offer.title %>
  </h1>
-<div class="categories">
-<% @offer.categories.each do |category|%>
-<p><%= category.title %></p>
-<% end %>
+ <div class="flex">
+    <div class="categories">
+    <% @offer.categories.each do |category|%>
+    <p><%= category.title %></p>
+    <% end %>
+    </div>
+    <div>
+      <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
+        <%= link_to "Destroy", offer_path(@offer), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+          },
+          class:"btn btn-info" %>
+        <%= link_to "Edit", edit_offer_path(@offer), data: {
+          turbo_method: :edit
+          },
+          class:"btn btn-info" %>
+      <% end %>
+    </div>
 </div>
 <%= @offer.url %>
 </div>
@@ -38,11 +53,4 @@
   </div>
 </div>
 </div>
-<%= link_to "Destroy", offer_path(@offer), data: {
-  turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-<%= link_to "Edit", edit_offer_path(@offer), data: {
-  turbo_method: :edit
-                  } %>
 </div>
