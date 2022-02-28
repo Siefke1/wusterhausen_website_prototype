@@ -1,43 +1,44 @@
-
-<% @offers.where(status: "active").each do |offer| %>
-    <div class="blog-card">
-        <div class="meta">
-          <div class="photo">
-            <% if offer.photo.attached? %>
-              <%= cl_image_tag offer.photo.key, width: 400, height: 300, crop: :fill, class: 'photo' %>
-              <% else %>
-              <img src="https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg" alt="default-picture">
-            <% end %>
-          </div>
-          <ul class="details">
-            <li class="author"><a href="#"><%= offer.user.email %></a></li>
-            <li class="date"><%= offer.created_at %></li>
-            <li class="tags">
-              <ul>
-                <% offer.categories.each do |off_cat| %>
-                <li><a href="#"><%= off_cat.title %></a></li>
-                <% end %>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="description">
-          <h1><%= offer.title %></h1>
-          <h2>Opening a door to the future</h2>
-          <p> <%= offer.description %></p>
-          <p class="read-more">
-           <%= link_to "Destroy", offer_path(offer), data: {
-             turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-
-
-            <%= link_to "click", offer_path(offer) %>
-            <%= link_to "deaktivieren", toggle_status_offer_path(offer) %>
-
-          </p>
-        </div>
+<div class="adminOffer">
+<h1>Aktive Angebote</h1>
+<div class="cardList">
+    <div class="cardOffer header one">
+      <h4  class="cardTitle header">
+        Titel
+      </h4>
+      <h4 class="header">
+        Anbieter
+      </h4>
+      <h4 class="header">
+        Datum
+      </h4>
+      <div class="buttons header">
+        <h4>
+          Deaktivieren
+        </h4>
+        <h4>
+          Löschen
+        </h4>
       </div>
     </div>
-
-<% end %>
+    <% @offers.where(status: "active").each do |offer| %>
+    <div class="cardOffer">
+    <strong  class="cardTitle">
+      <%= link_to offer.title, offer_path(offer), class: "cardTitle" %>
+    </strong>
+    <div class="">
+      <%= offer.user.email %>
+    </div>
+    <div class="">
+     <%= offer.created_at.to_date.strftime("%d-%m-%Y") %>
+    </div>
+    <div class="buttons">
+      <%= link_to "Deaktivieren", toggle_status_offer_path(offer), class: "btn btn-info" %>
+      <%= link_to "Löschen", offer_path(offer),class: "btn btn-info", data: {
+        turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
