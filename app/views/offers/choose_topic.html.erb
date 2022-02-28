@@ -1,18 +1,54 @@
-<div class="container">
-  <h1 class="text-center">Bitte wähle das Oberthema deines Angebots aus</h1>
   <br>
-  <div class="topic-card-container">
-    <% @topics.each do |topic| %>
-      <div class="topic-card">
-          <div class="topic-card-box">
-            <div class="topic-card-box-content">
-              <h2><%= topic.id %></h2>
-              <h3><%= topic.title %></h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-              <a href="/topics/<%= topic.id %>/offers/new">Auswählen</a>
-            </div>
-          </div>
-        </div>
-    <% end %>
+    <div class="topics-info-text ">
+    <h3 class="sprechblase_unten">Bitte wähle das Oberthema zu Deinem Angebot aus.</h3>
   </div>
-</div>
+  <br>
+
+
+<div class="topic-card-container">
+    <div class="topic-card topic-school-card">
+      <div class="topic-card-box" style="background-image: url('https://www.rastatt.de/fileadmin/_processed_/0/9/csm_Symbolbild_Schule__Cerries-fotolia.com_800_460_494a091750.jpg')">
+        <div class="topic-card-box-content">
+          <h2>1</h2>
+          <h3>Schule</h3>
+          <p>Stress in der Schule? Oder nicht genug Stress? Hier findest du alles rund um's Thema lernen!</p>
+          <a href="/topics/1/offers/new">Auswählen</a>
+        </div>
+      </div>
+    </div>
+    <div class="topic-card topic-freizeit-card" id="freizeit-card">
+      <div class="topic-card-box" style="background-image: url('https://www.radiooberhausen.de/externalimages/?source=jpg112/fotolia_75815656_s_copyright.jpg&crop=0x0x850x531&resize=850x531&dt=201907100948380')">
+        <div class="topic-card-box-content">
+          <h2>2</h2>
+          <h3>Freizeit</h3>
+          <p>
+            Check aus was es für Möglichkeiten es gibt die Zeit zu verbringen in der du nicht büffeln musst!
+            Ob Fußball oder Bastelkurs, hier findest du alles rund um's Thema Hobbies.
+          </p>
+          <a href="/topics/2/offers/new">Auswählen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topic-card-container">
+    <div class="topic-card topic-ausbildung-card" id="ausbildung-card">
+      <div class="topic-card-box" style="background-image: url('https://d6qjsjk30xa1n.cloudfront.net/bundles/myhammercontent/images/semTeaserV2/tischler_768px.jpg?v=1645176204')">
+        <div class="topic-card-box-content">
+          <h2>3</h2>
+          <h3>Ausbildung</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <a href="/topics/3/offers/new">Auswählen</a>
+        </div>
+      </div>
+    </div>
+      <div class="topic-card topic-jugendhilfe-card" id="jugendhilfe-card">
+      <div class="topic-card-box" style="background-image: url('https://www.procon-college.de/media/bild_04.jpg')">
+        <div class="topic-card-box-content">
+          <h2>4</h2>
+          <h3>Jugendhilfe</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+          <a href="/topics/4/offers/new">Auswählen</a>
+        </div>
+      </div>
+    </div>
+  </div>
