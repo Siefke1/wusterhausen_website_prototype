@@ -1,36 +1,32 @@
 <div class="entdecken-header">
   <h3 class="sprechblase_oben">Et voilà! Hier sind unsere Angebote zu Deinen Vorlieben 👇</h3>
 </div>
-
-<% @offers.each do |offer| %>
-  <div class="blog-card">
-      <div class="meta">
-        <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-        <ul class="details">
-          <li class="author"><a href="#"><%= offer.user.email %></a></li>
-          <li class="date"><%= offer.created_at %></li>
-          <li class="tags">
-            <ul>
-              <% offer.categories.each do |off_cat| %>
-              <li><a href="#"><%= off_cat.title %></a></li>
-              <% end %>
-            </ul>
-          </li>
-        </ul>
+<div class="offer-cards-container">
+  <% @offers.each do |offer| %>
+    <div class="offer-card-container">
+    <% if offer.photo.attached? %>
+      <div class="offer-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path offer.photo.key %>')">
+        <div class="offer-card-heading">
+          <h4><%= offer.title %></h4>
+          <p><%= offer.user.email %> / <%= offer.full_address %></p>
+          <%= button_to "Klick!", offer_path(offer), class: "btn btn-dark" %>
+        </div>
       </div>
-      <div class="description">
-        <h1><%= offer.title %></h1>
-        <h2>Opening a door to the future</h2>
-        <p class="offer-card-description"> <%= offer.description %></p>
-        <p class="read-more">
-        <%= link_to offer_path(offer) do %>
-          <i class="material-icons">tiny visibility</i>
-        <% end %>
-        </p>
+    <% else %>
+      <div class="offer-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')">
+        <div class="offer-card-heading">
+          <h4><%= offer.title %></h4>
+          <p><%= offer.user.email %> / <%= offer.full_address %></p>
+          <%= link_to "Klick!", offer_path(offer), class: "offer-card-button" %>
+        </div>
+      </div>
+    <% end %>
+      <div class="offer-card-text">
+        <p><%= offer.description %></p>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 
 <%# PUFFER TO ADD WHITESPACE AT BOTTOM OF PAGE %>
