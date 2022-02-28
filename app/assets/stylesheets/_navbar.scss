@@ -2,6 +2,9 @@ $color_blue: #0aaab3;
 $color_red: #FF6377;
 $color_green: #5EA10A;
 $color_yellow: #b7bf22;
+$turquoise: #40E0D0;
+$dark_orange: #FF8C00;
+$ghost_white: #F8F8FF;
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -19,16 +22,16 @@ header {
   width: 100vw;
   height: 50px;
   min-height: 100px;
-  background-color: #333;
+  background-color: $turquoise;
   z-index: 999;
   // box-shadow: 3px 3px 5px black;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid black;
 }
 
 .nav-puffer {
   height: 10vh;
   width: 100vw;
-  background-color: #333;
+  background-color: $turquoise;
 }
 
 .nav-logo {
@@ -67,7 +70,7 @@ nav {
   top: 100%;
   padding-bottom: 20px;
   text-align: center;
-  background-color: #333;
+  background-color: $turquoise;
   z-index: 999;
   transform: scale(1, 0);
   transform-origin: top;
@@ -94,6 +97,63 @@ nav li {
 
 
 // ---> BUTTONS <---
+
+// ORANGE
+
+a.shiny_orange {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 0;
+    width: 185px;
+    color: $turquoise;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 2px solid $turquoise;
+    border-radius: 3px;
+}
+a.shiny_orange:hover {
+    background: $turquoise;
+    color: #050801;
+    box-shadow: 0 0 5px $turquoise,
+                0 0 25px $turquoise,
+                0 0 50px $turquoise,
+                0 0 200px $turquoise;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+// -----> DARK
+a.shiny_red {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 0;
+    width: 185px;
+    color: $color_red;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 1px solid $color_red;
+    border-radius: 3px;
+}
+a.shiny_red:hover {
+    background: $color_red;
+    color: #050801;
+    box-shadow: 0 0 5px $color_red,
+                0 0 25px $color_red,
+                0 0 50px $color_red,
+                0 0 200px $color_red;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
 
 
 // -----> BLUE
@@ -215,24 +275,28 @@ a.shiny_white {
     padding: 25px 30px;
     margin: 10px 0;
     width: 185px;
-    color: white;
+    color: $ghost_white;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+    font-weight: bold;
     transition: 0.5s;
     letter-spacing: 4px;
     overflow: hidden;
     margin-right: 50px;
-    border: 1px solid white;
+    border: 2px solid $ghost_white;
     border-radius: 3px;
+    box-shadow: 0 0 5px white;
 }
 a.shiny_white:hover {
-    background: white;
+    transition: 0.5s;
+    background: $dark_orange;
+    border: 2px solid $dark_orange;
     color: #050801;
-    box-shadow: 0 0 5px white,
-                0 0 25px white,
-                0 0 50px white,
-                0 0 200px white;
+    box-shadow: 0 0 5px $dark_orange,
+                0 0 25px $dark_orange,
+                0 0 50px $dark_orange,
+                0 0 200px $dark_orange;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
@@ -288,11 +352,12 @@ a.shiny_yellow:hover {
   display: flex;
   justify-content: center;
   box-shadow: 3px 3px 5px black;
-  top: 0px;
-  position: sticky;
+  // top: 0px;
+  // position: sticky;
   width: 100vw;
   z-index: 9999;
-  background: #333;
+  background: $turquoise;
+
   }
 
   .shiny {
