@@ -1,10 +1,4 @@
-$color_blue: #0aaab3;
-$color_red: #FF6377;
-$color_green: #5EA10A;
-$color_yellow: #b7bf22;
-$turquoise: #40E0D0;
-$dark_orange: #FF8C00;
-$ghost_white: #F8F8FF;
+@import "colors";
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -279,24 +273,20 @@ a.shiny_white {
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: bold;
     transition: 0.5s;
     letter-spacing: 4px;
     overflow: hidden;
     margin-right: 50px;
-    border: 2px solid $ghost_white;
+    border: 1px solid $ghost_white;
     border-radius: 3px;
-    box-shadow: 0 0 5px white;
 }
 a.shiny_white:hover {
-    transition: 0.5s;
-    background: $dark_orange;
-    border: 2px solid $dark_orange;
+    background: $ghost_white;
     color: #050801;
-    box-shadow: 0 0 5px $dark_orange,
-                0 0 25px $dark_orange,
-                0 0 50px $dark_orange,
-                0 0 200px $dark_orange;
+    box-shadow: 0 0 5px $ghost_white,
+                0 0 25px $ghost_white,
+                0 0 50px $ghost_white,
+                0 0 200px $ghost_white;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 

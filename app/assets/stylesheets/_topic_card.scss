@@ -1,7 +1,5 @@
 //@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
-$turquoise: #40E0D0;
-$dark_orange: #FF8C00;
-$ghost_white: #F8F8FF;
+@import "colors";
 
 .topic-card-container {
   display: flex;

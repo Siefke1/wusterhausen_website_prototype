@@ -10,7 +10,9 @@
         <div class="offer-card-heading">
           <h4><%= offer.title %></h4>
           <p><%= offer.user.email %> / <%= offer.full_address %></p>
-          <%= button_to "Klick!", offer_path(offer), class: "btn btn-dark" %>
+          <%= link_to offer_path(offer) do %>
+            <div class="offer-card-button"><h3>C L I C K</h3></div>
+          <% end %>
         </div>
       </div>
     <% else %>
