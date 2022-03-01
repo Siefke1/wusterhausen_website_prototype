@@ -1,19 +1,4 @@
-<div class="container">
-  <h1>inactive offers</h1>
-    <% @offers.where(status: "inactive").each do |offer| %>
-      <h2><%= link_to offer.title, offer_path(offer) %></h2>
-      <h2><%= link_to offer.status, toggle_status_offer_path(offer) %></h2>
-    <% end %>
-</div>
-
-
-
-<div class="container">
-  <h1>active offers</h1>
-  <% @offers.where(status: "active").each do |offer| %>
-  <h2><%= link_to offer.title, offer_path(offer) %></h2>
-  <h2><%= link_to offer.status, toggle_status_offer_path(offer) %></h2>
-<% end %>
-</div>
-
+<div class="admin">
+<%= render "activeOffers" %>
+<%= render "inactiveOffers" %>
 </div>
