@@ -1,0 +1,35 @@
+.offer {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.offer > img {
+  width: 100%;
+}
+.categories {
+  display:flex;
+  gap: 1rem;
+}
+.categories > p {
+  border: 1px;
+  border-radius: 20px;
+  border-style: solid;
+  padding: 5px;
+  font-size: 10px;
+}
+.box {
+  background-color: white;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+.address {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}

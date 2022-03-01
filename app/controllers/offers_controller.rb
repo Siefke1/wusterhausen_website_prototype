@@ -32,6 +32,7 @@ class OffersController < ApplicationController
     # @offer.category_offers.build
 
     if @offer.save
+      UserMailer.with(user: @user).welcome.deliver_now
       redirect_to root_path
 
      else

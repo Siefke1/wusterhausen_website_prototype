@@ -1,0 +1,44 @@
+<div class="adminOffer">
+<h1>Aktive Angebote</h1>
+<div class="cardList">
+    <div class="cardOffer header one">
+      <h4  class="cardTitle header">
+        Titel
+      </h4>
+      <h4 class="header">
+        Anbieter
+      </h4>
+      <h4 class="header">
+        Datum
+      </h4>
+      <div class="buttons header">
+        <h4>
+          Deaktivieren
+        </h4>
+        <h4>
+          Löschen
+        </h4>
+      </div>
+    </div>
+    <% @offers.where(status: "active").each do |offer| %>
+    <div class="cardOffer">
+    <strong  class="cardTitle">
+      <%= link_to offer.title, offer_path(offer), class: "cardTitle" %>
+    </strong>
+    <div class="">
+      <%= offer.user.email %>
+    </div>
+    <div class="">
+     <%= offer.created_at.to_date.strftime("%d-%m-%Y") %>
+    </div>
+    <div class="buttons">
+      <%= link_to "Deaktivieren", toggle_status_offer_path(offer), class: "btn btn-info" %>
+      <%= link_to "Löschen", offer_path(offer),class: "btn btn-info", data: {
+        turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
