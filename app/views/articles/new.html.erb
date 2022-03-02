@@ -2,7 +2,14 @@
   <%= simple_form_for @article do |f| %>
     <%= f.input :title, class: "article-new-title" %>
     <%= f.input :content, as: :text, class: "article-new-text" %>
-    <%= f.input :photo, as: :file, label: false %>
+    <div data-controller="preview">
+      <%= f.label "Add a Picture" %>
+      <%= f.input :photo, as: :file, input_html: { id:'inpFile'}, data: { action:"change->preview#connect"} %>
+       <div class="image-preview" id="image-preview">
+          <img src="" alt="image preview" class="image-preview__image">
+       <span class="image-preview__default-text">Image Preview</span>
+        </div>
+    </div>
     <%= f.submit %>
   <% end %>
 </div>
