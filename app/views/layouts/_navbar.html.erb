@@ -1,14 +1,17 @@
 <%# NAVBAR SCREEN %>
 
 <div class="navbar">
-  <a class="shiny shiny_white" href="/#">Home</a>
+  <a class="shiny shiny_red" href="/#">Home</a>
   <% if user_signed_in? %>
-   <% if current_user.role == "institution" || current_user.role == "admin" %>
-      <a class="shiny shiny_white " href="/profil">Verwalten</a>
+    <% if current_user.role == "institution" %>
+      <a class="shiny shiny_blue " href="/profil">Verwalten</a>
+    <% end %>
+    <% if current_user.role == "admin" %>
+      <a class="shiny shiny_blue " href="/admin">Verwalten</a>
     <% end %>
   <% end %>
-  <a class="shiny shiny_white" href="/topics">Entdecken</a>
-  <a class="shiny shiny_white " href="/search">Suche</a>
+  <a class="shiny shiny_green" href="/topics">Entdecken</a>
+  <a class="shiny shiny_yellow " href="/search">Suche</a>
   <a class="shiny shiny_white" href="/articles">Blog</a>
   <% if user_signed_in? %>
     <%= button_to "bye", destroy_user_session_path, class: "shiny shiny_black", method: :delete %>
@@ -35,20 +38,25 @@
   <nav>
     <ul class="nav-ul">
       <li>
-        <a class="shiny_white nav-li" href="/#">Home</a>
+        <a class="shiny_red nav-li" href="/#">Home</a>
       </li>
       <% if user_signed_in? %>
-      <% if current_user.role == "institution" || current_user.role == "admin" %>
+        <% if current_user.role == "institution" %>
           <li>
-            <a class="shiny_white nav-li" href="/profil">Verwalten</a>
+            <a class="shiny_blue nav-li" href="/profil">Verwalten</a>
+          </li>
+        <% end %>
+          <% if current_user.role == "admin" %>
+          <li>
+            <a class="shiny_blue nav-li" href="/admin">Verwalten</a>
           </li>
         <% end %>
       <% end %>
       <li>
-        <a class="shiny_white nav-li" href="/topics">Entdecken</a>
+        <a class="shiny_green nav-li" href="/topics">Entdecken</a>
       </li>
       <li>
-        <a class="shiny_white nav-li" href="/search">Suche</a>
+        <a class="shiny_yellow nav-li" href="/search">Suche</a>
       </li>
       <li>
         <a class="shiny shiny_white" href="/articles">Blog</a>

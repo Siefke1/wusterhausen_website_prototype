@@ -8,7 +8,7 @@ html {
 
 body {
   // background: rgb(78, 110, 110);
-  background: $ghost_white;
+  background: $primary_color;
 }
 
 
@@ -39,7 +39,7 @@ body {
   width: 60vw;
   h3 {
     text-shadow: 1px 1px 2px black;
-    color: $turquoise;
+    color: $headings_color;
   }
 }
 
@@ -63,12 +63,12 @@ body {
 .sprechblase_unten {
   position: relative;
   padding: 1rem;
-  border: 4px solid $turquoise;
+  border: 4px solid $secondary_color;
   margin:0 auto;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  background: none;
+  background: $secondary_color;
   margin-bottom: 30px;
   width: 60vw;
   opacity: .85;
@@ -81,8 +81,8 @@ body {
   height: 0;
   left: 30px;
   top: 100%;
-  border: 20px solid $turquoise;
-  border-color: $turquoise transparent transparent $turquoise;
+  border: 20px solid $secondary_color;
+  border-color: $secondary_color transparent transparent $secondary_color;
 }
 
 .sprechblase_unten:after {
@@ -92,20 +92,20 @@ body {
   height: 0;
   left: 34px;
   top: 100%;
-  border: 15px solid $turquoise;
-  border-color: $ghost_white transparent transparent $ghost_white;
+  border: 15px solid $secondary_color;
+  border-color: $secondary_color transparent transparent $secondary_color;
 }
 
 .sprechblase_oben {
   position: relative;
   padding: 1rem;
-  border: 4px solid $turquoise;
+  border: 4px solid $secondary_color;
   margin:0 auto;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
   text-align: start;
-  background: $ghost_white;
+  background: $secondary_color;
   opacity: .85;
 }
 
@@ -118,7 +118,7 @@ body {
   top: -17px;
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
-  border-bottom: 17px solid $turquoise;
+  border-bottom: 17px solid $secondary_color;
 }
 
 .sprechblase_oben:after {
@@ -130,7 +130,7 @@ body {
   top: -10px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 10px solid $turquoise;
+  border-bottom: 10px solid $secondary_color;
 }
 
 
