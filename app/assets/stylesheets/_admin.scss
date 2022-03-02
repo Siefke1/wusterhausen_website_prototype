@@ -1,5 +1,21 @@
+@import "colors";
+
 .adminOffer {
   margin: 20px;
+  h1 {
+    color: $headings_color;
+    text-shadow: 2px 2px 3px black;
+  }
+}
+
+.admin-search-bar {
+  display: flex;
+  position: relative;
+  form {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+  }
 }
 
 .cardList {
@@ -10,6 +26,11 @@
   overflow: scroll;
   max-height: 250px;
   height:100% ;
+  h4 {
+    color: $text_color;
+    text-shadow: 1px 1px 2px $headings_color;
+    padding: 10px;
+  }
 }
 .cardOffer {
   display: flex;
@@ -32,7 +53,6 @@
 }
 .cardTitle {
   text-decoration: none;
-  color: black;
 }
 .header {
   border: 0px;
@@ -40,7 +60,7 @@
   padding-bottom: 0px;
   position: sticky;
   top: 0px;
-  background-color: $ghost_white;
+  background-color: $secondary_color;
   font-weight:500 ;
 }
 .one {
@@ -63,4 +83,15 @@
   .buttons {
     flex-direction: column;
   }
+
+  .admin-search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: static;
+  form {
+    position: static;
+
+  }
+}
 }

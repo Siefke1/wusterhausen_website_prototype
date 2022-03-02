@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'articles/show'
-  get 'articles/index'
-  get 'articles/new'
-  get 'articles/edit'
 
   # custom devise_turbo setup
   # devise_scope :user do

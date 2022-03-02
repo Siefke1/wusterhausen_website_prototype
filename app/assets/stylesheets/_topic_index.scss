@@ -1,10 +1,12 @@
+@import "colors";
+
 .topics-info-text {
   width: 60vw;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
   h3 {
-    color: #40E0D0;
+    color: $headings_color;
     text-shadow: 1px 1px 2px black;
   }
 }
