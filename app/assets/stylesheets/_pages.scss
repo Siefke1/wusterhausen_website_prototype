@@ -16,13 +16,17 @@ body {
   font-family: raleway;
 }
 
+.alert {
+  margin-bottom: 0 !important;
+}
+
 .puffer {
   margin-top: 20vh;
 }
 
 .container {
-  margin-top: 20vh;
-  margin-bottom: 20vh;
+  // margin-top: 20vh;
+  // margin-bottom: 20vh;
 }
 
 #back-button {
