@@ -92,10 +92,48 @@
     color: white;
   }
 }
+.liste {
 
+  max-width: 200px;
+  height: 300px;
+  width: 100%;
+  justify-content: space-between;
+  border: 2px;
+  border-style:solid ;
+  border-color: $turquoise;
+}
+.text {
+  text-decoration: none;
+  color: black;
+  margin: 10px 0 10px 0;
+
+}
+.liste > h2 {
+  font-size: large;
+  font-weight: bold;
+
+}
+.angebote {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  justify-content: space-between;
+}
+.liste > img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  justify-self: center;
+
+
+}
 @media screen and (min-width: 800px) {
   .articles-show-container {
   width: 80%;
 
+  .angebote {
+    flex-direction: column;
+  }
 }
 }

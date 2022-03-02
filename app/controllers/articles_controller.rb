@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
 
 
   def show
+    @user = User.find(@article.user_id)
+    @offers = Offer.find(@user.offer_ids.sample(3))
   end
 
   def index

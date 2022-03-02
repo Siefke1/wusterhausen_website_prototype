@@ -32,7 +32,8 @@ class OffersController < ApplicationController
     # @offer.category_offers.build
 
     if @offer.save
-      UserMailer.with(user: @user).welcome.deliver_now
+      # UserMailer.with(user: @user).welcome.deliver_now
+      EmailJob.set(wait: 1.minute).perform_later(@user.id)
       redirect_to root_path
 
      else

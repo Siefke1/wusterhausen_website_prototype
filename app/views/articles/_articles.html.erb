@@ -1,15 +1,21 @@
+<div class="adminOffer">
+<h1>Blog Posts</h1>
+<%= link_to "Neuer Post", new_article_path, class: "btn btn-dark" %>
 <div class="cardList">
     <div class="cardOffer header one">
       <h4  class="cardTitle header">
         Titel
       </h4>
       <h4 class="header">
-        Author
+        Anbieter
       </h4>
       <h4 class="header">
         Datum
       </h4>
-      <div class="buttons header">
+      <div class="buttons header" style="gap:1rem">
+        <h4>
+          Bearbeiten
+        </h4>
         <h4>
           Löschen
         </h4>
@@ -27,14 +33,15 @@
      <%= article.created_at.to_date.strftime("%d-%m-%Y") %>
     </div>
     <div class="buttons">
-      <%= link_to "Löschen", article_path(article),class: "btn btn-info", data: {
-        turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %>
+      <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
+      <%= link_to "Bearbeiten", edit_article_path(article) %>
+      <%= link_to "Löschen", delete_article_path(article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+        <% end %>
     </div>
   </div>
   <% end %>
 </div>
-<!--
-<%= render "articles" %>
--->
+</div>
