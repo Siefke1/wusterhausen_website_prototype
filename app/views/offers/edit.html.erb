@@ -1,8 +1,7 @@
-<h1>Offers#edit</h1>
-<p>Find me in app/views/offers/edit.html.erb</p>
 
-<div class="container">
-  <div class="offer_form">
+<div class="container mx-auto mt-5">
+  <h1 class="text-center ">Angebot bearbeiten</h1>
+  <div class="offer_form mt-5">
   <%= simple_form_for @offer do |f| %>
     <%= f.input :title, placeholder: 'title' %>
     <%= f.input :description, placeholder: 'description' %>

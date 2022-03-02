@@ -90,10 +90,43 @@
     color: white;
   }
 }
+.liste {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  width: 100%;
+  flex-basis: 1;
+  gap: 2rem;
+  justify-content: space-between;
+  border: 2px;
+  border-style:solid ;
+  border-radius: 10px;
 
+}
+.liste > h2 {
+  font-size: medium;
+}
+.angebote {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  justify-content: space-around;
+}
+.liste > img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  justify-self: center;
+  border-radius: 10px;
+  border-top: 2px;
+
+}
 @media screen and (min-width: 800px) {
   .articles-show-container {
   width: 80%;
 
+  .angebote {
+    flex-direction: column;
+  }
 }
 }

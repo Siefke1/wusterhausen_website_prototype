@@ -4,7 +4,7 @@
 
 .cardList {
   border: 2px;
-  border-color: aliceblue;
+  border-color: rgb(7, 10, 14);
   border-style: solid;
   border-radius: 5px;
   overflow: scroll;
@@ -16,7 +16,7 @@
   border: 2px;
   border-style: solid;
   margin: 5px;
-  padding: 3px;
+  padding: 10px;
   align-items: center;
 }
 .cardOffer > * {
@@ -25,7 +25,10 @@
 .cardOffer > .buttons {
   display: flex;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 2rem;
+}
+.cardOffer > .buttons > h4 {
+  margin-bottom: 0;
 }
 .cardTitle {
   text-decoration: none;
@@ -37,7 +40,7 @@
   padding-bottom: 0px;
   position: sticky;
   top: 0px;
-  background-color: rgb(78, 110, 110);
+  background-color: $ghost_white;
   font-weight:500 ;
 }
 .one {
@@ -45,7 +48,7 @@
   border-color: aliceblue;
   border-style: solid;
   margin: 0px;
-  padding: 5px;
+  padding: 10px;
 }
 .admin{
   margin-bottom: 100px;
