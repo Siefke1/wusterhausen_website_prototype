@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for @category do |f| %>
+    <%= f.label "Wie soll die Kategorie heißen?" %>
+    <%= f.input :title, label: false %>
+    <%= f.label "Welchem Thema soll diese Kategorie angehören?" %>
+    <%= f.association :topic, collection: @topics, label: false %>
+    <%= f.label "Bitte fügen Sie ein Hintergrundbild hinzu." %>
+    <%= f.input :photo, as: :file, label: false %>
+    <%= f.submit %>
+  <% end %>
+</div>

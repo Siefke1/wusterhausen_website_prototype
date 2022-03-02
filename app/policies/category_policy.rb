@@ -12,4 +12,12 @@ class CategoryPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def new?
+    user.role == "admin"
+  end
+
+  def create?
+    new?
+  end
 end
