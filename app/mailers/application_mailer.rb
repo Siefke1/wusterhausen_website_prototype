@@ -1,4 +1,6 @@
-class ApplicationMailer < ActionMailer::Base
-  default from: "dthgespenst@gmx.de"
-  layout "mailer"
+module Mailers
+  class ApplicationMailer < ActionMailer::Base
+    default from: "dthgespenst@gmx.de"
+    layout "mailer"
+  end
 end
