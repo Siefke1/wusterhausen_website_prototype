@@ -1,6 +1,6 @@
 <div class="offer">
   <% if @article.photo.attached? %>
-      <%= cl_image_tag @article.photo.key, width: 400, height: 300, crop: :fill %>
+      <%= cl_image_tag @article.photo.key, width: 400, height: 300, crop: :fill, class:"pt-200" %>
   <% end %>
   <div class="title box">
     <h1>
@@ -14,15 +14,17 @@
     <h2>Angbote des Verfassers</h2>
   <div class="angebote">
     <% @offers.each do |offer| %>
+    <%= link_to offer_path(offer), class:"text" do %>
       <div class="liste">
       <% if offer.photo.attached? %>
         <%= cl_image_tag offer.photo.key, width: 400, height: 300, crop: :fill %>
        <% end %>
       <h2><%= offer.title %></h2>
       <p>
-        <%= offer.description %>
+        <%= offer.description.truncate(50) %>
       </p>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>

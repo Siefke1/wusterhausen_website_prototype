@@ -91,34 +91,39 @@
   }
 }
 .liste {
-  display: flex;
-  flex-direction: column;
+
   max-width: 200px;
+  height: 300px;
   width: 100%;
-  flex-basis: 1;
-  gap: 2rem;
   justify-content: space-between;
   border: 2px;
   border-style:solid ;
-  border-radius: 10px;
+  border-color: $turquoise;
+}
+.text {
+  text-decoration: none;
+  color: black;
+  margin: 10px 0 10px 0;
 
 }
 .liste > h2 {
-  font-size: medium;
+  font-size: large;
+  font-weight: bold;
+
 }
 .angebote {
   display: flex;
   width: 100%;
   gap: 2rem;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .liste > img {
   width: 100%;
   height: auto;
   margin: 0 auto;
+  margin-bottom: 10px;
   justify-self: center;
-  border-radius: 10px;
-  border-top: 2px;
+
 
 }
 @media screen and (min-width: 800px) {
