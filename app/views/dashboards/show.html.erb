@@ -1,10 +1,14 @@
-<% if current_user.role == "institution" || current_user.role == "admin" %>
-  <%= link_to "CREATE A NEW OFFER", choose_topic_path %>
-  <div class="admin">
-    <%= render "activeOffers" %>
-    <%= render "inactiveOffers" %>
-  </div>
-  <div class="puffer"></div>
-<% else %>
-  <h1 style="text-align: center; margin-top: 50px;">This area is not for you...</h1>
-<% end %>
+<div class="container">
+  <% if current_user.role == "institution" || current_user.role == "admin" %>
+    <div class="admin">
+      <%= render "activeOffers" %>
+      <%= render "inactiveOffers" %>
+    </div>
+      <div class="new-category-link d-flex justify-flex-start">
+
+        <%= link_to "Neues Angebot", choose_topic_path, class: "shiny_green" %>
+      </div>
+  <% else %>
+    <h1 style="text-align: center; margin-top: 50px;">This area is not for you...</h1>
+  <% end %>
+</div>

@@ -14,47 +14,29 @@
 }
 
 
+
+
 // CSS concerning articles#index
-.articles-table {
-  border: 3px solid #333;
-}
 
-.articles-table-container {
-  display: flex;
-  justify-content: center;
+.cardListArticles {
+  border: 2px;
+  border-color: aliceblue;
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+  overflow: scroll;
+  max-height: 550px;
+  height:100% ;
   margin-top: 50px;
-  font-family: raleway;
-  padding: 10px;
-  a {
-    color: $secondary_color;
-  }
-
-  td {
-    color: $highlight_color;
+  h4 {
+    color: $text_color;
+    text-shadow: 1px 1px 2px $headings_color;
+    padding: 10px;
   }
 }
 
-.articles-table-data {
-  padding: 10px;
-}
-
-.articles-table-heading {
-  padding: 10px;
-}
-
-.delete-article-btn {
-  all: unset;
-  text-align: center;
-  width: 50px;
-  background-color: aqua;
-}
-
-@media screen and (min-width: 800px) {
-  .articles-table-container {
-    table {
-      width: 800px;
-    }
-  }
+.new-article-link {
+  margin-top: 20px;
 }
 
 

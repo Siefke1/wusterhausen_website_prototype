@@ -1,8 +1,14 @@
+<div class="container">
 <div class="admin">
   <% if current_user.role == "admin" %>
     <%= render "activeOffers" %>
     <%= render "inactiveOffers" %>
+    <div class="new-category-link d-flex justify-flex-start">
+      <%= link_to "Neue Kategorie", new_category_path, class: "shiny_yellow" %>
+      <%= link_to "Neues Angebot", choose_topic_path, class: "shiny_green" %>
+    </div>
   <% else %>
     <h1 style="text-align: center; margin-top: 50px;">This area is not for you...</h1>
   <% end %>
+</div>
 </div>

@@ -1,7 +1,7 @@
 @import "colors";
 
 .adminOffer {
-  margin: 20px;
+  margin-top: 20px;
   h1 {
     color: $headings_color;
     text-shadow: 2px 2px 3px black;
@@ -13,7 +13,7 @@
   position: relative;
   form {
     position: absolute;
-    right: 20px;
+    right: 15px;
     top: 0px;
   }
 }
@@ -69,7 +69,7 @@
   padding: 5px;
 }
 .admin{
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 600px) {
   .cardOffer {
@@ -87,6 +87,7 @@
   flex-direction: column;
   justify-content: center;
   position: static;
+  margin-bottom: 10px;
   form {
     position: static;
 
