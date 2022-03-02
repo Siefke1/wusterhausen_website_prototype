@@ -1,6 +1,4 @@
-$turquoise: #40E0D0;
-$dark_orange: #FF8C00;
-$ghost_white: #F8F8FF;
+@import "colors";
 
 // * {
 //   border: 1px solid black;
@@ -12,7 +10,7 @@ $ghost_white: #F8F8FF;
   box-shadow: 3px 3px 3px black;
   border: 1px solid black;
   border-radius: 3px;
-  background: $ghost_white;
+  background: $secondary_color;
 }
 
 .offer-card-heading {
@@ -26,7 +24,7 @@ $ghost_white: #F8F8FF;
   }
 
   p {
-    color: $ghost_white;
+    color: $text_color;
     position: absolute;
     top: 120px;
     left: 30px;
@@ -55,6 +53,7 @@ $ghost_white: #F8F8FF;
 .offer-card-text {
   p {
     padding: 30px;
+    color: $text_color;
   }
 }
 
@@ -80,12 +79,12 @@ $ghost_white: #F8F8FF;
 }
 
 .offer-card-button:hover {
-    background: $dark_orange;
+    background: $highlight_color;
     transition: 0.5s;
-    box-shadow: 0 0 5px $dark_orange,
-                0 0 25px $dark_orange,
-                0 0 50px $dark_orange,
-                0 0 200px $dark_orange;
+    box-shadow: 0 0 5px $highlight_color,
+                0 0 25px $highlight_color,
+                0 0 50px $highlight_color,
+                0 0 200px $highlight_color;
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
     h3 {
       color: black;
@@ -106,9 +105,10 @@ $ghost_white: #F8F8FF;
 
   .offer-card-container {
     flex: 20%;
-    flex-basis: 1;
-    min-width: 300px;
-    max-width: 100%x;
+    flex-basis: 400px;
+    flex-grow: 0;
+    // min-width: 300px;
+    // max-width: 100%x;
     margin: 0;
   }
 }

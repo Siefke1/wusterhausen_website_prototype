@@ -1,3 +1,5 @@
+@import "colors";
+
 // CSS concerning articles#new
 .article_title {
   margin-top: 20px;
@@ -24,11 +26,11 @@
   font-family: raleway;
   padding: 10px;
   a {
-    color: white;
+    color: $secondary_color;
   }
 
   td {
-    color: white;
+    color: $highlight_color;
   }
 }
 

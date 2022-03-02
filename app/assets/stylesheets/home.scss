@@ -1,3 +1,5 @@
+@import "colors";
+
 .container-about {
   margin-top: 20vh;
 }
@@ -17,16 +19,19 @@
   position: absolute;
   top: 140px;
   h1 {
-    color: #a7f0f4;
+    color: $headings_color;
     margin-right: 10px;
     margin-left: 10px;
     font-weight: bolder;
+    text-shadow: 2px 2px 3px black;
   }
 
   p {
-    color: white;
+    color: $text_color;
     margin-right: 10px;
     margin-left: 12px;
+    text-shadow: 2px 2px 3px black;
+
   }
 
   .about-link {
