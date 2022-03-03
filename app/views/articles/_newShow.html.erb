@@ -12,19 +12,21 @@
     <%=  @article.content %>
   </div>
     <h2>Angbote des Verfassers</h2>
-  <div class="angebote">
+  <div class="liste">
     <% @offers.each do |offer| %>
-    <%= link_to offer_path(offer), class:"text" do %>
-      <div class="liste">
-      <% if offer.photo.attached? %>
-        <%= cl_image_tag offer.photo.key, width: 400, height: 300, crop: :fill %>
-       <% end %>
-      <h2><%= offer.title %></h2>
-      <p>
-        <%= offer.description.truncate(50) %>
-      </p>
-    </div>
-    <% end %>
+      <%= link_to offer_path(offer), class:"text" do %>
+        <div class="angebot">
+          <% if offer.photo.attached? %>
+            <%= cl_image_tag offer.photo.key, width: 400, height: 300, crop: :fill %>
+          <% end %>
+          <div class="text">
+            <h2><%= offer.title %></h2>
+            <p>
+              <%= offer.description.truncate(50) %>
+            </p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
