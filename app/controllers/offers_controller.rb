@@ -13,6 +13,8 @@ class OffersController < ApplicationController
   end
 
   def show
+    @user = User.find(@offer.user_id)
+    @articles = Article.find(@user.article_ids.sample(3))
   end
 
   def new
