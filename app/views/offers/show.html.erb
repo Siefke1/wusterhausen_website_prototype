@@ -1,56 +1,79 @@
 <div class="offer">
-<% if @offer.photo.attached? %>
-    <%= cl_image_tag @offer.photo.key, width: 400, height: 300, crop: :fill %>
- <% end %>
- <div class="title box">
- <h1>
-  <%= @offer.title %>
- </h1>
- <div class="flex">
-    <div class="categories">
-    <% @offer.categories.each do |category|%>
-    <p><%= category.title %></p>
-    <% end %>
+  <% if @offer.photo.attached? %>
+    <div class="image" style="background-image: url('<%= cl_image_path @offer.photo.key %>')"></div>
+  <% else %>
+    <div class="image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')"></div>
+  <% end %>
+  <div class="title box">
+    <h1>
+      <%= @offer.title %>
+    </h1>
+  <div class="flex">
+      <div class="categories">
+        <% @offer.categories.each do |category|%>
+          <p><%= category.title %></p>
+        <% end %>
+      </div>
+      <div>
+        <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
+          <%= link_to "Destroy", offer_path(@offer), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+            },
+            class:"btn btn-info" %>
+          <%= link_to "Edit", edit_offer_path(@offer), data: {
+            turbo_method: :edit
+            },
+            class:"btn btn-info" %>
+        <% end %>
+      </div>
     </div>
-    <div>
-      <% if user_signed_in? && (current_user.role == "admin" || current_user.role == "institution") %>
-        <%= link_to "Destroy", offer_path(@offer), data: {
-          turbo_method: :delete,
-          turbo_confirm: "Are you sure?"
-          },
-          class:"btn btn-info" %>
-        <%= link_to "Edit", edit_offer_path(@offer), data: {
-          turbo_method: :edit
-          },
-          class:"btn btn-info" %>
+    <%= @offer.url %>
+  </div>
+  <div class="description box">
+    <%= @offer.description %>
+  </div>
+  <div class="about_us box">
+    <h5>Über uns</h5>
+    <%= @offer.about_us %>
+  </div>
+  <div class="box">
+    <h5>Addresse</h5>
+    <div class="address">
+      <div>
+        <h6>Anschrift</h6>
+        <%= @offer.address %>
+        <%= @offer.postcode %>
+      </div>
+      <div>
+        <h6>Email</h6>
+        <%= @offer.email %>
+      </div>
+      <div>
+        <h6>Telefon</h6>
+        <%= @offer.phone %>
+      </div>
+    </div>
+  </div>
+  <div class="links">
+    <h2>Blogposts des Anbieters</h2>
+  <div class="liste">
+    <% @articles.each do |article| %>
+      <%= link_to article_path(article), class:"text" do %>
+        <div class="angebot">
+          <% if article.photo.attached? %>
+            <%= cl_image_tag article.photo.key, width: 400, height: 300, crop: :fill %>
+          <% end %>
+          <div class="text">
+            <h2><%= article.title %></h2>
+            <p>
+              <%= article.content.truncate(50) %>
+            </p>
+          </div>
+        </div>
       <% end %>
-    </div>
-</div>
-<%= @offer.url %>
-</div>
-<div class="description box">
-  <%= @offer.description %>
-</div>
-<div class="about_us box">
-  <h5>Über uns</h5>
-  <%= @offer.about_us %>
-</div>
-<div class="box">
-<h5>Addresse</h5>
-<div class="address">
-  <div>
-    <h6>Anschrift</h6>
-    <%= @offer.address %>
-    <%= @offer.postcode %>
+    <% end %>
   </div>
-  <div>
-  <h6>Email</h6>
-  <%= @offer.email %>
   </div>
-  <div>
-  <h6>Telefon</h6>
-  <%= @offer.phone %>
-  </div>
-</div>
-</div>
+
 </div>

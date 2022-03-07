@@ -13,6 +13,8 @@ class OffersController < ApplicationController
   end
 
   def show
+    @user = User.find(@offer.user_id)
+    @articles = Article.find(@user.article_ids.sample(3))
   end
 
   def new
@@ -33,7 +35,7 @@ class OffersController < ApplicationController
 
     if @offer.save
       # UserMailer.with(user: @user).welcome.deliver_now
-      EmailJob.set(wait: 1.minute).perform_later(@user.id)
+      EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
       redirect_to root_path
 
      else
