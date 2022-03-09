@@ -30,6 +30,6 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == @article.user || user.role == "admin"
+    user.role == "institution" || user.role == "admin"
   end
 end

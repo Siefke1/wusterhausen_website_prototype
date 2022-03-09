@@ -22,7 +22,7 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == @offer.user || user.role == "admin"
+    user.role == "institution" || user.role == "admin"
   end
 
   def update?
