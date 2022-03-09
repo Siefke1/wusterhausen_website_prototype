@@ -18,6 +18,7 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @user = current_user
+    @offer.user = @user
     @topic = Topic.find(params[:topic_id])
     @categories = @topic.categories
     @offer.category_offers.build
@@ -99,6 +100,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, :photo, category_ids: [])
+    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, :phone, :url, :photo, category_ids: [])
   end
 end

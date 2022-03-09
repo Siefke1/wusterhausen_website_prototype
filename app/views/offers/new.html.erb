@@ -1,28 +1,30 @@
-<div class="container">
+
   <div class="offer_form">
-  <%= simple_form_for @offer do |f| %>
-    <%= f.input :title, placeholder: 'title' %>
-    <%= f.input :description, placeholder: 'description' %>
-    <%= f.input :about_us, placeholder: 'about_us' %>
-    <%= f.input :email, placeholder: 'email' %>
-    <%= f.input :phone, placeholder: 'phone' %>
-    <%= f.input :address, placeholder: 'address' %>
-    <%= f.input :town, placeholder: 'ort' %>
-    <%= f.input :postcode, placeholder: 'postcode' %>
-      <br>
-      <%= f.label "Wähle eine oder mehrere Kategorien" %>
-      <br><br>
-      <% for category in @categories %>
-        <%= check_box_tag "offer[category_ids][]", category.id, @offer.categories.include?(category) %>
-        <%= category.title %><br />
-      <% end %>
-      <br>
-    <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>
-    <%#= f.input :category_ids, as: :check_boxes, collection: @categories, label_method: :title, value_method: :id %>
-    <%# f.association :topics, as: :check_boxes, input_html: { multiple: true }, include_hidden: :false, input_html: { class:"tag-selector-offer" }, :item_wrapper_class => 'category-wrapper' %>
-    <%= f.label "Add a Picture" %>
-    <%= f.input :photo, as: :file, label: false %>
-    <%= f.submit class: "btn btn-dark" %>
+  <%= simple_form_for @offer, defaults: { input_html: { class: 'offer-new-form-field' } } do |f| %>
+    <%= f.input :title, placeholder: 'z.B. Fußball AG', label: "Wie ist der Titel des Angebots?", required: true %>
+    <%= f.label "Beschreibung", required: true %>
+    <%= f.input :description, label: false, placeholder: "Bitte fügen Sie eine Beschreibung des Angebots von mindestens 100 Zeichen hinzu.", input_html: { class: 'offer-new-textfield' }, required: true %>
+    <%= f.label "About us", required: true %>
+    <%= f.input :about_us, label: false, placeholder: "Bite fügen Sie eine Beschreibung der Organisation von mindestens 100 Zeichen hinzu.", input_html: { class: 'offer-new-textfield' }, required: true %>
+    <%= f.input :email, placeholder: "#{@offer.user.email}", label: "E-Mail Adresse", required: true %>
+    <%= f.input :phone, placeholder: '+49 ...', label: "Telefonnummer", required: true %>
+    <%= f.input :postcode, label: "Postleitzahl", required: true %>
+    <%= f.label "Straße und Hausnummer" %>
+    <%= f.input :address, placeholder: 'Am Markt 5 ...', label: false %>
+    <%= f.label "Ort" %>
+    <%= f.input :town, placeholder: 'Wusterhausen ...', label: false %>
+    <%= f.label "Link zu Ihrer Website" %>
+    <%= f.input :url, placeholder: 'www.beispiel.de', label: false %>
+    <br>
+    <%= f.label "Wähle eine oder mehrere Kategorien", required: true %>
+    <br><br>
+    <% for category in @categories %>
+      <%= check_box_tag "offer[category_ids][]", category.id, @offer.categories.include?(category), input_html: { class: 'offer-new-checkbox' }, required: true %>
+      <%= category.title %><br>
+    <% end %>
+    <br>
+
+    <%= f.input :photo, as: :file, label: "Fügen Sie ein Bild als Banner hinzu!" %>
+    <%= f.submit "Erstellen", class: "btn btn-dark" %>
   <% end %>
   </div>
-</div>
