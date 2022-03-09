@@ -24,7 +24,6 @@ class OffersController < ApplicationController
     @categories = @topic.categories
     @offer.category_offers.build
     authorize @offer
-
   end
 
   def create
