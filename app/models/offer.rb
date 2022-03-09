@@ -18,8 +18,8 @@ class Offer < ApplicationRecord
   # Validations
   validates :title, :description, :about_us, :email, :postcode, :phone, :url, presence: true
   validates :postcode, length: { is: 5 }
-  validates :description, { minimum: 100 }
-  validates :about_us, { minimum: 100 }
+  validates :description, length: { minimum: 100 }
+  validates :about_us, length: { minimum: 100 }
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
   validates :title, uniqueness: true
 

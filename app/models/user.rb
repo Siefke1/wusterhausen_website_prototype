@@ -12,4 +12,5 @@ class User < ApplicationRecord
   #Validations
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
   validates :name, presence: true, uniqueness: true
+  validates :password, length: { minimum: 8 }
 end

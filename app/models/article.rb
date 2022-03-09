@@ -7,5 +7,5 @@ class Article < ApplicationRecord
   # Validations
   validates :content, :title, presence: true
   validates :title, uniqueness: true
-  validates :content, { minimum: 200 }
+  validates :content, length: { minimum: 200 }
 end

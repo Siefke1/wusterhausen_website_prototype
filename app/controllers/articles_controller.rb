@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  # CRUD
 
   def show
     @user = User.find(@article.user_id)
@@ -13,6 +14,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    authorize @article
   end
 
   def create
@@ -23,9 +25,11 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+    authorize @article
   end
 
   def edit
+    authorize @article
   end
 
   def update
@@ -35,6 +39,7 @@ class ArticlesController < ApplicationController
     else
       render :edit
     end
+    authorize @article
   end
 
   def destroy

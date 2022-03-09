@@ -26,6 +26,7 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
+    authorize @category
   end
 
   private

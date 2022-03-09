@@ -2,14 +2,12 @@ class OffersController < ApplicationController
   # before_action :set_offers_index, only: :index
   before_action :set_offer, only: [:show, :edit, :destroy, :toggle_status]
 
+  # CRUD
+
   def index
     @category = Category.find(params[:topic_id])
     @offers = @category.offers
 
-  end
-
-  def choose_topic
-    @topics = Topic.all
   end
 
   def show
@@ -24,7 +22,6 @@ class OffersController < ApplicationController
     @categories = @topic.categories
     @offer.category_offers.build
     authorize @offer
-
   end
 
   def create
@@ -62,6 +59,7 @@ class OffersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+    authorize @offer
   end
 
   def destroy
@@ -72,20 +70,15 @@ class OffersController < ApplicationController
       redirect_to profil_path, status: :see_other
       end
     end
+    authorize @offer
   end
 
-  def authorize_offer
-    @offer.status = 1
-    @offer.save
-    render "show"
+  # get topics for offer create
+  def choose_topic
+    @topics = Topic.all
   end
 
-  def close_offer
-    @offer.status = 2
-    @offer.save
-    render "show"
-  end
-
+  # activate/deactivate offers
   def toggle_status
     if @offer.active?
       @offer.inactive!

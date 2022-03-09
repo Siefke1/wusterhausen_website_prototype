@@ -1,4 +1,4 @@
-class OfferPolicy < ApplicationPolicy
+class ArticlePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -22,14 +22,14 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == @offer.user || user.role == "admin"
+    new?
   end
 
   def update?
-    edit?
+    new?
   end
 
   def destroy?
-    edit?
+    user == @article.user || user.role == "admin"
   end
 end
