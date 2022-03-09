@@ -7,7 +7,6 @@ class OffersController < ApplicationController
   def index
     @category = Category.find(params[:topic_id])
     @offers = @category.offers
-
   end
 
   def show
@@ -35,16 +34,13 @@ class OffersController < ApplicationController
       # UserMailer.with(user: @user).welcome.deliver_now
       EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
       redirect_to root_path
-
      else
-
       render "new"
     end
     authorize @offer
   end
 
-   def edit
-    authorize Offer
+  def edit
     @offer = Offer.find(params[:id])
     @user = current_user
     @offer.category_offers.build
@@ -55,7 +51,6 @@ class OffersController < ApplicationController
     authorize Offer
     @offer = Offer.find(params[:id])
     if @offer.update(offer_params)
-
       redirect_to @offer
     else
       render :edit, status: :unprocessable_entity
