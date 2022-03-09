@@ -5,7 +5,6 @@ class OffersController < ApplicationController
   def index
     @category = Category.find(params[:topic_id])
     @offers = @category.offers
-
   end
 
   def choose_topic
@@ -38,14 +37,13 @@ class OffersController < ApplicationController
       EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
       redirect_to root_path
 
-     else
-
+    else
       render "new"
     end
     authorize @offer
   end
 
-   def edit
+  def edit
     authorize Offer
     @offer = Offer.find(params[:id])
     @user = current_user
@@ -89,7 +87,7 @@ class OffersController < ApplicationController
   def toggle_status
     if @offer.active?
       @offer.inactive!
-    else @offer.inactive?
+    else
       @offer.active!
     end
     redirect_to admin_url, notice: 'Post status has been updated.'
