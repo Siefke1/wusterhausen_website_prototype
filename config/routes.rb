@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #   get "topics/:topic_id/categories/:category_id/offers", to: "offers#index", as: :offer_index
 
   # end
-  devise_for :users
+  devise_for :users, :path_prefix =>'auth'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   root to: 'pages#home'
@@ -50,4 +50,6 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
+
+  resources :accounts
 end
