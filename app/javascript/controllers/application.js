@@ -6,6 +6,4 @@ const application = Application.start()
 application.debug = false
 window.Stimulus = application
 
-// Nav collapse trial
-
 export { application }

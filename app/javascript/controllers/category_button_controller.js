@@ -1,18 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
-let catOne = document.querySelector(".categories-choice-one").innerHTML
-let catTwo = document.querySelector(".categories-choice-two").innerHTML
-let catThree = document.querySelector(".categories-choice-three").innerHTML
-let catFour = document.querySelector(".categories-choice-four").innerHTML
-
 export default class extends Controller {
-  static targets = ["choicecontainer", "choicebuttonone", "choicebuttontwo", "choicebuttonthree", "choicebuttonfour",]
+  // set stimulus targets
+  static targets = [
+    "choicecontainer",
+    "choicebuttonone",
+    "choicebuttontwo",
+    "choicebuttonthree",
+    "choicebuttonfour"
+  ];
 
-
-
-  enableone() {
-    console.log(event);
+  enableone(event) {
+    event.preventDefault()
     // Enable the right Element, disable all others
+    let catOne = document.querySelector(".categories-choice-one").innerHTML;
 
     this.choicecontainerTarget.innerHTML = catOne;
     // disable clicked button
@@ -22,9 +23,10 @@ export default class extends Controller {
     this.choicebuttonfourTarget.removeAttribute("disabled", "");
   }
 
-  enabletwo() {
-    console.log(event);
+  enabletwo(event) {
+    event.preventDefault()
     // Enable the right Element, disable all others
+    let catTwo = document.querySelector(".categories-choice-two").innerHTML;
     this.choicecontainerTarget.innerHTML = catTwo;
     // disable clicked button
     this.choicebuttononeTarget.removeAttribute("disabled", "");
@@ -33,9 +35,11 @@ export default class extends Controller {
     this.choicebuttonfourTarget.removeAttribute("disabled", "");
   }
 
-  enablethree() {
-    console.log(event);
+  enablethree(event) {
+    event.preventDefault()
     // Enable the right Element, disable all others
+    let catThree = document.querySelector(".categories-choice-three").innerHTML;
+
     this.choicecontainerTarget.innerHTML = catThree;
     // disable clicked button
     this.choicebuttononeTarget.removeAttribute("disabled", "");
@@ -44,14 +48,17 @@ export default class extends Controller {
     this.choicebuttonfourTarget.removeAttribute("disabled", "");
   }
 
-  enablefour() {
-    console.log(event);
-    // Enable the right Element, disable all others
+  enablefour(event) {
+    event.preventDefault()
+    // get DOM Element
+    let catFour = document.querySelector(".categories-choice-four").innerHTML;
+    // Fill container body
     this.choicecontainerTarget.innerHTML = catFour;
-    // disable clicked button
+    // disable clicked button & enable others
     this.choicebuttononeTarget.removeAttribute("disabled", "");
     this.choicebuttontwoTarget.removeAttribute("disabled", "");
     this.choicebuttonthreeTarget.removeAttribute("disabled", "");
     this.choicebuttonfourTarget.setAttribute("disabled", "");
   }
+
 }
