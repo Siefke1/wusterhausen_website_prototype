@@ -9,13 +9,52 @@
     <%= f.input :address, placeholder: 'address' %>
     <%= f.input :town, placeholder: 'ort' %>
     <%= f.input :postcode, placeholder: 'postcode' %>
+    <div class="categories-choice-div" data-controller="category-button">
+      <h4>Bitte wählen Sie ein Thema aus (*)</h4>
+      <div class="category-choice-buttons-container">
+        <button class="btn btn-danger"
+          data-action="click->category-button#enableone"
+          data-category-button-target="choicebuttonone"
+          >Schule
+        </button>
+        <button class="btn btn-info"
+          data-action="click->category-button#enabletwo"
+          data-category-button-target="choicebuttontwo"
+          >Freizeit
+        </button>
+        <button class="btn btn-success"
+          data-action="click->category-button#enablethree"
+          data-category-button-target="choicebuttonthree"
+          >Ausbildung
+        </button>
+        <button class="btn btn-dark"
+          data-action="click->category-button#enablefour"
+          data-category-button-target="choicebuttonfour"
+          >Jugenhilfe
+        </button>
+      </div>
+      <div class="d-none categories-choice-one categories-choice-container" data-category-button-target="one">
+        <%= f.label "Wähle eine oder mehrere Kategorien" %>
+        <%= f.association :categories, collection: Category.where(topic_id: 1), as: :check_boxes, label: false, input_html: { class: "categories-choice-field" } %>
+      </div>
       <br>
-      <%= f.label "Wähle eine oder mehrere Kategorien" %>
-      <br><br>
-      <% for category in @categories %>
-        <%= check_box_tag "offer[category_ids][]", category.id, @offer.categories.include?(category) %>
-        <%= category.title %><br />
-      <% end %>
+      <div class="d-none categories-choice-two categories-choice-container" data-category-button-target="two">
+        <%= f.label "Wähle eine oder mehrere Kategorien" %>
+        <%= f.association :categories, collection: Category.where(topic_id: 2), as: :check_boxes, label: false, input_html: { class: "categories-choice-field" } %>
+      </div>
+      <br>
+      <div class="d-none categories-choice-three categories-choice-container" data-category-button-target="three">
+        <%= f.label "Wähle eine oder mehrere Kategorien" %>
+        <%= f.association :categories, collection: Category.where(topic_id: 3), as: :check_boxes, label: false, input_html: { class: "categories-choice-field" } %>
+      </div>
+      <br>
+      <div class="d-none categories-choice-four categories-choice-container" data-category-button-target="four">
+        <%= f.label "Wähle eine oder mehrere Kategorien" %>
+        <%= f.association :categories, collection: Category.where(topic_id: 4), as: :check_boxes, label: false, input_html: { class: "categories-choice-field" } %>
+      </div>
+    </div>
+    <br>
+
       <br>
     <%#= f.association :categories, as: :check_boxes , label_method: :title, value_method: :title, include_blank: false %>
     <%#= f.input :category_ids, as: :check_boxes, collection: @categories, label_method: :title, value_method: :id %>
