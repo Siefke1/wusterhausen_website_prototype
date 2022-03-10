@@ -20,9 +20,9 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @user = current_user
-    @topic = Topic.find(params[:topic_id])
-    @categories = @topic.categories
-    @offer.category_offers.build
+    # @topic = Topic.find(params[:topic_id])
+    # @categories = @topic.categories
+    # @offer.category_offers.build
     authorize @offer
 
   end
@@ -35,7 +35,7 @@ class OffersController < ApplicationController
 
     if @offer.save
       # UserMailer.with(user: @user).welcome.deliver_now
-      EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
+      # EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
       redirect_to root_path
 
      else
