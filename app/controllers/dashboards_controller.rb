@@ -25,7 +25,7 @@ class DashboardsController < ApplicationController
   def toggle_status
     @offer.active! if @offer.inactive?
     @offer.inactive! if @offer.active?
-    raise
+
     redirect_to admin_url, notice: 'Post status has been updated.'
   end
 
