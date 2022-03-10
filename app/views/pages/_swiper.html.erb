@@ -1,7 +1,7 @@
 <!-- Slider main container -->
-<div class="swiper" data-controller="swiper">
+<div class="swiper" >
   <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
+  <div class="swiper-wrapper swiper-lazy">
     <!-- Slides -->
 
       <% @offers.each do |offer| %>
@@ -18,7 +18,7 @@
                 </div>
               </div>
             <% else %>
-              <div class="offer-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')">
+              <div class="offer-card-photo swiper-lazy" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')">
                 <div class="offer-card-heading">
                   <h4><%= offer.title %></h4>
                   <p><%= offer.user.email %> / <%= offer.full_address %></p>

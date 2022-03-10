@@ -317,6 +317,103 @@ a.shiny_yellow:hover {
      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
 }
 
+// -----> orange
+a.shiny_orangy {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 0;
+    width: 185px;
+    color: $color_orangy;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 1px solid $color_orangy;
+    border-radius: 3px;
+}
+a.shiny_orangy:hover {
+    background: $color_orangy;
+    color: #050801;
+    box-shadow: 0 0 5px $color_orangy,
+                0 0 25px $color_orangy,
+                0 0 50px $color_orangy,
+                0 0 200px $color_orangy;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+// -----> pinky
+a.shiny_pinky {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 0;
+    width: 185px;
+    color: $color_pinky;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 1px solid $color_pinky;
+    border-radius: 3px;
+}
+a.shiny_pinky:hover {
+    background: $color_pinky;
+    color: #050801;
+    box-shadow: 0 0 5px $color_pinky,
+                0 0 25px $color_pinky,
+                0 0 50px $color_pinky,
+                0 0 200px $color_pinky;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+// -----> turqoisy
+a.shiny_turquoisy {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 10px 0;
+    width: 185px;
+    color: $color_turquoisy;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    border: 1px solid $color_turquoisy;
+    border-radius: 3px;
+}
+a.shiny_turquoisy:hover {
+    background: $color_turquoisy;
+    color: #050801;
+    box-shadow: 0 0 5px $color_turquoisy,
+                0 0 25px $color_turquoisy,
+                0 0 50px $color_turquoisy,
+                0 0 200px $color_turquoisy;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+.chosen_o {
+  background-color: $color_orangy_dark;
+  color: #000000;
+}
+.chosen_p {
+  background-color: $color_pinky_dark;
+  color: #000000;
+}
+.chosen_t {
+  background-color: $color_turquoisy_dark;
+  color: #000000;
+}
+
+
 @media screen and (min-width: 820px) {
   .nav-toggle-label {
     display: none;
@@ -339,6 +436,7 @@ a.shiny_yellow:hover {
   }
 
   .navbar {
+  height: 10rem;
   display: flex;
   justify-content: center;
   box-shadow: 3px 3px 5px black;

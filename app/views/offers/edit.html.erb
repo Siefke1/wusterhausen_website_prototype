@@ -1,4 +1,4 @@
-
+<%= turbo_frame_tag "offer" do %>
 <div class="container mx-auto mt-5">
   <h1 class="text-center ">Angebot bearbeiten</h1>
   <div class="offer_form mt-5">
@@ -23,3 +23,5 @@
   <% end %>
   </div>
 </div>
+<%= link_to "back",  offer_path(@offer) %>
+<% end %>
