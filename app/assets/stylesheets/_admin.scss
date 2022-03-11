@@ -7,10 +7,13 @@
   background-color: $secondary_color_light;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 3rem;
   align-items: center;
   width: 100%;
   padding: 5px;
+  margin: 10 auto;
+
 }
 .buttony {
   margin: 5px;
@@ -96,6 +99,11 @@
   .buttons .chil_nav .cardOffer {
     flex-direction: row;
   }
+  .chil_nav {
+    justify-content: space-around;
+    gap: 0;
+  }
+
 
 
   .admin-search-bar {
