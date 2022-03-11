@@ -11,7 +11,7 @@
       <%= render "activeOffers" %>
       <%= render "inactiveOffers" %>
       <div class="new-category-link d-flex justify-flex-start">
-        <%= link_to "Neues Angebot", choose_topic_path, class: "shiny_green", data: {turbo: false} %>
+        <%= link_to "Neues Angebot", new_offer_path, class: "shiny_green", data: {turbo: false} %>
         <%= link_to "Neue Kategorie", new_category_path, class: "shiny_yellow" , data: {turbo: false}%>
       </div>
     <% else %>
