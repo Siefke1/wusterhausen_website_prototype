@@ -59,5 +59,4 @@ class DashboardsController < ApplicationController
       @offers = Offer.all.order('created_at DESC')
     end
   end
-
 end

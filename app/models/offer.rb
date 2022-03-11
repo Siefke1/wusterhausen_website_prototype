@@ -8,11 +8,9 @@ class Offer < ApplicationRecord
 
   # Cloudinary
   has_one_attached :photo
-  # accepts_nested_attributes_for :categories, reject_if: blank?, allow_destroy: false
-  # attr_accessible :catgories_attributes
-  # accepts_nested_attributes_for :category_offers, allow_destroy: true
 
-  validates :title, :description, :about_us, :email, :postcode, presence: true
+  # Validations
+  validates :title, :description, :about_us, :email, :postcode, :category_ids, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_by_title,

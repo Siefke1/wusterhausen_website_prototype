@@ -7,10 +7,6 @@ class OffersController < ApplicationController
     @offers = @category.offers
   end
 
-  def choose_topic
-    @topics = Topic.all
-  end
-
   def show
     @user = User.find(@offer.user_id)
     @articles = Article.find(@user.article_ids.sample(3))
@@ -19,11 +15,10 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @user = current_user
-    @topic = Topic.find(params[:topic_id])
-    @categories = @topic.categories
-    @offer.category_offers.build
+    # @topic = Topic.find(params[:topic_id])
+    # @categories = @topic.categories
+    # @offer.category_offers.build
     authorize @offer
-
   end
 
   def create
@@ -72,18 +67,6 @@ class OffersController < ApplicationController
     end
   end
 
-  def authorize_offer
-    @offer.status = 1
-    @offer.save
-    render "show"
-  end
-
-  def close_offer
-    @offer.status = 2
-    @offer.save
-    render "show"
-  end
-
   def toggle_status
     if @offer.active?
       @offer.inactive!
@@ -104,6 +87,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:user_id, :title, :description, :about_us, :town, :email, :address, :postcode, :photo, category_ids: [])
+    params.require(:offer).permit(:user_id, :title, :description, :phone, :url, :about_us, :town, :email, :address, :postcode, :photo, category_ids: [])
   end
 end
