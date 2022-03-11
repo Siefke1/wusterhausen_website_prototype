@@ -322,16 +322,15 @@ a.shiny_orangy {
     position: relative;
     display: inline-block;
     padding: 25px 30px;
-    margin: 10px 0;
-    width: 185px;
+
+    width: 50%;
     color: $color_orangy;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
-    letter-spacing: 4px;
-    overflow: hidden;
-    margin-right: 50px;
+    letter-spacing: 2px;
+    overflow: visible;
     border: 1px solid $color_orangy;
     border-radius: 3px;
 }
@@ -350,16 +349,16 @@ a.shiny_pinky {
     position: relative;
     display: inline-block;
     padding: 25px 30px;
-    margin: 10px 0;
-    width: 185px;
+
+    width: 50%;
     color: $color_pinky;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
     letter-spacing: 4px;
-    overflow: hidden;
-    margin-right: 50px;
+    overflow: visible;
+
     border: 1px solid $color_pinky;
     border-radius: 3px;
 }
@@ -378,16 +377,15 @@ a.shiny_turquoisy {
     position: relative;
     display: inline-block;
     padding: 25px 30px;
-    margin: 10px 0;
-    width: 185px;
+    width: 50%;
     color: $color_turquoisy;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
     letter-spacing: 4px;
-    overflow: hidden;
-    margin-right: 50px;
+    overflow: visible;
+
     border: 1px solid $color_turquoisy;
     border-radius: 3px;
 }

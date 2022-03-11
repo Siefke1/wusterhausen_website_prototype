@@ -47,7 +47,7 @@
      <%= offer.created_at.to_date.strftime("%d-%m-%Y") %>
     </div>
     <div class="buttons">
-      <%= button_to "Deaktivieren", toggle_status_offer_path(offer), class: "btn btn-info" %>
+      <%= link_to "Deaktivieren", toggle_status_offer_path(offer), class: "btn btn-info" %>
       <%= link_to "Löschen", offer_path(offer),class: "btn btn-info", data: {
         turbo_method: :delete,
                       turbo_confirm: "Are you sure?"

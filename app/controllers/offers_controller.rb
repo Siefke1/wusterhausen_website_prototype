@@ -65,7 +65,7 @@ class OffersController < ApplicationController
   def destroy
     if @offer.destroy
       if current_user.role == "admin"
-        redirect_to admin_path, status: :see_other
+        redirect_to offer_board_path, status: :see_other
       else
       redirect_to profil_path, status: :see_other
       end
@@ -90,7 +90,7 @@ class OffersController < ApplicationController
     else
       @offer.active!
     end
-    redirect_to admin_url, notice: 'Post status has been updated.'
+    redirect_to offer_board_url, notice: 'Post status has been updated.'
   end
 
   private

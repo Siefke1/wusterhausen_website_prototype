@@ -1,9 +1,9 @@
 <%= turbo_frame_tag "admin" do %>
 
-  <div class="button">
-    <%= link_to "Angebote", offer_board_path, class:"shiny shiny_orangy chosen_o"%>
-    <%= link_to "Blog", blog_board_path, class:"shiny shiny_pinky" %>
-    <%= link_to "User", user_board_path, class:"shiny shiny_turquoisy" %>
+  <div class="chil_nav">
+    <%= link_to "Angebote", offer_board_path, class:"shiny shiny_orangy chosen_o buttony"%>
+    <%= link_to "Blog", blog_board_path, class:"shiny shiny_pinky buttony" %>
+    <%= link_to "User", user_board_path, class:"shiny shiny_turquoisy buttony" %>
   </div>
 <div class="container">
 <div class="admin-container">
@@ -11,8 +11,8 @@
       <%= render "activeOffers" %>
       <%= render "inactiveOffers" %>
       <div class="new-category-link d-flex justify-flex-start">
-        <%= link_to "Neue Kategorie", new_category_path, class: "shiny_yellow" , data: {turbo: false}%>
         <%= link_to "Neues Angebot", choose_topic_path, class: "shiny_green", data: {turbo: false} %>
+        <%= link_to "Neue Kategorie", new_category_path, class: "shiny_yellow" , data: {turbo: false}%>
       </div>
     <% else %>
       <h1 style="text-align: center; margin-top: 50px;">This area is not for you...</h1>

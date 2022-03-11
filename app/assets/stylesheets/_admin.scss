@@ -3,13 +3,17 @@
   max-width: 100%;
   margin: 0 auto;
 }
-.button {
+.chil_nav {
   background-color: $secondary_color_light;
   display: flex;
-  justify-content: center;
-  gap: 3rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 5px;
+}
+.buttony {
+  margin: 5px;
 }
 .adminOffer {
   margin-top: 20px;
@@ -85,15 +89,14 @@
   margin-bottom: 20px;
 }
 @media only screen and (max-width: 600px) {
-  .cardOffer {
-    flex-direction: column;
-  }
+
   .one {
     display:none;
   }
-  .buttons {
-    flex-direction: column;
+  .buttons .chil_nav .cardOffer {
+    flex-direction: row;
   }
+
 
   .admin-search-bar {
   display: flex;
