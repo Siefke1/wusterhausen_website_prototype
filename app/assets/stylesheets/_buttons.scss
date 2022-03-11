@@ -2,6 +2,9 @@
 
 .btn-info {
   background-color: $headings_color !important;
-  border: none !important;
-  margin: 10px !important;
+  border: $headings_color !important;
+  // margin: 10px !important;
+}
+
+.btn {
 }

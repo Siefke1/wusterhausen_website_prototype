@@ -17,18 +17,16 @@ Rails.application.routes.draw do
   get "/admin", to: "dashboards#admin", as: :admin
   get "/about", to: "pages#about"
   get "/search", to: "searches#index"
-  get "/choosetopic", to: "offers#choose_topic", as: :choose_topic
 
 
   # NESTED ROUTES FOR TOPIC->CATEGORY->OFFERS->OFFER
   resources :topics, only: [:show, :index] do
-    resources :offers, only: :new
     resources :categories, only: [:show, :index]
   end
 
 
   # UNNESTED OFFERS ROUTES
-  resources :offers, only: [:show, :create, :edit, :update, :destroy, :index]
+  resources :offers, only: [:new, :create, :show, :create, :edit, :update, :destroy, :index]
   # UNNESTED CATEGORIES ROUTES
   resources :categories, only: [:new, :create]
 
