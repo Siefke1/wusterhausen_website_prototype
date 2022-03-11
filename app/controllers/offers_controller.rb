@@ -5,7 +5,6 @@ class OffersController < ApplicationController
   def index
     @category = Category.find(params[:topic_id])
     @offers = @category.offers
-
   end
 
   def show
@@ -30,17 +29,16 @@ class OffersController < ApplicationController
 
     if @offer.save
       # UserMailer.with(user: @user).welcome.deliver_now
-      # EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
-      redirect_to root_path
+      EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
+      redirect_to offer_board_path
 
-     else
-
+    else
       render "new"
     end
     authorize @offer
   end
 
-   def edit
+  def edit
     authorize Offer
     @offer = Offer.find(params[:id])
     @user = current_user
@@ -62,7 +60,7 @@ class OffersController < ApplicationController
   def destroy
     if @offer.destroy
       if current_user.role == "admin"
-        redirect_to admin_path, status: :see_other
+        redirect_to offer_board_path, status: :see_other
       else
       redirect_to profil_path, status: :see_other
       end
@@ -72,10 +70,10 @@ class OffersController < ApplicationController
   def toggle_status
     if @offer.active?
       @offer.inactive!
-    else @offer.inactive?
+    else
       @offer.active!
     end
-    redirect_to admin_url, notice: 'Post status has been updated.'
+    redirect_to offer_board_url, notice: 'Post status has been updated.'
   end
 
   private

@@ -1,0 +1,63 @@
+<%= turbo_frame_tag "admin" do %>
+  <div class="chil_nav">
+    <%= link_to "Angebote", offer_board_path, class:"shiny shiny_orangy buttony"%>
+    <%= link_to "Blog", blog_board_path, class:"shiny shiny_pinky chosen_p buttony" %>
+    <%= link_to "User", user_board_path, class:"shiny shiny_turquoisy buttony" %>
+  </div>
+  <div class="container">
+    <div class="admin-container">
+      <div class="cardListArticles">
+          <div class="cardOffer header one">
+            <h4  class="cardTitle header">
+              Titel
+            </h4>
+            <h4 class="header">
+              Author
+            </h4>
+            <h4 class="header">
+              Datum
+            </h4>
+            <% if current_user %>
+              <% if current_user.role == "institution" || current_user.role == "admin" %>
+              <div class="buttons header">
+                <h4>
+                  Löschen
+                </h4>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+          <% @articles.each do |article| %>
+          <div class="cardOffer">
+          <strong  class="cardTitle">
+            <%= link_to article.title, article_path(article), class: "cardTitle" ,data: { turbo: false }  %>
+          </strong>
+          <div class="">
+            <%= article.user.email %>
+          </div>
+          <div class="">
+          <%= article.created_at.to_date.strftime("%d-%m-%Y") %>
+          </div>
+          <% if current_user %>
+            <% if current_user.role == "institution" || current_user.role == "admin" %>
+              <div class="buttons">
+                <%= link_to "Löschen", article_path(article),class: "btn btn-info", data: {
+                  turbo_method: :delete,
+                                turbo_confirm: "Are you sure?"
+                              } %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <% if current_user %>
+        <% if current_user.role == "institution" || current_user.role == "admin" %>
+          <div class="new-article-link d-flex justify-flex-start">
+            <%= link_to "Neuer Post", new_article_path, class: "shiny_green", data: {turbo: false}%>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

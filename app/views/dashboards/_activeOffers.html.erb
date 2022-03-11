@@ -38,7 +38,7 @@
     <% @offers.where(status: "active").each do |offer| %>
     <div class="cardOffer">
     <strong  class="cardTitle">
-      <%= link_to offer.title, offer_path(offer), class: "cardTitle" %>
+      <%= link_to offer.title, offer_path(offer), class: "cardTitle", data: { turbo: false }  %>
     </strong>
     <div class="">
       <%= offer.user.email %>

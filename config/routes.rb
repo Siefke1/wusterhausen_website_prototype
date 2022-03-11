@@ -9,12 +9,19 @@ Rails.application.routes.draw do
 
   # end
   devise_for :users
+  scope "/admin" do
+    resources :users
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   root to: 'pages#home'
   # USER DASHBOARD
   get "/profil", to: "dashboards#show"
   get "/admin", to: "dashboards#admin", as: :admin
+  get "/blog_board", to: "dashboards#blog_board"
+  get "/user_board", to: "dashboards#user_board"
+  get "/offer_board", to: "dashboards#offer_board"
   get "/about", to: "pages#about"
   get "/search", to: "searches#index"
 
@@ -40,11 +47,11 @@ Rails.application.routes.draw do
   # Article routes
 
   resources :articles, except: :destroy
-  delete "/articles/:id", to: "articles#destroy", as: :delete_article
+  delete '/articles/:id', to: 'articles#destroy', as: :delete_article
 
   #sidekiq
 
-  require "sidekiq/web"
+  require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
