@@ -434,13 +434,13 @@ a.shiny_turquoisy:hover {
   }
 
   .navbar {
-  height: 10rem;
+  //height: 10rem;
   display: flex;
   justify-content: center;
   box-shadow: 3px 3px 5px black;
   // top: 0px;
   // position: sticky;
-  width: 100vw;
+  width: 100%;
   z-index: 9999;
   background: $secondary_color;
 

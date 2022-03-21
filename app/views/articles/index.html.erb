@@ -18,7 +18,7 @@
       <div class="offer-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')">
         <div class="offer-card-heading">
           <h4><%= article.title %></h4>
-          <p><%= article.user.email %> / <%= article.full_address %></p>
+          <p><%= article.user.email %></p>
           <%= link_to article_path(article) do %>
             <div class="offer-card-button"><h3>C L I C K</h3></div>
           <% end %>

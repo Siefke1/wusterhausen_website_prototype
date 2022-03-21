@@ -45,12 +45,10 @@ Rails.application.routes.draw do
   end
 
   # Article routes
-
   resources :articles, except: :destroy
   delete '/articles/:id', to: 'articles#destroy', as: :delete_article
 
   #sidekiq
-
   require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
