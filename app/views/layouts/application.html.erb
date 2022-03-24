@@ -27,12 +27,22 @@
     <% end %>
 
     <%# -----> Navbar <----- %>
-    <%= render "layouts/navbar" %>
+    <div class="header">
+      <%= render "layouts/navbar" %>
+    </div>
+
+
 
     <%# -----> PAGE CONTENT <------ %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
 
     <%# -----> FOOTER <----- %>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
 
   </body>
 <html>

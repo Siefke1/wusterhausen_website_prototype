@@ -4,13 +4,14 @@
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
   // background: rgb(78, 110, 110);
   background: $primary_color;
+  position: relative;
 }
-
 
 * {
   font-family: raleway;
@@ -23,7 +24,9 @@ body {
 .puffer {
   margin-top: 20vh;
 }
-
+.site {
+  background-color: rgba(64, 224, 208, 0.158);
+}
 .container {
   // margin-top: 20vh;
   // margin-bottom: 20vh;
