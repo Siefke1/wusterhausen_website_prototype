@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "admin" do %>
 <div class="nav_admin">
   <%= link_to "Angebote", offer_board_path, class:"button_admin offer"%>
-  <%= link_to "Blog", blog_board_path, class:"button_admin blog" %>
+  <%= link_to "News", blog_board_path, class:"button_admin blog" %>
   <%= link_to "User", user_board_path, class:"button_admin user on" %>
   <div class="new_o"></div>
   <div class="new_b"></div>
@@ -57,6 +57,7 @@
         </div>
         <% end %>
       </div>
+      <!-- BUTTON
       <% if current_user %>
         <% if current_user.role == "institution" || current_user.role == "admin" %>
           <div class="new-article-link d-flex justify-flex-start">
@@ -64,6 +65,7 @@
           </div>
         <% end %>
       <% end %>
+      -->
     </div>
   </div>
 <% end %>

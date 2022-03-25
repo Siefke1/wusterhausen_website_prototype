@@ -5,6 +5,7 @@
 }
 .adminOffer {
   margin-top: 20px;
+  margin-bottom: 20px;
   h1 {
     color: $headings_color;
     text-shadow: 2px 2px 3px black;
@@ -28,9 +29,10 @@ a.on {
   font-weight: 700;
 }
 .nav_admin {
+  width: 90%;
   border: 2px solid black;
   border-radius: 5px;
-  margin: 3vh;
+  margin: 3vh auto;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-rows: auto;
@@ -133,6 +135,9 @@ a.on {
   }
   .cardOffer > .buttons > a {
     font-size: large;
+  }
+  .nav_admin {
+    width: 70%;
   }
 }
 @media only screen and (max-width: 800px) {

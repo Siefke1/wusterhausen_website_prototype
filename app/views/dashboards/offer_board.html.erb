@@ -2,7 +2,7 @@
 
   <div class="nav_admin">
     <%= link_to "Angebote", offer_board_path, class:"button_admin offer on"%>
-    <%= link_to "Blog", blog_board_path, class:"button_admin blog" %>
+    <%= link_to "News", blog_board_path, class:"button_admin blog" %>
     <%= link_to "User", user_board_path, class:"button_admin user" %>
     <%= link_to "Neues Angebot", new_offer_path, class: "button_admin new_o", data: { turbo: false } %>
     <div class="new_b"></div>
@@ -11,30 +11,32 @@
 
   </div>
 <div class="container">
-<div class="admin-container">
-    <% if current_user.role == "admin" %>
-      <div class="search-container d-flex justify-content-center">
-      <%= form_tag admin_path, method: :get do %>
-        <div class="d-flex">
-          <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Stichwort oder PLZ"
-          %>
-          <%= submit_tag "Search", class: "btn btn-dark", id: "search-button", data: {'turbo-frame' => '_top'} %>
-        <%# <button type="submit" form="search" value="Submit" class="shiny_black">Submit</button> %>
+  <div class="admin-container">
+      <% if current_user.role == "admin" %>
+        <div class="search-container d-flex justify-content-center">
+        <%= form_tag admin_path, method: :get do %>
+          <div class="d-flex">
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Stichwort oder PLZ"
+            %>
+            <%= submit_tag "Search", class: "btn btn-dark", id: "search-button", data: {'turbo-frame' => '_top'} %>
+          <%# <button type="submit" form="search" value="Submit" class="shiny_black">Submit</button> %>
+          </div>
+        <% end %>
+      </div>
+        <%= render "activeOffers" %>
+        <%= render "inactiveOffers" %>
+        <!-- Buttons
+        <div class="new-category-link d-flex justify-flex-start">
+          <%= link_to "Neues Angebot", new_offer_path, class: "shiny_green", data: {turbo: false} %>
+          <%= link_to "Neue Kategorie", new_category_path, class: "shiny_yellow" , data: {turbo: false}%>
         </div>
+        -->
+      <% else %>
+        <h1 style="text-align: center; margin-top: 50px;">This area is not for you...</h1>
       <% end %>
     </div>
-      <%= render "activeOffers" %>
-      <%= render "inactiveOffers" %>
-      <div class="new-category-link d-flex justify-flex-start">
-        <%= link_to "Neues Angebot", new_offer_path, class: "shiny_green", data: {turbo: false} %>
-        <%= link_to "Neue Kategorie", new_category_path, class: "shiny_yellow" , data: {turbo: false}%>
-      </div>
-    <% else %>
-      <h1 style="text-align: center; margin-top: 50px;">This area is not for you...</h1>
-    <% end %>
-  </div>
   </div>
 <% end %>

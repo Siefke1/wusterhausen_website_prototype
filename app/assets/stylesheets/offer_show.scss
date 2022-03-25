@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 .offer > .image {
-  height: 50vh;
+  height: 30vh;
   width: 100%;
   position: relative;
   background-size: 100%;
@@ -69,12 +69,20 @@
     margin-bottom: 0;
     font-size: 10px;
   }
-  .offer > .image {
-    height: 25vh;
-  }
+
 }
 @media only screen and (max-width: 850px) {
   .address {
     flex-direction: column;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .offer > .image {
+    height: 50vh;
+  }
+}
+@media only screen and (min-width: 850px) {
+  .offer > .image {
+    height: 40vh;
   }
 }
