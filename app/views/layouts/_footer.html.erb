@@ -2,9 +2,9 @@
     <ul>
       <li>Kontakt</li>
       <li>Partner</li>
-      <li>
+      <li data-no-turbolink="true">
         <% if user_signed_in? %>
-          <%= link_to "bye", destroy_user_session_path, method: :delete %>
+          <%= link_to "Logout", destroy_user_session_path(@user), data: { turbo_method: :delete} %>
         <% else %>
          <%= link_to "Login", new_user_session_path %>
         <% end %>

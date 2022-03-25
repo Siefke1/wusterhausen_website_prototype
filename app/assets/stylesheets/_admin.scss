@@ -3,27 +3,43 @@
   max-width: 100%;
   margin: 0 auto;
 }
-.chil_nav {
-  background-color: $secondary_color_light;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3rem;
-  align-items: center;
-  width: 100%;
-  padding: 5px;
-  margin: 10 auto;
-
-}
-.buttony {
-  margin: 5px;
-}
 .adminOffer {
   margin-top: 20px;
   h1 {
     color: $headings_color;
     text-shadow: 2px 2px 3px black;
   }
+}
+.nav_admin > a {
+  text-decoration: none;
+  padding: 1vh;
+  color: black;
+  width: 7rem;
+  text-align: center;
+  margin: 0;
+}
+a.button_admin:hover {
+  font-weight: 700;
+}
+a.on {
+  color: black;
+  border-bottom: 2px solid black;
+  border-radius: 0%;
+  font-weight: 700;
+}
+.nav_admin {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 3vh;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "offer blog user "
+    "new_o new_b new_u "
+    "new_c . .";
+  justify-content: space-around;
+  justify-items: center;
 }
 
 .admin-search-bar {
@@ -35,11 +51,15 @@
     top: 0px;
   }
 }
+.cardText {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 5px;
 
+}
 .cardList {
-  border: 2px;
-  border-color: rgb(7, 10, 14);
-  border-style: solid;
+  border: 2px solid rgb(7, 10, 14);
   border-radius: 5px;
   overflow: scroll;
   max-height: 250px;
@@ -64,13 +84,23 @@
 .cardOffer > .buttons {
   display: flex;
   justify-content: flex-end;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 30%;
+
 }
 .cardOffer > .buttons > h4 {
   margin-bottom: 0;
 }
+.cardOffer > .buttons > a {
+  font-size: smaller;
+}
 .cardTitle {
   text-decoration: none;
+  width: 30%;
+}
+.email .date {
+  width: 25%;
 }
 .header {
   border: 0px;
@@ -91,30 +121,37 @@
 .admin{
   margin-bottom: 20px;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 800px) {
+  .cardOffer > .buttons {
+    flex-direction: row;
+    text-align: right;
+    gap: 2rem;
+  }
+  .cardText {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .cardOffer > .buttons > a {
+    font-size: large;
+  }
+}
+@media only screen and (max-width: 800px) {
 
   .one {
     display:none;
   }
-  .buttons .chil_nav .cardOffer {
+  .buttons .cardOffer {
     flex-direction: row;
   }
-  .chil_nav {
-    justify-content: space-around;
-    gap: 0;
-  }
-
-
-
   .admin-search-bar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: static;
-  margin-bottom: 10px;
-  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: static;
+    margin-bottom: 10px;
+    form {
+      position: static;
 
+    }
   }
-}
 }

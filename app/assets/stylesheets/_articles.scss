@@ -111,6 +111,7 @@ a.text:hover > .post_card {
   height: auto;
   max-width: 100px;
 }
+
 .site > h1 {
   color: darkorange;
   text-align: center;
@@ -119,7 +120,9 @@ a.text:hover > .post_card {
 }
 .posts {
   max-width: 90%;
-  margin: 10px auto;
+  margin: 0 auto;
+  height: 100%;
+
 }
 .post_card {
   max-width: 500px;
