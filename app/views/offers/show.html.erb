@@ -39,7 +39,7 @@
     <%= @offer.about_us %>
   </div>
   <div class="box">
-    <h5>Addresse</h5>
+    <h5>Kontakt</h5>
     <div class="address">
       <div>
         <h6>Anschrift</h6>
@@ -57,23 +57,25 @@
     </div>
   </div>
   <div class="links">
-    <h2>Blogposts des Anbieters</h2>
-  <div class="liste">
-    <% @articles.each do |article| %>
-      <%= link_to article_path(article), class:"text" do %>
-        <div class="angebot">
-          <% if article.photo.attached? %>
-            <%= cl_image_tag article.photo.key, width: 400, height: 300, crop: :fill %>
-          <% end %>
-          <div class="text">
-            <h2><%= article.title %></h2>
-            <p>
-              <%= article.content.truncate(50) %>
-            </p>
+    <h2>News des Anbieters</h2>
+    <div class="liste">
+      <% @articles.each do |article| %>
+      <%= link_to article_path(article), class: "text" do%>
+          <div class="post_card_two" style="width: 100%;">
+            <% if article.photo.attached? %>
+              <div class="post_photo_two" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path article.photo.key %>')">
+              </div>
+              <% else %>
+              <div class="post_photo_two" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')"></div>
+            <% end %>
+            <div class="post_card_text">
+              <h3><%= article.title %></h3>
+              <p>von <%= User.find(article.user_id).email %> | <%= article.created_at.to_date.strftime("%d-%m-%Y")%> </p>
+              <h6><%= article.content.truncate(50)%></h6>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
   </div>
 </div>

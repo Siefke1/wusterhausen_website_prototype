@@ -85,13 +85,16 @@
   justify-content: flex-start;
   gap: 1rem;
   margin: 0 auto;
-
 }
+
 .text {
   text-decoration: none;
   color: black;
   padding: 10px;
-
+}
+a.text:hover > .post_card {
+  box-shadow: 5px 5px 15px 5px rgba(64, 224, 208, 0.53);
+  color: #FF8C00;
 }
 .angebot > h2 {
   font-size: large;
@@ -109,12 +112,57 @@
   max-width: 100px;
 }
 
+.site > h1 {
+  color: darkorange;
+  text-align: center;
+  font-weight: 400;
+  font-size: 3rem;
+}
+.posts {
+  max-width: 90%;
+  margin: 0 auto;
+  height: 100%;
+
+}
+.post_card {
+  max-width: 500px;
+  width: 100%;
+  margin: 2px auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  font-size: small;
+  background-color: #40E0D0;
+  color: white;
+}
+
+.post_photo {
+  width: 7rem;
+  height: 7rem;
+  background-size: cover;
+  margin: 10px;
+  border-radius: 5px;
+  align-self: center;
+}
+.post_card_text{
+  margin: 10px;
+  width: 70%;
+}
+.post_card_text > h3{
+  margin: 0;
+}
+
+.post_card_text > p {
+  color: gray;
+  margin: 2px;
+}
+
 @media screen and (max-width: 800px) {
   .articles-show-container {
     width: 80%;
 
     .liste {
-      flex-direction: row;
+      flex-direction: column;
 
     }
     .angebot {
@@ -122,4 +170,55 @@
 
     }
   }
+}
+@media screen and (min-width: 820px) {
+  .posts {
+    max-width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .post_card{
+    font-size: medium;
+    flex-direction: column;
+    width: 15rem;
+    height: 400px;
+  }
+  .post_photo {
+    width: 100%;
+    height: 150px;
+    background-color: red;
+    background-size: length;
+    margin-top: 0%;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .site > h1 {
+    color: darkorange;
+    text-align: center;
+    font-weight: 800;
+    font-size: 5rem;
+  }
+}
+
+// show-cards
+.post_card_two {
+  max-width: 700px;
+  width: 100%;
+  margin: 2px auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  font-size: small;
+  color: #40E0D0;
+  border: 2px solid #40E0D0;
+}
+
+.post_photo_two {
+  width: 7rem;
+  height: 7rem;
+  background-size: cover;
+  margin: 10px;
+  border-radius: 5px;
+  align-self: center;
 }
