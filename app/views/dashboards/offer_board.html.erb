@@ -21,7 +21,7 @@
             class: "form-control",
             placeholder: "Stichwort oder PLZ"
             %>
-            <%= submit_tag "Search", class: "btn btn-dark", id: "search-button", data: {'turbo-frame' => '_top'} %>
+            <%= submit_tag "Search", class: "btn btn-dark", id: "search-button", data: {turbo: false} %>
           <%# <button type="submit" form="search" value="Submit" class="shiny_black">Submit</button> %>
           </div>
         <% end %>
