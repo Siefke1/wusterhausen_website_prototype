@@ -1,42 +1,29 @@
-<div class="entdecken-header">
-  <h3 class="sprechblase_oben">Et voilà! Hier sind unsere Blog Posts zu Deinen Vorlieben 👇</h3>
-</div>
-<div class="offer-cards-container">
-  <% @articles.each do |article| %>
-    <div class="offer-card-container">
-    <% if article.photo.attached? %>
-      <div class="offer-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path article.photo.key %>')">
-        <div class="offer-card-heading">
-          <h4><%= article.title %></h4>
-          <p><%= article.user.email %></p>
-          <%= link_to article_path(article) do %>
-            <div class="offer-card-button"><h3>C L I C K</h3></div>
+<div class="site">
+  <h1>NEWS</h1>
+  <div class="posts">
+    <% @articles.each do |article| %>
+      <%= link_to article_path(article), class: "text" do%>
+        <div class="post_card">
+          <% if article.photo.attached? %>
+            <div class="post_photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path article.photo.key %>')">
+            </div>
+            <% else %>
+            <div class="post_photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')"></div>
           <% end %>
+          <div class="post_card_text">
+            <h3><%= article.title %></h3>
+            <p>von <%= User.find(article.user_id).email %> | <%= article.created_at.to_date.strftime("%d-%m-%Y")%> </p>
+            <h6><%= article.content.truncate(50)%></h6>
+          </div>
         </div>
-      </div>
-    <% else %>
-      <div class="offer-card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')">
-        <div class="offer-card-heading">
-          <h4><%= article.title %></h4>
-          <p><%= article.user.email %></p>
-          <%= link_to article_path(article) do %>
-            <div class="offer-card-button"><h3>C L I C K</h3></div>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
-      <div class="offer-card-text">
-        <p><%= article.content %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
+  </div>
 
-<%# ----> BACK BUTTON <---- %>
-<div class="d-flex justify-content-center">
-  <%= link_to 'Back', 'javascript:history.back()', class: "shiny_blue", style: "margin-top: 50px;" %>
-</div>
 
-<%# PUFFER TO ADD WHITESPACE AT BOTTOM OF PAGE %>
-<div class="puffer">
+  <%# ----> BACK BUTTON <---- %>
+  <div class="d-flex justify-content-center">
+    <%= link_to 'Back', 'javascript:history.back()', class: "shiny_blue", style: "margin-top: 50px;" %>
+  </div>
+
 </div>

@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   def update
     @article.user = current_user
     if @article.update(article_params)
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       render :edit
     end

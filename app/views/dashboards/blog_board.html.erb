@@ -1,56 +1,67 @@
 <%= turbo_frame_tag "admin" do %>
-  <div class="chil_nav">
-    <%= link_to "Angebote", offer_board_path, class:"shiny shiny_orangy buttony"%>
-    <%= link_to "Blog", blog_board_path, class:"shiny shiny_pinky chosen_p buttony" %>
-    <%= link_to "User", user_board_path, class:"shiny shiny_turquoisy buttony" %>
+  <div class="nav_admin">
+    <%= link_to "Angebote", offer_board_path, class:"button_admin offer"%>
+    <%= link_to "News", blog_board_path, class:"button_admin blog on" %>
+    <%= link_to "User", user_board_path, class:"button_admin user" %>
+    <div class="new_o"></div>
+    <%= link_to "Neuer Post", new_article_path, class: "button_admin new_u", data: { turbo: false } %>
+    <div class="new_u"></div>
   </div>
   <div class="container">
     <div class="admin-container">
-      <div class="cardListArticles">
-          <div class="cardOffer header one">
-            <h4  class="cardTitle header">
-              Titel
-            </h4>
-            <h4 class="header">
-              Author
-            </h4>
-            <h4 class="header">
-              Datum
-            </h4>
-            <% if current_user %>
-              <% if current_user.role == "institution" || current_user.role == "admin" %>
-              <div class="buttons header">
-                <h4>
-                  Löschen
+      <div class="adminOffer">
+        <h1>News Posts</h1>
+        <div class="cardListArticles">
+            <div class="cardOffer header one">
+              <div class="cardText">
+                <h4  class="cardTitle header">
+                  Titel
+                </h4>
+                <h4 class="header">
+                  Author
+                </h4>
+                <h4 class="header">
+                  Datum
                 </h4>
               </div>
+              <% if current_user %>
+                <% if current_user.role == "institution" || current_user.role == "admin" %>
+                <div class="buttons header">
+                  <h4>
+                    Löschen
+                  </h4>
+                </div>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <% @articles.each do |article| %>
-          <div class="cardOffer">
-          <strong  class="cardTitle">
-            <%= link_to article.title, article_path(article), class: "cardTitle" ,data: { turbo: false }  %>
-          </strong>
-          <div class="">
-            <%= article.user.email %>
-          </div>
-          <div class="">
-          <%= article.created_at.to_date.strftime("%d-%m-%Y") %>
-          </div>
-          <% if current_user %>
-            <% if current_user.role == "institution" || current_user.role == "admin" %>
-              <div class="buttons">
-                <%= link_to "Löschen", article_path(article),class: "btn btn-info", data: {
-                  turbo_method: :delete,
-                                turbo_confirm: "Are you sure?"
-                              } %>
+            </div>
+            <% @articles.each do |article| %>
+            <div class="cardOffer">
+              <div class="cardText">
+                <strong  class="cardTitle">
+                  <%= link_to article.title, article_path(article), class: "cardTitle" ,data: { turbo: false }  %>
+                </strong>
+                <div class="">
+                  <%= article.user.email %>
+                </div>
+                <div class="">
+                <%= article.created_at.to_date.strftime("%d-%m-%Y") %>
+                </div>
               </div>
-            <% end %>
+              <% if current_user %>
+                <% if current_user.role == "institution" || current_user.role == "admin" %>
+                  <div class="buttons">
+                    <%= link_to "Löschen", article_path(article),class: "btn btn-info", data: {
+                      turbo_method: :delete,
+                                    turbo_confirm: "Are you sure?"
+                                  } %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
         </div>
-        <% end %>
       </div>
+      <!-- Button
       <% if current_user %>
         <% if current_user.role == "institution" || current_user.role == "admin" %>
           <div class="new-article-link d-flex justify-flex-start">
@@ -58,6 +69,7 @@
           </div>
         <% end %>
       <% end %>
+      -->
     </div>
   </div>
 <% end %>
