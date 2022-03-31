@@ -5,10 +5,16 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome
+  default from: 'eric@gmx.com'
+
+  def welcome(user)
+
     @greeting = "Hi"
-    @user = params[:user]
-    @offer = params[:offer]
-    mail to: @user.email
+    @user = user # Instance variable => available in view
+    mail(to: @user.email, subject: 'Welcome to Le Wagon')
+
+    #@user = params[:user]
+    #@offer = params[:offer]
+    #mail to: "dthgespenst@gmx.de"
   end
 end
