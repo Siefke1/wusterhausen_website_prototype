@@ -3,49 +3,49 @@
     <h1>Aktive Angebote</h1>
 
   </div>
-<div class="cardList">
-    <div class="cardOffer header one">
-      <div class="cardText">
-        <h4  class="cardTitle header">
-          Titel
-        </h4>
-        <h4 class="header">
-          Anbieter
-        </h4>
-        <h4 class="header">
-          Datum
-        </h4>
-      </div>
-      <div class="buttons header" style="gap:1rem">
-        <h4>
-          Deaktivieren
-        </h4>
-        <h4>
-          Löschen
-        </h4>
-      </div>
-    </div>
-    <% @offers.where(status: "active").each do |offer| %>
-    <div class="cardOffer">
-      <div class="cardText">
-        <strong  class="cardTitle">
-          <%= link_to offer.title, offer_path(offer), class: "cardTitle", data: { turbo: false }  %>
-        </strong>
-        <div class="email">
-          <%= offer.user.email %>
+  <div class="cardList">
+      <div class="cardOffer header one">
+        <div class="cardText">
+          <h4  class="cardTitle header">
+            Titel
+          </h4>
+          <h4 class="header">
+            Anbieter
+          </h4>
+          <h4 class="header">
+            Datum
+          </h4>
         </div>
-        <div class="date">
-          <%= offer.created_at.to_date.strftime("%d-%m-%Y") %>
+        <div class="buttons header" style="gap:1rem">
+          <h4>
+            Deaktivieren
+          </h4>
+          <h4>
+            Löschen
+          </h4>
         </div>
       </div>
-      <div class="buttons">
-        <%= link_to "Deaktivieren", toggle_status_offer_path(offer), class: "btn btn-info" %>
-        <%= link_to "Löschen", offer_path(offer),class: "btn btn-info", data: {
-          turbo_method: :delete,
-          turbo_confirm: "Are you sure?"
-          } %>
+      <% @offers.where(status: "active").each do |offer| %>
+      <div class="cardOffer">
+        <div class="cardText">
+          <strong  class="cardTitle">
+            <%= link_to offer.title, offer_path(offer), class: "cardTitle", data: { turbo: false }  %>
+          </strong>
+          <div class="email">
+            <%= offer.user.email %>
+          </div>
+          <div class="date">
+            <%= offer.created_at.to_date.strftime("%d-%m-%Y") %>
+          </div>
+        </div>
+        <div class="buttons">
+          <%= link_to "Deaktivieren", toggle_status_offer_path(offer), class: "btn btn-info" %>
+          <%= link_to "Löschen", offer_path(offer),class: "btn btn-info", data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+            } %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>

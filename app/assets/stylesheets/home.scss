@@ -1,5 +1,5 @@
-@import "colors";
 
+@import "colors";
 .container-about {
   margin-top: 20vh;
 }
@@ -74,25 +74,59 @@ a.shiny_home:hover{
 }
 .swiper-slide{
   display: flex;
-  justify-content: center;margin: 20px;
+  justify-content: center;
   margin: 10px;
 }
 .home{
   width: 100%;
 
 }
-.last-slide{
+ .last > a > h1{
   background-color: $secondary_color;
   color: #ffffff;
-  margin: 20px;
-  height: 20rem;
-  width: 30rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
   text-align: center;
+  height: 350px;
+  padding-top: 25%;
 }
+.last > a {
+  text-decoration: none;
+}
+.last > a > h1:hover {
+  color: $headings_color;
+}
+
+.stopper {
+  overflow: hidden;
+}
+#sliders {
+  display: flex ;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 0;
+}
+.slide {
+  width: 450px;
+  max-height: 300px;
+  padding: 5px;
+  margin: 0;
+}
+.slide_inside{
+  display: flex;
+  margin: 0;
+}
+.container_slider {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  max-height: 400px;
+}
+
+
 @media screen and (min-width: 820px) {
+.slide {
+
+  max-height: 350px;
+
+}
 
 }

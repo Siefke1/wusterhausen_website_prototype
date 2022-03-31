@@ -23,3 +23,26 @@ import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
 
   // And if we need scrollbars
 });
+
+const swiperx = new Swiper('.swiperx', {
+    scrollbar: {
+    el: '.swiper-scrollbar',
+    draggable: true,
+  },
+    slidesPerView: 1,
+    spaceBetween: 5,
+  // Optional parameters
+  direction: 'horizontal',
+
+
+  // If we need pagination
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+
+  // And if we need scrollbars
+});
