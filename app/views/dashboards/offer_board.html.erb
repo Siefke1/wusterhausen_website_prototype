@@ -14,20 +14,31 @@
   <div class="admin-container">
       <% if current_user.role == "admin" %>
         <div class="search-container d-flex justify-content-center">
+<<<<<<< HEAD
         <%= form_tag offer_board_path, method: :get do %>
+=======
+
+        <%= form_tag admin_path, method: :get do %>
+>>>>>>> master
           <div class="d-flex">
             <%= text_field_tag :query,
             params[:query],
             class: "form-control",
             placeholder: "Stichwort oder PLZ"
             %>
-            <%= submit_tag "Search", class: "btn btn-dark", id: "search-button", data: {'turbo-frame' => '_top'} %>
+            <%= submit_tag "Search", class: "btn btn-dark", id: "search-button" %>
           <%# <button type="submit" form="search" value="Submit" class="shiny_black">Submit</button> %>
           </div>
         <% end %>
-      </div>
-        <%= render "activeOffers" %>
-        <%= render "inactiveOffers" %>
+
+
+
+
+           <%= render "activeOffers" %>
+
+
+          <%= render "inactiveOffers" %>
+
         <!-- Buttons
         <div class="new-category-link d-flex justify-flex-start">
           <%= link_to "Neues Angebot", new_offer_path, class: "shiny_green", data: {turbo: false} %>

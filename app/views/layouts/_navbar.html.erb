@@ -1,7 +1,7 @@
 <%# NAVBAR SCREEN %>
 
 <div class="navbar">
-  <a class="shiny shiny_red" href="/#">Home</a>
+  <a class="shiny shiny_red" href="/#" data-turbo="false">Home</a>
   <% if user_signed_in? %>
     <% if current_user.role == "institution" %>
       <a class="shiny shiny_blue " href="/profil">Verwalten</a>
