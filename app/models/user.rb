@@ -11,4 +11,12 @@ class User < ApplicationRecord
   # Associations
   has_many :offers, dependent: :destroy
   has_many :articles, dependent: :destroy
+
+  #PG Search
+  include PgSearch::Model
+  pg_search_scope :search_by_email,
+    against: [ :email ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
