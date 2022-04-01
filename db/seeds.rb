@@ -8,34 +8,36 @@
 
 require 'faker'
 # Delete
-#  Offer.delete_all
-#  Category.delete_all
-# Topic.delete_all
-# p "Everything is Deleted"
+CategoryOffer.delete_all
+Offer.delete_all
+Category.delete_all
+Topic.delete_all
+p "Everything is Deleted"
 
 # New Seeds
-User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
+User.create!(email: 'leon@leon.de', password: 'leon@leon.de')
 
 puts "creating topics..."
 Topic.create!(title: "Schule")
 Topic.create!(title: "Freizeit")
-Topic.create!(title: "Ausbildung")
-Topic.create!(title: "Jugendhilfe")
+Topic.create!(title: "Schule, was nun?")
+Topic.create!(title: "Hilfe und Unterstützung")
 puts "topics created! creating categories..."
 
-Category.create!(title: "Hausaufgaben", topic_id: 1)
+Category.create!(title: "Schulen", topic_id: 1)
 Category.create!(title: "Nachhilfe", topic_id: 1)
-Category.create!(title: "Lerngruppen", topic_id: 1)
-Category.create!(title: "Rate-a-teacher", topic_id: 1)
-Category.create!(title: "Sport", topic_id: 2)
-Category.create!(title: "Draußen", topic_id: 2)
-Category.create!(title: "Hobbygruppen", topic_id: 2)
-Category.create!(title: "Musik", topic_id: 2)
-Category.create!(title: "Praktika", topic_id: 3)
-Category.create!(title: "Studium", topic_id: 3)
-Category.create!(title: "Auslandssemester", topic_id: 3)
-Category.create!(title: "Offizielles", topic_id: 4)
-Category.create!(title: "Familienhilfe", topic_id: 4)
+Category.create!(title: "Schulsozialarbeiter", topic_id: 1)
+Category.create!(title: "Schulsprecher*in / Kreisschülerverwaltung", topic_id: 1)
+Category.create!(title: "Vereine", topic_id: 2)
+Category.create!(title: "Engagement", topic_id: 2)
+Category.create!(title: "Freizeiteinrichtungen", topic_id: 2)
+Category.create!(title: "Anderes", topic_id: 2)
+Category.create!(title: "Ausbildung", topic_id: 3)
+Category.create!(title: "Praktikum", topic_id: 3)
+Category.create!(title: "Berufsberatung", topic_id: 3)
+Category.create!(title: "Anderes", topic_id: 3)
+Category.create!(title: "Kinderhilfsorganisationen / Kindernotdienste", topic_id: 4)
+Category.create!(title: "Anlaufstellen", topic_id: 4)
 puts "categories created! creating offers..."
 
 # INITIALIZE POSTCODES FOR OFFERS
@@ -67,6 +69,7 @@ postcodes = [
     phone: Faker::PhoneNumber.cell_phone,
     status: 1,
     user_id: 1,
+    category_ids: rand(1..14),
 )
 end
 
@@ -74,7 +77,7 @@ end
 puts "offers created! creating join tables..."
 40.times do |i|
   CategoryOffer.create!(
-    category_id: rand(1..13),
+    category_id: rand(1..14),
     offer_id: rand(1..40)
   )
 end
