@@ -14,12 +14,7 @@
   <div class="admin-container">
       <% if current_user.role == "admin" %>
         <div class="search-container d-flex justify-content-center">
-<<<<<<< HEAD
         <%= form_tag offer_board_path, method: :get do %>
-=======
-
-        <%= form_tag admin_path, method: :get do %>
->>>>>>> master
           <div class="d-flex">
             <%= text_field_tag :query,
             params[:query],
