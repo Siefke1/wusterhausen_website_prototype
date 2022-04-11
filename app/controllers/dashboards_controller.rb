@@ -23,11 +23,21 @@ class DashboardsController < ApplicationController
   end
 
   def blog_board
-    @articles = Article.all.order("created_at DESC")
+    if params[:query].present?
+      # Search by title
+      @articles = Article.search_by_title("%#{params[:query]}%")
+    else
+      @articles = Article.all.order("created_at DESC")
+    end
   end
 
   def user_board
-    @users = User.all
+    if params[:query].present?
+      # Search by title
+      @users = User.search_by_email("%#{params[:query]}%")
+    else
+      @users = User.all
+    end
   end
 
   def destroy
