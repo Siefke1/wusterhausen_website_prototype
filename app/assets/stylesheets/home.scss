@@ -103,6 +103,7 @@ a.shiny_home:hover{
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 0;
+
 }
 .slide {
   width: 450px;
@@ -113,6 +114,16 @@ a.shiny_home:hover{
 .slide_inside{
   display: flex;
   margin: 0;
+}
+.swiper{
+   h1 {
+    color: $headings_color;
+    text-shadow: 2px 2px 3px black;
+  }
+}
+h1 {
+  color: $headings_color;
+  text-shadow: 2px 2px 3px black;
 }
 .container_slider {
   display: flex;
