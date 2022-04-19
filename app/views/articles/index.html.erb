@@ -1,5 +1,7 @@
 <div class="site">
-  <h1>NEWS</h1>
+  <div class="topics-info-text ">
+    <h3 class="sprechblase_unten">Hier gibt es die aktuellsten Nachrichten <br> über die Angebote aus deiner Umbegbung </h3>
+  </div>
   <div class="posts">
     <% @articles.each do |article| %>
       <%= link_to article_path(article), class: "text" do%>

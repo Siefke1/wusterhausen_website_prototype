@@ -9,8 +9,8 @@ class EmailJob < ApplicationJob
     user = User.find(user_id)
     offer = Offer.find(offer_id)
     puts "I'm starting the fake job #{user.email}"
-    UserMailer.with(user: user, offer: offer).welcome.deliver_now
-    sleep 3
+    AdminMailer.with(user: user, offer: offer).welcome.deliver_now
+    sleep 10
     puts "OK I'm done now"
   end
 end

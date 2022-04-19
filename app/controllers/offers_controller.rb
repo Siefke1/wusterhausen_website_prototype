@@ -72,6 +72,8 @@ class OffersController < ApplicationController
       @offer.inactive!
     else
       @offer.active!
+      DeactivateJob.perform_now(@offer)
+
     end
     redirect_to offer_board_url, notice: 'Post status has been updated.'
   end

@@ -1,5 +1,7 @@
 <div class="adminOffer">
-  <h1>Inaktive Angebote</h1>
+  <div class="admin-search-bar">
+    <h1>Aktive Posts</h1>
+  </div>
   <div class="cardList">
       <div class="cardOffer header one">
         <div class="cardText">
@@ -13,34 +15,34 @@
             Datum
           </h4>
         </div>
-        <div class="buttons header">
+        <div class="buttons header" style="gap:1rem">
           <h4>
-            Aktivieren
+            Deaktivieren
           </h4>
           <h4>
             Löschen
           </h4>
         </div>
       </div>
-      <% @offers.where(status: "inactive").each do |offer| %>
+      <% @articles.where(status: "active").each do |article| %>
       <div class="cardOffer">
         <div class="cardText">
           <strong  class="cardTitle">
-            <%= link_to offer.title, offer_path(offer), class: "cardTitle", data: { turbo: false } %>
+            <%= link_to article.title, article_path(article), class: "cardTitle", data: { turbo: false }  %>
           </strong>
-          <div class="">
-            <%= offer.user.email %>
+          <div class="email">
+            <%= article.user.email %>
           </div>
-          <div class="">
-          <%= offer.created_at.to_date.strftime("%d-%m-%Y") %>
+          <div class="date">
+            <%= article.created_at.to_date.strftime("%d-%m-%Y") %>
           </div>
         </div>
         <div class="buttons">
-          <%= link_to "Aktivieren", toggle_status_offer_path(offer), class: "btn btn-info", data: { turbo: true } %>
-          <%= link_to "Löschen", offer_path(offer),class: "btn btn-info", data: {
+          <%= link_to "Deaktivieren", toggle_status_article_path(article), class: "btn btn-info" %>
+          <%= link_to "Löschen", article_path(article),class: "btn btn-info", data: {
             turbo_method: :delete,
-                          turbo_confirm: "Are you sure?"
-                        } %>
+            turbo_confirm: "Are you sure?"
+            } %>
         </div>
       </div>
     <% end %>

@@ -8,68 +8,7 @@
     <div class="new_u"></div>
   </div>
   <div class="container">
-    <div class="admin-container">
-      <div class="adminOffer">
-        <h1>News Posts</h1>
-        <div class="cardListArticles">
-            <div class="cardOffer header one">
-              <div class="cardText">
-                <h4  class="cardTitle header">
-                  Titel
-                </h4>
-                <h4 class="header">
-                  Author
-                </h4>
-                <h4 class="header">
-                  Datum
-                </h4>
-              </div>
-              <% if current_user %>
-                <% if current_user.role == "institution" || current_user.role == "admin" %>
-                <div class="buttons header">
-                  <h4>
-                    Löschen
-                  </h4>
-                </div>
-                <% end %>
-              <% end %>
-            </div>
-            <% @articles.each do |article| %>
-            <div class="cardOffer">
-              <div class="cardText">
-                <strong  class="cardTitle">
-                  <%= link_to article.title, article_path(article), class: "cardTitle" ,data: { turbo: false }  %>
-                </strong>
-                <div class="">
-                  <%= article.user.email %>
-                </div>
-                <div class="">
-                <%= article.created_at.to_date.strftime("%d-%m-%Y") %>
-                </div>
-              </div>
-              <% if current_user %>
-                <% if current_user.role == "institution" || current_user.role == "admin" %>
-                  <div class="buttons">
-                    <%= link_to "Löschen", article_path(article),class: "btn btn-info", data: {
-                      turbo_method: :delete,
-                                    turbo_confirm: "Are you sure?"
-                                  } %>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <!-- Button
-      <% if current_user %>
-        <% if current_user.role == "institution" || current_user.role == "admin" %>
-          <div class="new-article-link d-flex justify-flex-start">
-            <%= link_to "Neuer Post", new_article_path, class: "shiny_green", data: {turbo: false}%>
-          </div>
-        <% end %>
-      <% end %>
-      -->
-    </div>
+    <%= render "activeArticles" %>
+    <%= render "inactiveArticles" %>
   </div>
 <% end %>

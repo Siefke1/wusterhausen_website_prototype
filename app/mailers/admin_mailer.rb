@@ -10,4 +10,9 @@ class AdminMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'Welcome to Le Wagon')
   end
+  def inactive
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Welcome to Le Wagon')
+  end
+
 end
