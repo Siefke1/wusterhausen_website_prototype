@@ -18,13 +18,8 @@ class UserMailer < ApplicationMailer
     #mail to: "dthgespenst@gmx.de"
   end
   def article(user)
-
     @greeting = "Hallo"
     @user = user # Instance variable => available in view
     mail(to: @user.email, subject: 'Danke für deinen Post.')
-
-    #@user = params[:user]
-    #@offer = params[:offer]
-    #mail to: "dthgespenst@gmx.de"
   end
 end
