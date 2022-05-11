@@ -14,7 +14,7 @@ require 'faker'
 # p "Everything is Deleted"
 
 # New Seeds
-User.create!(email: 'peter@pan.de', password: 'peter@pan.de')
+User.create!(email: 'user@user.de', password: 'user@user.de', name:'user')
 
 puts "creating topics..."
 Topic.create!(title: "Schule")
@@ -85,7 +85,8 @@ end
   Article.create!(
     title: Faker::Company.name,
     content: Faker::Lorem.sentence(word_count: 20),
-    user_id: 1,
+    status: 1,
+    user_id: 1
   )
 end
 
