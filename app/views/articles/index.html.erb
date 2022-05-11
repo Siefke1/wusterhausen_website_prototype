@@ -2,30 +2,24 @@
   <div class="topics-info-text ">
     <h3 class="sprechblase_unten">Hier gibt es die aktuellsten Nachrichten <br> über die Angebote aus deiner Umbegbung </h3>
   </div>
-  <div class="posts">
+  <div class="article">
     <% @articles.each do |article| %>
       <%= link_to article_path(article), class: "text" do%>
-        <div class="post_card">
+        <div class="article_card <%= article.id % 2 == 0 ? '' : 'article_card_left' %>">
           <% if article.photo.attached? %>
-            <div class="post_photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path article.photo.key %>')">
+            <div class="article_photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path article.photo.key %>')">
             </div>
             <% else %>
-            <div class="post_photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')"></div>
+            <div class="article_photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1645976417695-e76bf772b1bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')"></div>
           <% end %>
-          <div class="post_card_text">
+          <div class="article_card_text">
             <h3><%= article.title %></h3>
-            <p>von <%= User.find(article.user_id).email %> | <%= article.created_at.to_date.strftime("%d-%m-%Y")%> </p>
-            <h6><%= article.content.truncate(50)%></h6>
+            <p>von <%= User.find(article.user_id).name %> | <%= article.created_at.to_date.strftime("%d-%m-%Y")%> </p>
+            <p><%= article.content.truncate(50)%></p>
           </div>
         </div>
       <% end %>
     <% end %>
-  </div>
-
-
-  <%# ----> BACK BUTTON <---- %>
-  <div class="d-flex justify-content-center">
-    <%= link_to 'Back', 'javascript:history.back()', class: "shiny_blue", style: "margin-top: 50px;" %>
   </div>
 
 </div>

@@ -116,25 +116,29 @@ a.text:hover > .post_card {
   font-weight: 400;
   font-size: 3rem;
 }
-.posts {
-  max-width: 90%;
+.article {
+  width: 75%;
   margin: 0 auto;
-  height: 100%;
-
 }
-.post_card {
+.article_card {
   max-width: 500px;
   width: 100%;
   margin: 2px auto;
-  border-radius: 5px;
   display: flex;
-  flex-direction: row;
+  align-items: center;
   font-size: small;
-  background-color: $secondary_color;
-  color: white;
+  color: rgb(0, 0, 0);
+  background-color: #e1eb28;
+  border-radius: 5px;
 }
 
-.post_photo {
+.article_card_left {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+
+.article_photo {
   width: 7rem;
   height: 7rem;
   background-size: cover;
@@ -142,15 +146,18 @@ a.text:hover > .post_card {
   border-radius: 5px;
   align-self: center;
 }
-.post_card_text{
+.article_card_text{
+  border-bottom: 2px solid black;
+  padding-bottom: 10px ;
   margin: 10px;
+  margin-bottom: 0px;
   width: 70%;
 }
-.post_card_text > h3{
+.artiicle_card_text > h3{
   margin: 0;
 }
 
-.post_card_text > p {
+.article_card_text > p {
   color: gray;
   margin: 2px;
 }
