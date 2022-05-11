@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.where(status: 'active').all.order("created_at DESC")
+    @articles = Article.where(status: 1).all.order("created_at DESC")
   end
 
   def new
