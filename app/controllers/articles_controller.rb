@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
-
+  after_action :send_article_email, only: [:create]
 
 
   def show
@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.order("created_at DESC")
+    @articles = Article.where(status: 'active').all.order("created_at DESC")
   end
 
   def new
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     if @article.delete
-      redirect_to blog_board_path
+      redirect_to blog_board_path, status: :see_other
     end
   end
 
@@ -62,5 +62,8 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :content, :user_id, :photo)
+  end
+  def send_article_email
+    AdminMailer.with(user: @user).article.deliver_now
   end
 end
