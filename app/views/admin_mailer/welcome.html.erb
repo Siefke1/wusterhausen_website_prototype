@@ -1,5 +1,13 @@
-<h1>Admin#welcome</h1>
+<h1>Willkommen auf der JugendApp – Wusterhausen.de</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/admin_mailer/welcome.html.erb
+  Hallo <%= @user.name%>,
+  <br>
+  hier sind deine Zugangsdaten:
+  <br>
+  Email: <%= @user.email %>
+  <br>
+  Passwort: <%= @user.password %>
+  <br>
+
 </p>

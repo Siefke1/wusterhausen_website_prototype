@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
+
 
 
   def show
@@ -39,8 +40,18 @@ class ArticlesController < ApplicationController
 
   def destroy
     if @article.delete
-      redirect_to articles_path
+      redirect_to blog_board_path
     end
+  end
+
+  def toggle_status
+
+    if @article.active?
+      @article.inactive!
+    else
+      @article.active!
+    end
+    redirect_to blog_board_url, notice: 'Post status has been updated.'
   end
 
   private

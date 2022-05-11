@@ -46,8 +46,13 @@ Rails.application.routes.draw do
 
   # Article routes
 
-  resources :articles, except: :destroy
+  resources :articles, except: :destroy do
+    member do
+      get :toggle_status
+    end
+  end
   delete '/articles/:id', to: 'articles#destroy', as: :delete_article
+
 
   #sidekiq
 

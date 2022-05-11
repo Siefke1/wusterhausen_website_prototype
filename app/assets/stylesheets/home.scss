@@ -68,25 +68,26 @@ a.shiny_home:hover{
 }
 .swiper{
   margin: 20px;
-  max-width: 1200px;
-  width: 100%;
-  max-height: 400px;
+  max-width: 900px;
+  max-height: 350px;
+  padding:10px;
+  h1 {
+    color: $headings_color;
+    text-shadow: 2px 2px 3px black;
+  }
 }
 .swiper-slide{
   display: flex;
   justify-content: center;
-  margin: 10px;
+  border: 3px solid #ffffff;
+  border-radius: 3px;
+  box-shadow: #000000;
 }
-.home{
-  width: 100%;
 
-}
  .last > a > h1{
   background-color: $secondary_color;
   color: #ffffff;
   text-align: center;
-  height: 350px;
-  padding-top: 25%;
 }
 .last > a {
   text-decoration: none;
@@ -95,32 +96,16 @@ a.shiny_home:hover{
   color: $headings_color;
 }
 
-.stopper {
-  overflow: hidden;
-}
 #sliders {
   display: flex ;
   overflow-x: scroll;
-  overflow-y: hidden;
-  margin: 0;
-
 }
 .slide {
-  width: 450px;
-  max-height: 300px;
-  padding: 5px;
-  margin: 0;
-}
-.slide_inside{
+  border: 2px solid red;
   display: flex;
-  margin: 0;
+  max-width: 200px;
 }
-.swiper{
-   h1 {
-    color: $headings_color;
-    text-shadow: 2px 2px 3px black;
-  }
-}
+
 h1 {
   color: $headings_color;
   text-shadow: 2px 2px 3px black;
@@ -128,16 +113,24 @@ h1 {
 .container_slider {
   display: flex;
   align-items: center;
-  margin: 10px;
-  max-height: 400px;
 }
-
-
-@media screen and (min-width: 820px) {
-.slide {
-
-  max-height: 350px;
-
+.last-slide{
+  background-color: $secondary_color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  width:100%;
+  border-radius: 3px;
+  border: 1px solid black;
+  box-shadow: 2px #000000;
 }
-
+.last-slide > h1:hover{
+ color: #ffffff;
+}
+#swiper {
+  max-width: 900px;
+  display: flex;
+  margin: 0 auto;
 }
