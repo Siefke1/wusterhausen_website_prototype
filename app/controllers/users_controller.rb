@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       redirect_to user_board_path
     else
       render "new"
-      raise
     end
     authorize @user
   end
