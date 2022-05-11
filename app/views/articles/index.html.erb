@@ -14,7 +14,7 @@
           <% end %>
           <div class="article_card_text">
             <h3><%= article.title %></h3>
-            <p>von <%= User.find(article.user_id).name %> | <%= article.created_at.to_date.strftime("%d-%m-%Y")%> </p>
+            <p>von <%= User.find(article.user_id).email %> | <%= article.created_at.to_date.strftime("%d-%m-%Y")%> </p>
             <p><%= article.content.truncate(50)%></p>
           </div>
         </div>
