@@ -29,7 +29,7 @@ class OffersController < ApplicationController
 
     if @offer.save
       # UserMailer.with(user: @user).welcome.deliver_now
-      EmailJob.set(wait: 10.seconds).perform_later(@user.id, @offer.id)
+      EmailJob.set(wait: 1.minute).perform_later(@user.id, @offer.id)
       redirect_to offer_board_path
 
     else
