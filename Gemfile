@@ -100,3 +100,7 @@ gem 'cloudinary', '~> 1.16.0'
 #SIDEKIQ
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+
+#redis
+gem 'redis-namespace'
+gem 'redis-rails'
